@@ -1,0 +1,7 @@
+FROM node:10-alpine as frontend
+RUN mkdir /code
+WORKDIR /code
+COPY src/front/client/package*.json /code/
+RUN npm install
+COPY src/front/client/ /code
+RUN npm run build
