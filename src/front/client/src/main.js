@@ -35,6 +35,12 @@ Vue.use(require('vue-moment'));
 Vue.prototype.$http_token = HTTP_TOKEN;
 Vue.prototype.$http = HTTP;
 
+const Navbar = () => import(/* webpackChunkName: "navbar" */'./components/Navbar.vue');
+Vue.component('navbar', Navbar);
+
+const Footer = () => import(/* webpackChunkName: "cmp-footer" */'./components/Footer.vue');
+Vue.component('cmp-footer', Footer);
+
 new Vue({
   router,
   render: (h) => h(App),
