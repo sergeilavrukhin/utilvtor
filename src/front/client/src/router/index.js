@@ -15,6 +15,7 @@ export default new VueRouter({
   routes: [
     { path: '/', component: Front },
     { path: '/code/', component: Code },
+    { path: '/code/:id/', component: Code },
     { path: '/utilisation/', component: Utilisation },
     { path: '/create/', component: Create },
     { path: '/login/', component: Login },

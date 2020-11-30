@@ -4,7 +4,7 @@ const token = localStorage.getItem('token');
 const bearer = `Bearer ${token}`;
 
 const HTTP_TOKEN = axios.create({
-  baseURL: '/api/client/',
+  baseURL: 'http://api.wastecation.ru/client/',
   headers: {
     Authorization: bearer,
   },
