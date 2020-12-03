@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["Request"],{"0728":function(t,e,n){"use strict";n.r(e);var a=function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",{staticClass:"container"},[n("navbar"),t._v(" Заявка "),n("cmp-footer")],1)},r=[],s={name:"Request",metaInfo:{title:"Заявка"},data:function(){return{}}},u=s,c=n("2877"),o=Object(c["a"])(u,a,r,!1,null,null,null);e["default"]=o.exports}}]);
+//# sourceMappingURL=Request.8fd6db3f.js.map

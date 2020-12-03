@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const HTTP = axios.create({
-  baseURL: 'http://api.wastecation.ru/client/',
+  baseURL: 'https://www.wastecation.ru/api/client/',
 });
 
 export default HTTP;

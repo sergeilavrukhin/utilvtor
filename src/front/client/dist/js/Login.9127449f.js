@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["Login"],{a55b:function(n,t,e){"use strict";e.r(t);var a=function(){var n=this,t=n.$createElement,e=n._self._c||t;return e("div",{staticClass:"container"},[e("navbar"),n._v(" Вход "),e("cmp-footer")],1)},o=[],i={name:"Login",metaInfo:{title:"Вход"},data:function(){return{}}},r=i,c=e("2877"),l=Object(c["a"])(r,a,o,!1,null,null,null);t["default"]=l.exports}}]);
+//# sourceMappingURL=Login.9127449f.js.map
