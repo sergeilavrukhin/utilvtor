@@ -1,3 +1,15 @@
 version: '3.4'
 
 services:
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: uv_backend
+    environment:
+      - TZ=Asia/Yekaterinburg
+    restart: always
+    command: [ "gunicorn", "-w", "2", "-b", "0.0.0.0:5000", "app:backend_app" ]
+    volumes:
+      - ./src/flask:/code
+    network_mode: host

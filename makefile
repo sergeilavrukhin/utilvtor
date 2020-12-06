@@ -1,3 +1,6 @@
+build:
+	@docker-compose up --build
+
 start:
 	@docker-compose start
 
@@ -6,6 +9,9 @@ devstart:
 
 stop:
 	@docker-compose stop
+
+down:
+	@docker-compose down
 
 devstop:
 	@docker-compose -f docker-compose.dev.yml stop
@@ -20,7 +26,7 @@ devdown:
 	@docker-compose -f docker-compose.dev.yml down
 
 open:
-	@docker exec -it mshc_$(app) /bin/sh
+	@docker exec -it uv_$(app) /bin/sh
 
 gen_api_client:
 	@raml2html -o "./src/front/client/public/api.html" "./src/front/client/raml/api.raml"
