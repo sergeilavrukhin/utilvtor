@@ -1,15 +1,26 @@
 <template>
   <div class="container">
     <navbar></navbar>
+    <div class="row mx-0" style="height: 270px;background: url(/img/search.png);">
+      <b-card title="Найти образователей или утилизаторов" class="mt-auto mb-4 mx-auto">
+        <b-card-text>
+          <div class="row">
+            <div class="col-md-8">
+              <b-form-input placeholder="Код или название отхода"></b-form-input>
+            </div>
+            <div class="col-md-4">
+              <a href="#" class="btn btn-block btn-outline-success">Найти</a>
+            </div>
+          </div>
+        </b-card-text>
+      </b-card>
+    </div>
     <div class="row">
       <div class="col-md-12 p-4">
         <h1>Агрегатор отходов</h1>
         <p>Цель нашего агрегатора отходов собрать абсолютно все фирмы,
      которые образуют, утилизирую, перевозят отходы и покупают, продают вторсырье</p>
         <hr class="my-4">
-        <p><router-link to="/request/">
-          <b-img fluid-grow rounded  src="/img/signup.png" />
-        </router-link></p>
         <b-button class="mr-2" variant="outline-success" to="/create/">Зарегистрироваться</b-button>
         <b-button variant="success" to="/request/">Разместить заявку</b-button>
         <hr class="my-4">

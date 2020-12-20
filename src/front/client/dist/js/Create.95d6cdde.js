@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["Create"],{d879:function(t,e,n){"use strict";n.r(e);var a=function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",{staticClass:"container"},[n("navbar"),t._v(" Регистрация "),n("cmp-footer")],1)},r=[],c={name:"Create",metaInfo:{title:"Регистрация"},data:function(){return{}}},o=c,i=n("2877"),l=Object(i["a"])(o,a,r,!1,null,null,null);e["default"]=l.exports}}]);
-//# sourceMappingURL=Create.95d6cdde.js.map

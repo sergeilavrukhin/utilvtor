@@ -1,6 +1,6 @@
 <template>
-  <b-navbar toggleable="sm" type="dark" variant="success">
-    <b-navbar-brand to="/"><center>WASTE<br />CATION</center></b-navbar-brand>
+  <b-navbar toggleable="sm" class="py-1 px-0 mx-0">
+    <b-navbar-brand to="/"><center class="text-success">WEBOTHOD</center></b-navbar-brand>
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
