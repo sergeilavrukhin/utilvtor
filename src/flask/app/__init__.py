@@ -12,8 +12,10 @@ def create_backend_app():
 
 
   from .client.blueprints.Queries import app as Queries
+  from .client.blueprints.Fkko import app as Fkko
   root_client_api = "/api/client/"
   app.register_blueprint(Queries, url_prefix=root_client_api + "queries")
+  app.register_blueprint(Fkko, url_prefix=root_client_api + "code")
 
 
   return app

@@ -21,8 +21,8 @@
            в себе содержит:</h2>
           <h4 v-if="w_class">{{w_class}} класс опасности отхода</h4>
           <i v-if="w_class_desc">{{w_class_desc}}</i>
-          <h4 v-if="w_state">Агрегатное состояние и физические формы отхода</h4>
-          <i v-if="w_state">{{w_state}}</i>
+          <h4 v-if="aggrname">Агрегатное состояние и физические формы отхода</h4>
+          <i v-if="aggrname">{{aggrname}}</i>
           <ul v-for="(item, index) in codes" :key="index">
             <li><a class="text-success" :href="`/code/${item.id}/`">
             {{item.id}}</a> - {{item.name}}</li>
@@ -58,16 +58,16 @@ export default {
   methods: {
     async loadCodes() {
       if (this.$route.params.id != null) {
-        await this.$http.get(`code/${this.$route.params.id}/`).then((response) => {
+        await this.$http.get(`code/${this.$route.params.id}`).then((response) => {
           this.codes = response.data.codes;
           this.code = this.$route.params.id;
           this.title = response.data.title;
           this.subtitle = response.data.subtitle;
           this.breadcrumb = response.data.parents;
           this.title = response.data.title;
-          this.w_class = response.data.w_class;
-          this.w_class_desc = response.data.w_class_desc;
-          this.w_state = response.data.w_state;
+          this.w_class = response.data.fkkoclass.id;
+          this.w_class_desc = response.data.fkkoclass.name;
+          this.aggrname = response.data.aggrname;
         }).catch((error) => {
           console.log(error);
         });

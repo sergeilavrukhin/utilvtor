@@ -67,12 +67,22 @@ class Aggregation(db.Model):
   id = Column(Integer, primary_key=True)
   name = Column(String(255), nullable=False)
 
+
+class FkkoClass(db.Model):
+  __tablename__ = "fkkoclass"
+  id = Column(Integer, primary_key=True)
+  name = Column(String(600), nullable=False)
+
+
 class Fkko(db.Model):
   __tablename__ = "fkko"
   id = Column(BigInteger, primary_key=True)
   parent_id = Column(BigInteger)
   name = Column(String(255), nullable=False)
-  fkkoclass = Column("class", Integer)
+
+  fkkoclass_id = Column("fkkoclass_id", Integer, db.ForeignKey('fkkoclass.id'))
+  fkkoclass = db.relationship("FkkoClass")
+
   aggr_id = Column("aggr_id", Integer, db.ForeignKey('aggregations.id'))
   aggr = db.relationship("Aggregation")
 
