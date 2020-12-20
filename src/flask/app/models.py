@@ -12,20 +12,24 @@ class User(db.Model):
   lastname = Column(String(255), nullable=False)
   firstname = Column(String(255), nullable=False)
   middlename = Column(String(255), nullable=False)
+  position = Column(String(255))
 
   email = Column(String(255), nullable=False)
   password = Column(String(255), nullable=False)
 
-  def __init__(self, lastname, firstname, middlename, phone, email, password, salt):
+  def __init__(self, lastname, firstname, middlename, position, phone, email, password, salt):
     self.setLastname(lastname)
     self.setFirstname(firstname)
     self.setMiddlename(middlename)
+    self.setPosition(position)
     self.setPhone(phone)
     self.setEmail(email)
     self.setPassword(password, salt)
 
-  def getId(self):
-    return self.id
+
+  def setPosition(self, position):
+    position = position.strip() if position else None
+    self.position = position
 
   def setEmail(self, email):
     email = email.strip() if email else ""
@@ -75,9 +79,13 @@ class Fkko(db.Model):
 class Queries(db.Model):
   __tablename__ = "queries"
   id = Column(Integer, primary_key=True)
-  fkko = Column(String(11))
+
+  fkko_id = Column("fkko_id", BigInteger, db.ForeignKey('fkko.id'))
+  fkko = db.relationship("Fkko")
+
   waste = Column(String(255))
-  address = Column(String(255))
+  region = Column(String(255))
+  locality = Column(String(255))
   count = Column(Float)
   date_expiry = Column(DateTime, default=datetime.datetime.utcnow)
 
