@@ -7,7 +7,6 @@
         <b-nav-item href="/queries/">Заявки</b-nav-item>
         <b-nav-item href="/code/">Классификатор отходов</b-nav-item>
         <b-nav-item href="/utilisation/">Утилизация и вторсырье</b-nav-item>
-        <!--<b-nav-item href="/create/">Зарегистрироваться</b-nav-item>-->
         <b-nav-item href="/request/">Разместить заявку</b-nav-item>
       </b-navbar-nav>
 

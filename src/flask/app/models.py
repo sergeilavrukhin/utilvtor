@@ -78,7 +78,7 @@ class Fkko(db.Model):
   __tablename__ = "fkko"
   id = Column(BigInteger, primary_key=True)
   parent_id = Column(BigInteger)
-  name = Column(String(255), nullable=False)
+  name = Column(String(600), nullable=False)
 
   fkkoclass_id = Column("fkkoclass_id", Integer, db.ForeignKey('fkkoclass.id'))
   fkkoclass = db.relationship("FkkoClass")

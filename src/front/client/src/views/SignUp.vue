@@ -3,18 +3,46 @@
     <navbar></navbar>
     <div class="row">
       <div class="col-md-12 p-5">
-        <b-form @submit="onSubmit" @reset="onReset">
+        <b-form @submit="onSubmit">
           <b-form-group
             id="input-group-1"
-            label="Контактное лицо:"
-            label-for="contact"
+            label="Фамилия:"
+            label-for="lastname"
           >
             <b-form-input
-              id="contact"
-              v-model="form.contact"
+              id="lastname"
+              v-model="form.lastname"
               type="text"
               required
-              placeholder="ФИО"
+              placeholder="Фамилия"
+            ></b-form-input>
+          </b-form-group>
+
+          <b-form-group
+            id="input-group-1"
+            label="Имя:"
+            label-for="firstname"
+          >
+            <b-form-input
+              id="firstname"
+              v-model="form.firstname"
+              type="text"
+              required
+              placeholder="Имя"
+            ></b-form-input>
+          </b-form-group>
+
+          <b-form-group
+            id="input-group-1"
+            label="Отчество:"
+            label-for="middlename"
+          >
+            <b-form-input
+              id="middlename"
+              v-model="form.middlename"
+              type="text"
+              required
+              placeholder="Отчество"
             ></b-form-input>
           </b-form-group>
 
@@ -48,19 +76,19 @@
 
           <b-form-group
             id="input-group-1"
-            label="ИНН:"
-            label-for="itn"
+            label="Пароль:"
+            label-for="password"
           >
             <b-form-input
-              id="itn"
-              v-model="form.itn"
-              type="text"
-              placeholder="ИНН"
+              id="password"
+              v-model="form.password"
+              type="password"
+              required
+              placeholder="Пароль"
             ></b-form-input>
           </b-form-group>
 
           <b-button type="submit" variant="success mr-2">Зарегистрироваться</b-button>
-          <b-button type="reset" variant="outline-danger">Сбросить значения</b-button>
         </b-form>
       </div>
     </div>
@@ -70,43 +98,38 @@
 
 <script>
 export default {
-  name: 'Create',
+  name: 'SignUp',
   metaInfo: {
     title: 'Регистрация',
   },
   data() {
     return {
       form: {
-        contact: '',
+        firstname: '',
+        middlename: '',
+        lastname: '',
         phone: '',
         email: null,
-        itn: null,
+        password: null,
       },
-      show: true,
     };
   },
   methods: {
     async onSubmit(evt) {
       evt.preventDefault();
 
-      await this.$http.post('create/', {
-        contact: this.form.contact,
+      await this.$http.post('signup/', {
+        firstname: this.form.firstname,
+        middlename: this.form.middlename,
+        lastname: this.form.lastname,
         phone: this.form.phone,
         email: this.form.email,
-        itn: this.form.itn,
+        password: this.form.password,
       }).then((response) => {
         alert(response.data);
       }).catch((error) => {
         alert(error);
       });
-    },
-    onReset(evt) {
-      evt.preventDefault();
-      // Reset our form values
-      this.form.contact = '';
-      this.form.phone = '';
-      this.form.email = null;
-      this.form.itn = null;
     },
   },
 };

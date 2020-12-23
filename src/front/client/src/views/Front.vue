@@ -21,7 +21,7 @@
         <p>Цель нашего агрегатора отходов собрать абсолютно все фирмы,
      которые образуют, утилизирую, перевозят отходы и покупают, продают вторсырье</p>
         <hr class="my-4">
-        <b-button class="mr-2" variant="outline-success" to="/create/">Зарегистрироваться</b-button>
+        <b-button class="mr-2" variant="outline-success" to="/signup/">Зарегистрироваться</b-button>
         <b-button variant="success" to="/request/">Разместить заявку</b-button>
         <hr class="my-4">
         <h2>Для кого создан агрегатор отходов?</h2>
