@@ -11,6 +11,7 @@ const SignUp = () => import(/* webpackChunkName: "SignUp" */'../views/SignUp.vue
 const Login = () => import(/* webpackChunkName: "Login" */'../views/Login.vue');
 const Request = () => import(/* webpackChunkName: "Request" */'../views/Request.vue');
 const Queries = () => import(/* webpackChunkName: "Queries" */'../views/Queries.vue');
+const Query = () => import(/* webpackChunkName: "Query" */'../views/Query.vue');
 const Partner = () => import(/* webpackChunkName: "Partner" */'../views/Partner.vue');
 Vue.use(VueRouter);
 
@@ -30,5 +31,6 @@ export default new VueRouter({
     { path: '/cabinet/', component: Cabinet },
     { path: '/request/', component: Request },
     { path: '/queries/', component: Queries },
+    { path: '/queries/:id/', component: Query },
   ],
 });

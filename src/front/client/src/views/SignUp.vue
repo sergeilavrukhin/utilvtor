@@ -6,7 +6,7 @@
         <b-form @submit="onSubmit">
           <b-form-group
             id="input-group-1"
-            label="Фамилия:"
+            label="*Фамилия:"
             label-for="lastname"
           >
             <b-form-input
@@ -20,7 +20,7 @@
 
           <b-form-group
             id="input-group-1"
-            label="Имя:"
+            label="*Имя:"
             label-for="firstname"
           >
             <b-form-input
@@ -34,7 +34,7 @@
 
           <b-form-group
             id="input-group-1"
-            label="Отчество:"
+            label="*Отчество:"
             label-for="middlename"
           >
             <b-form-input
@@ -48,7 +48,7 @@
 
           <b-form-group
             id="input-group-1"
-            label="Сотовый телефон:"
+            label="*Сотовый телефон:"
             label-for="phone"
           >
             <b-form-input
@@ -62,7 +62,7 @@
 
           <b-form-group
             id="input-group-1"
-            label="Электронная почта:"
+            label="*Электронная почта:"
             label-for="email"
           >
             <b-form-input
@@ -76,15 +76,14 @@
 
           <b-form-group
             id="input-group-1"
-            label="Пароль:"
-            label-for="password"
+            label="ИНН:"
+            label-for="itn"
           >
             <b-form-input
-              id="password"
-              v-model="form.password"
-              type="password"
-              required
-              placeholder="Пароль"
+              id="itn"
+              v-model="form.itn"
+              type="text"
+              placeholder="ИНН"
             ></b-form-input>
           </b-form-group>
 
@@ -110,7 +109,7 @@ export default {
         lastname: '',
         phone: '',
         email: null,
-        password: null,
+        itn: '',
       },
     };
   },
@@ -124,7 +123,6 @@ export default {
         lastname: this.form.lastname,
         phone: this.form.phone,
         email: this.form.email,
-        password: this.form.password,
       }).then((response) => {
         alert(response.data);
       }).catch((error) => {

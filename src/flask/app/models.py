@@ -13,17 +13,19 @@ class User(db.Model):
   firstname = Column(String(255), nullable=False)
   middlename = Column(String(255), nullable=False)
   position = Column(String(255))
+  itn = Column(String(12))
 
   email = Column(String(255), nullable=False)
   password = Column(String(255), nullable=False)
 
-  def __init__(self, lastname, firstname, middlename, position, phone, email, password, salt):
+  def __init__(self, lastname, firstname, middlename, position, phone, email, itn, password, salt):
     self.setLastname(lastname)
     self.setFirstname(firstname)
     self.setMiddlename(middlename)
     self.setPosition(position)
     self.setPhone(phone)
     self.setEmail(email)
+    self.setITN(itn)
     self.setPassword(password, salt)
 
 
@@ -34,6 +36,10 @@ class User(db.Model):
   def setEmail(self, email):
     email = email.strip() if email else ""
     self.email = email
+
+  def setITN(self, itn):
+    itn = itn.strip() if itn else ""
+    self.itn = itn
 
   def setPhone(self, phone):
     phone = phone.strip() if phone else None
@@ -94,9 +100,9 @@ class Queries(db.Model):
   fkko = db.relationship("Fkko")
 
   waste = Column(String(255))
-  region = Column(String(255))
   locality = Column(String(255))
   count = Column(Float)
+  date_create = Column(DateTime, default=datetime.datetime.utcnow)
   date_expiry = Column(DateTime, default=datetime.datetime.utcnow)
 
   unit_id = Column("unit_id", Integer, db.ForeignKey('units.id'))
@@ -110,3 +116,52 @@ class Queries(db.Model):
 
   query_type_id = Column("query_type_id", Integer, db.ForeignKey('query_type.id'))
   query_type = db.relationship("QueryType")
+
+
+  def __init__(self, fkko, unit, aggr, user, query_type, waste, count, locality, date_expiry):
+    self.setFkko(fkko)
+    self.setUnit(unit)
+    self.setAggr(aggr)
+    self.setUser(user)
+    self.setQueryType(query_type)
+    self.setWaste(waste)
+    self.setCount(count)
+    self.setLocality(locality)
+    self.setDateExpiry(date_expiry)
+
+  def setFkko(self, fkko):
+      self.fkko = fkko
+
+  def setUnit(self, unit):
+      if not isinstance(unit, Unit):
+          raise DomainException("Передан не Ед. Изм")
+      self.unit = unit
+
+  def setAggr(self, aggr):
+    self.aggr = aggr
+
+  def setUser(self, user):
+    if not isinstance(user, User):
+      raise DomainException("Передан не пользователь")
+    self.user = user
+
+  def setQueryType(self, query_type):
+    if not isinstance(query_type, QueryType):
+      raise DomainException("Передан не тип запроса")
+    self.query_type = query_type
+
+  def setWaste(self, waste):
+    waste = waste.strip() if waste else None
+    self.waste = waste
+
+  def setCount(self, count):
+    count = count.strip() if count else None
+    self.count = count
+
+  def setLocality(self, locality):
+    locality = locality.strip() if locality else ""
+    self.locality = locality
+
+  def setDateExpiry(self, date_expiry):
+    if date_expiry != 0:
+      self.date_expiry = date_expiry

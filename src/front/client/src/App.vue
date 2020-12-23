@@ -6,7 +6,7 @@
 export default {
   name: 'App',
   metaInfo: {
-    title: 'Web Othod',
+    title: 'Веб-отход',
   },
 };
 </script>

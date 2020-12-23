@@ -95,7 +95,7 @@
 export default {
   name: 'Front',
   metaInfo: {
-    title: 'УтильВтор',
+    title: 'Веб-отход',
   },
   data() {
     return {

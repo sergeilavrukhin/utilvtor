@@ -3,11 +3,11 @@
     <navbar></navbar>
     <div class="row">
       <div class="col-md-12 pl-4 pr-4 pt-4">
-        <a v-if="code" class="text-success" href="/code/">Блоки кодов ФККО</a>
+        <a v-if="code" class="text-success" to="/code/">Блоки кодов ФККО</a>
         <span v-if="code"> &raquo; </span>
         <span v-for="(item, index) in breadcrumb" :key="index">
         <a class="text-success"
-        :href="`/code/${item.id}/`">{{item.name}}</a> &raquo;
+        :to="`/code/${item.id}/`">{{item.name}}</a> &raquo;
         </span> <h1>{{title}}</h1>
         <h5>{{subtitle}}</h5>
       </div>
@@ -24,8 +24,8 @@
           <h4 v-if="aggrname">Агрегатное состояние и физические формы отхода</h4>
           <i v-if="aggrname">{{aggrname}}</i>
           <ul v-for="(item, index) in codes" :key="index">
-            <li><a class="text-success" :href="`/code/${item.id}/`">
-            {{item.id}}</a> - {{item.name}}</li>
+            <li><router-link class="text-success" :to="`/code/${item.id}/`">
+            {{item.id}}</router-link> - {{item.name}}</li>
           </ul>
           </b-card-text>
         </b-card>
@@ -50,6 +50,7 @@ export default {
       title: 'Блоки кодов ФККО',
       subtitle: null,
       breadcrumb: null,
+      aggrname: null,
       w_class: null,
       w_class_desc: null,
       w_state: null,
@@ -90,6 +91,13 @@ export default {
   },
   async created() {
     this.loadCodes();
+  },
+  watch: {
+    $route(to, from) {
+      if (to.params.id !== from.params.id) {
+        this.loadCodes();
+      }
+    },
   },
 };
 </script>
