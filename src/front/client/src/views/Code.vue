@@ -3,11 +3,11 @@
     <navbar></navbar>
     <div class="row">
       <div class="col-md-12 pl-4 pr-4 pt-4">
-        <a v-if="code" class="text-success" to="/code/">Блоки кодов ФККО</a>
+        <router-link v-if="code" class="text-success" to="/code/">Блоки кодов ФККО</router-link>
         <span v-if="code"> &raquo; </span>
         <span v-for="(item, index) in breadcrumb" :key="index">
-        <a class="text-success"
-        :to="`/code/${item.id}/`">{{item.name}}</a> &raquo;
+        <router-link class="text-success"
+        :to="`/code/${item.id}/`">{{item.name}}</router-link> &raquo;
         </span> <h1>{{title}}</h1>
         <h5>{{subtitle}}</h5>
       </div>
