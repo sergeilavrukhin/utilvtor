@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /user/
+Disallow: /queries/add/
+
+Host: http://webothod.ru

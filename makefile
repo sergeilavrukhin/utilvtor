@@ -1,11 +1,11 @@
 build:
 	@docker-compose up --build -d
 
+up:
+	@docker-compose up -d
+
 start:
 	@docker-compose start
-
-devstart:
-	@docker-compose -f docker-compose.dev.yml start
 
 stop:
 	@docker-compose stop
@@ -13,17 +13,14 @@ stop:
 down:
 	@docker-compose down
 
-devstop:
-	@docker-compose -f docker-compose.dev.yml stop
+logs:
+	@docker-compose logs backend
 
-up:
-	@docker-compose up -d
+devbuild:
+	@docker-compose -f docker-compose.dev.yml up --build -d
 
-devup:
-	@docker-compose -f docker-compose.dev.yml up -d
-
-devdown:
-	@docker-compose -f docker-compose.dev.yml down
+dev:
+	@npm --prefix ./src/front/client run dev
 
 open:
 	@docker exec -it uv_$(app) /bin/sh
@@ -33,3 +30,9 @@ gen_api_client:
 
 front_client:
 	@npm --prefix ./src/front/client run build
+
+front_start:
+	@pm2 --hp ./src/front/client start npm -- start
+
+front_stop:
+	@pm2 stop 0
