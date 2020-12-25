@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueMeta from 'vue-meta';
 import YmapPlugin from 'vue-yandex-maps';
-// import VueYandexMetrika from 'vue-yandex-metrika';
-// import VueAnalytics from 'vue-analytics';
+import VueYandexMetrika from 'vue-yandex-metrika';
+import VueAnalytics from 'vue-analytics';
 import { BootstrapVue } from 'bootstrap-vue';
 import HTTP_TOKEN from './axios_token';
 import HTTP from './axios';
@@ -41,15 +41,15 @@ Vue.use(VueMeta);
 Vue.use(BootstrapVue);
 Vue.use(VueInputMask);
 Vue.use(YmapPlugin, YmapSettings);
-/* Vue.use(VueAnalytics, {
-  id: 'UA-173361984-1',
+Vue.use(VueAnalytics, {
+  id: 'G-V4VL08V30N',
   router,
 });
 Vue.use(VueYandexMetrika, {
-  id: 63012667,
+  id: 70796944,
   router,
   env: process.env.NODE_ENV,
-}); */
+});
 Vue.use(require('vue-moment'));
 
 Vue.prototype.$http_token = HTTP_TOKEN;
