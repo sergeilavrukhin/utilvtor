@@ -3,7 +3,7 @@
     <navbar></navbar>
     <b-row>
       <b-col class="p-5">
-        <b-form @submit="onSubmit">
+        <b-form v-if="!success" @submit="onSubmit">
           <b-form-group
             id="input-group-1"
             label="*Фамилия:"
@@ -86,9 +86,14 @@
               placeholder="ИНН"
             ></b-form-input>
           </b-form-group>
-
           <b-button type="submit" variant="success mr-2">Зарегистрироваться</b-button>
         </b-form>
+        <div v-if="error" class="alert alert-danger mt-4" role="alert">
+          {{ error }}
+        </div>
+        <div v-if="success" class="alert alert-success mt-4" role="alert">
+          {{ success }}
+        </div>
       </b-col>
     </b-row>
     <cmp-footer></cmp-footer>
@@ -108,6 +113,8 @@ export default {
         email: null,
         itn: '',
       },
+      success: null,
+      error: null,
     };
   },
   head() {
@@ -127,9 +134,15 @@ export default {
         email: this.form.email,
         itn: this.form.itn,
       }).then((response) => {
-        alert(response);
+        this.success = response.msg;
+        this.error = null;
       }).catch((error) => {
-        alert(error);
+        this.success = null;
+        if (error.response) {
+          if (error.response.status === 403) {
+            this.error = error.response.data.msg;
+          }
+        }
       });
     },
   },

@@ -3,7 +3,7 @@
     <navbar></navbar>
     <div class="row">
       <div class="col-md-12 p-5">
-        <b-form @submit="onSubmit">
+        <b-form v-if="!success" @submit="onSubmit">
           <b-form-group
             id="input-group-2"
             label="Запрос:*"
@@ -153,6 +153,12 @@
           </b-form-group>
           <b-button type="submit" variant="success mr-2">Отправить заявку</b-button>
         </b-form>
+        <div v-if="error" class="alert alert-danger mt-4" role="alert">
+          {{ error }}
+        </div>
+        <div v-if="success" class="alert alert-success mt-4" role="alert">
+          {{ success }}
+        </div>
       </div>
     </div>
     <cmp-footer></cmp-footer>
@@ -180,6 +186,8 @@ export default {
       show: true,
       query_type: [{ value: 1, text: 'Утилизация' }, { value: 2, text: 'Обезвреживание' }],
       bu: [{ value: 1, text: 'шт.' }, { value: 3, text: 'кг.' }, { value: 3, text: 'тонн.' }],
+      success: null,
+      error: null,
     };
   },
   head() {
@@ -204,9 +212,15 @@ export default {
         count: this.form.count,
         bu: this.form.bu,
       }).then((response) => {
-        alert(response);
+        this.success = response.msg;
+        this.error = null;
       }).catch((error) => {
-        alert(error);
+        this.success = null;
+        if (error.response) {
+          if (error.response.status === 403) {
+            this.error = error.response.data.msg;
+          }
+        }
       });
     },
   },

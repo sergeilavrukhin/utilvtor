@@ -43,4 +43,4 @@ def createQuery():
     db.session.add(req)
 
     db.session.commit()
-    return jsonify({'msg': 'Пользователь успешно зарегистрирован'}), 201
+    return jsonify({'msg': 'Заявка успешно создана'}), 201
