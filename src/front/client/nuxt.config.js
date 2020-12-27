@@ -33,6 +33,17 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
+    [
+      '@nuxtjs/yandex-metrika',
+      {
+        id: '70796944',
+        webvisor: true,
+        // clickmap:true,
+        // useCDN:false,
+        // trackLinks:true,
+        // accurateTrackBounce:true,
+      }
+    ],
   ],
 
   axios: {
