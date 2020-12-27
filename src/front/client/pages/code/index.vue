@@ -12,7 +12,7 @@
         <b-card class="mt-3 mb-3">
           <b-card-text>
           <ul v-for="(item, index) in codes" :key="index">
-            <li><b-link class="text-success" :href="`/code/${item.id}/`">
+            <li><b-link class="text-success" :href="`/code/${item.id}`">
             {{item.id}}</b-link> - {{item.name}}</li>
           </ul>
           </b-card-text>

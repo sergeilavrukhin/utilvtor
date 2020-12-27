@@ -1,3 +1,5 @@
+const axios = require('axios')
+
 export default {
   mode: process.env.MODE,
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -45,6 +47,7 @@ export default {
       }
     ],
     '@nuxtjs/gtm',
+    '@nuxtjs/sitemap',
   ],
 
   gtm: {
@@ -54,6 +57,19 @@ export default {
   axios: {
     baseURL: process.env.AXIOS_URL
     // proxy: true
+  },
+
+  sitemap: {
+    hostname: process.env.BASE_URL,
+    gzip: true,
+    exclude: [
+      '/companies/**',
+      '/user/**'
+    ],
+    routes: async () => {
+      const { data } = await axios.get(process.env.BASE_URL + '/api/client/code/map')
+      return data.map((code) => `/code/${code.id}`)
+    }
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

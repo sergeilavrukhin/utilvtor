@@ -3,7 +3,7 @@
     <navbar></navbar>
     <div class="row">
       <div class="col-md-12 pl-4 pr-4 pt-4">
-        <router-link class="text-success" href="/queries/">Заявки</router-link>
+        <router-link class="text-success" href="/queries">Заявки</router-link>
         <span> &raquo; </span>
         <h1 v-if="item">{{item.query_type.name}} {{item.waste}} {{item.fkko.id}}</h1>
       </div>
@@ -24,8 +24,8 @@
             </ul>
           </b-card-text>
         </b-card>
-        <b-button class="mr-2" variant="outline-success" href="/user/signup/">Зарегистрироваться</b-button>
-        <b-button variant="success" href="/queries/add/">Разместить заявку</b-button>
+        <b-button class="mr-2" variant="outline-success" href="/user/signup">Зарегистрироваться</b-button>
+        <b-button variant="success" href="/queries/add">Разместить заявку</b-button>
         <hr class="my-4">
       </div>
     </div>

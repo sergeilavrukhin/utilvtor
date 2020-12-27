@@ -3,7 +3,7 @@
     <navbar></navbar>
     <b-row>
       <b-col v-if="code" class="pl-4 pr-4 pt-4">
-        <b-link class="text-success" href="/code/">Блоки кодов ФККО</b-link>
+        <b-link class="text-success" href="/code">Блоки кодов ФККО</b-link>
         <span> &raquo; </span>
         <span v-for="(item, index) in code.breadcrumb" :key="index">
         <router-link class="text-success"
@@ -23,7 +23,7 @@
           <h4 v-if="code.fkko.aggr">Агрегатное состояние и физические формы отхода</h4>
           <i v-if="code.fkko.aggr">{{ code.fkko.aggr.name }}</i>
           <ul v-for="(item, index) in code.codes" :key="index">
-            <li><b-link class="text-success" :href="`/code/${item.id}/`">
+            <li><b-link class="text-success" :href="`/code/${item.id}`">
             {{item.id}}</b-link> - {{item.name}}</li>
           </ul>
           </b-card-text>

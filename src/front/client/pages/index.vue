@@ -9,7 +9,7 @@
               <b-form-input placeholder="Код или название отхода"></b-form-input>
             </div>
             <div class="col-md-4">
-              <a href="#" class="btn btn-block btn-outline-success">Найти</a>
+              <b-button class="btn btn-block btn-success">Найти</b-button>
             </div>
           </div>
         </b-card-text>
@@ -21,8 +21,8 @@
         <p>Цель нашего агрегатора отходов собрать абсолютно все фирмы,
      которые образуют, утилизирую, перевозят отходы и покупают, продают вторсырье</p>
         <hr class="my-4">
-        <b-button class="mr-2" variant="outline-success" href="/user/signup/">Зарегистрироваться</b-button>
-        <b-button variant="success" href="/queries/add/">Разместить заявку</b-button>
+        <b-button class="mr-2" variant="outline-success" href="/user/signup">Зарегистрироваться</b-button>
+        <b-button variant="success" href="/queries/add">Разместить заявку</b-button>
         <hr class="my-4">
         <h2>Для кого создан агрегатор отходов?</h2>
         <b-card class="mt-3 mb-3" title="Для образователей отходов">

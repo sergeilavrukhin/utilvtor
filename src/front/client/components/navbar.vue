@@ -4,23 +4,13 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item href="/queries/">Заявки</b-nav-item>
-        <b-nav-item href="/code/">Классификатор отходов</b-nav-item>
+        <b-nav-item href="/queries">Заявки</b-nav-item>
+        <b-nav-item href="/code">Классификатор отходов</b-nav-item>
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto">
-        <b-nav-item right href="/user/signup/">Зарегистрироваться</b-nav-item>
+        <b-nav-item right href="/user/signup">Зарегистрироваться</b-nav-item>
       </b-navbar-nav>
-      <!--<b-navbar-nav class="ml-auto">
-        <b-nav-item-dropdown right>
-          <template #button-content>
-            <em>Личный кабинет</em>
-          </template>
-          <b-dropdown-item href="/login/">Войти</b-dropdown-item>
-          <b-dropdown-item href="/cabinet/">Профиль</b-dropdown-item>
-          <b-dropdown-item href="/logout/">Выйти</b-dropdown-item>
-        </b-nav-item-dropdown>
-      </b-navbar-nav>-->
     </b-collapse>
   </b-navbar>
 </template>
