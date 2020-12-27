@@ -1,5 +1,5 @@
 export default {
-  mode: 'universal',
+  mode: process.env.MODE,
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'Веботход.ру',
@@ -52,7 +52,7 @@ export default {
   },
 
   axios: {
-    baseURL: 'http://webothod.ru/api/client',
+    baseURL: process.env.AXIOS_URL
     // proxy: true
   },
 
