@@ -44,7 +44,12 @@ export default {
         // accurateTrackBounce:true,
       }
     ],
+    '@nuxtjs/gtm',
   ],
+
+  gtm: {
+    id: 'G-V4VL08V30N',
+  },
 
   axios: {
     baseURL: 'http://webothod.ru/api/client',
