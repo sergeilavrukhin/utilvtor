@@ -31,8 +31,11 @@ gen_api_client:
 front_client:
 	@npm --prefix ./src/front/client run build
 
+cd_front_client:
+	@cd src/front/client
+
 front_start:
-	@pm2 --hp ./src/front/client start npm -- start
+	./runclient.sh
 
 front_stop:
 	@pm2 stop 0
