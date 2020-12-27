@@ -1,0 +1,14 @@
+{
+  "CmpFooter": {
+    "description": "Auto imported from components/cmp-footer.vue"
+  },
+  "LazyCmpFooter": {
+    "description": "Auto imported from components/cmp-footer.vue"
+  },
+  "Navbar": {
+    "description": "Auto imported from components/navbar.vue"
+  },
+  "LazyNavbar": {
+    "description": "Auto imported from components/navbar.vue"
+  }
+}
