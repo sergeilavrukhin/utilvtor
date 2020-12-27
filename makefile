@@ -39,5 +39,8 @@ cd_front_client:
 front_start:
 	./runclient.sh
 
+front_build:
+	./buildclient.sh
+
 front_stop:
 	@pm2 stop 0
