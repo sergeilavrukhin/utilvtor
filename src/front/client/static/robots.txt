@@ -1,6 +1,5 @@
 User-agent: *
 Disallow: /user/
-Disallow: /queries/add
 Sitemap: https://webothod.ru/sitemap.xml
 
 Host: https://webothod.ru
