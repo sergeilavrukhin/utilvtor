@@ -14,6 +14,7 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 import nuxt_plugin_plugin_39ed5224 from 'nuxt_plugin_plugin_39ed5224' // Source: ./components/plugin.js (mode: 'all')
 import nuxt_plugin_bootstrapvue_ea54d12e from 'nuxt_plugin_bootstrapvue_ea54d12e' // Source: ./bootstrap-vue.js (mode: 'all')
+import nuxt_plugin_yandexmetrikaplugin3eb17d6f_d0a889f4 from 'nuxt_plugin_yandexmetrikaplugin3eb17d6f_d0a889f4' // Source: ./yandex-metrika.plugin.3eb17d6f.js (mode: 'client')
 import nuxt_plugin_axios_5dfe933a from 'nuxt_plugin_axios_5dfe933a' // Source: ./axios.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -60,7 +61,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"Веботход.ру","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+    head: {"title":"Веботход.ру","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"href":"https:\u002F\u002Fmc.yandex.ru\u002Fmetrika\u002Ftag.js","rel":"preload","as":"script"}],"style":[],"script":[]},
 
     router,
     nuxt: {
@@ -180,6 +181,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_bootstrapvue_ea54d12e === 'function') {
     await nuxt_plugin_bootstrapvue_ea54d12e(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_yandexmetrikaplugin3eb17d6f_d0a889f4 === 'function') {
+    await nuxt_plugin_yandexmetrikaplugin3eb17d6f_d0a889f4(app.context, inject)
   }
 
   if (typeof nuxt_plugin_axios_5dfe933a === 'function') {
