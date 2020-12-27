@@ -36,7 +36,7 @@ export default {
   ],
 
   axios: {
-    baseURL: 'http://webothod.loc:7777/api/client',
+    baseURL: 'http://webothod.ru/api/client',
     // proxy: true
   },
 
