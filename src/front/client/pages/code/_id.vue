@@ -46,13 +46,17 @@ export default {
   },
   data() {
     return {
-      title: 'Информация по коду',
       code: null,
     }
   },
   head() {
     return {
-      title: this.code.fkko.name,
+      title: `Утилизация ${this.code.fkko.name} | ${this.code.fkko.id} утилизация, транспортирование, обезвреживание, покупка и продажа`,
+      meta: [
+        { hid: 'description', name: 'description',
+          content: `На нашей бирже отходов вы сможете утилизировать или обезвредить ${this.code.fkko.name}, а так же найти подрядчика в виде транспортной компании для сбора и вывоза, всего лишь в несколько кликов!`,
+        }
+      ],
     }
   },
 };

@@ -4,11 +4,11 @@ export default {
   mode: process.env.MODE,
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'Веботход.ру',
+    title: 'Биржа отходов Веботход.ру - утилизация отходов, покупка и продажа вторсырья',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'Биржа отходов Веботход.ру - утилизация, обезвреживание, переработка, транспортирование отходов, покупка и продажа вторсырья' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
