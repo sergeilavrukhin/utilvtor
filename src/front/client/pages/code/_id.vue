@@ -11,6 +11,10 @@
         </span> <h1>{{code.fkko.name}}</h1>
       </b-col>
     </b-row>
+    <hr class="my-4">
+      <b-button class="mr-2" variant="outline-success" href="/user/signup">Зарегистрироваться</b-button>
+      <b-button variant="success" href="/queries/add">Разместить заявку</b-button>
+    <hr class="my-4">
     <b-row>
       <b-col v-if="code.fkko" class="p-4">
         <b-card class="mt-3 mb-3">
@@ -61,3 +65,15 @@ export default {
   },
 };
 </script>
+
+<style>
+h1 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+</style>

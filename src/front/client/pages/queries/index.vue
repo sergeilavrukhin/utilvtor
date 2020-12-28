@@ -1,7 +1,11 @@
 <template>
   <div class="container">
     <navbar></navbar>
-    <h2>Заявки</h2>
+    <h1>{{ title }}</h1>
+    <hr class="my-4">
+      <b-button class="mr-2" variant="outline-success" href="/user/signup">Зарегистрироваться</b-button>
+      <b-button variant="success" href="/queries/add">Разместить заявку</b-button>
+    <hr class="my-4">
     <div class="row m-0">
       <div class="col-md-12">
         <b-card v-for="(item, index) in queries" :key="index"
@@ -37,7 +41,7 @@ export default {
   data() {
     return {
       queries: null,
-      title: 'Заявки',
+      title: 'Заявки на утилизацию, транспортирование, обезвреживание оходов, а так же покупку и продажу вторсырья',
     };
   },
   head() {
@@ -47,3 +51,15 @@ export default {
   },
 };
 </script>
+
+<style>
+h1 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+</style>
