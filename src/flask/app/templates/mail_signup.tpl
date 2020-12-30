@@ -164,7 +164,10 @@
         <div class="card mt-3 mb-3">
           <div class="card-body">
             <p class="card-text">
-              {{ body }}
+              <h4>Пользователь успешно зарегистрирован</h4>
+              Ваш логин: {{ email }}<br />
+              Пароль: {{ password }}<br />
+              <a href="https://webothod.ru/user/signin" target="_self">Авторизоваться</a>
             </p>
           </div>
         </div>
