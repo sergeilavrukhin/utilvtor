@@ -15,5 +15,5 @@ def signUp():
     req = User(json["lastname"], json["firstname"], json["middlename"], "", json["phone"], json["email"], json["itn"], "password", current_app.config["SALT"])
     db.session.add(req)
     db.session.commit()
-    sendEmail.delay(json["email"], "Пользователь успешно зарегистрирован", "Пользователь успешно зарегистрирован")
+    sendEmail.delay(json["email"], "Добро пожаловать на сайт Веботход.ру", "Пользователь успешно зарегистрирован")
     return jsonify({'msg': 'Пользователь успешно зарегистрирован'}), 201

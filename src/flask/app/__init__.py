@@ -23,7 +23,7 @@ def create_backend_app():
   return app
 
 def create_celery_app():
-  app = Flask(__name__)
+  app = Flask(__name__, template_folder="templates")
   app.config.from_pyfile("config.production.py")
   db.init_app(app)
   redis.init_app(app)

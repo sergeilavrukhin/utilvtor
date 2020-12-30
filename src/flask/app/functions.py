@@ -1,4 +1,4 @@
-from flask import current_app
+from flask import current_app, render_template
 from email.mime.text import MIMEText
 from smtplib import SMTP_SSL
 from .celery import celery
@@ -14,7 +14,8 @@ def send_message_over_smtp_server(msg):
 
 @celery.task(rate_limit="30/m")  # разрешено выполнятся не более 30 таких задач в минуту
 def sendEmail(to: str, subject: str, body: str):
-    msg = MIMEText(body)
+    html = render_template("mail.tpl", title=subject, body=body)
+    msg = MIMEText(html, 'html')
     msg["Subject"] = subject
     msg["From"] = current_app.config["MAIL_LOGIN"]
     msg["To"] = to
