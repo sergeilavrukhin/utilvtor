@@ -31,10 +31,7 @@ gen_api_client:
 	@raml2html -o "./src/front/client/public/api.html" "./src/front/client/raml/api.raml"
 
 front_client:
-	@npm --prefix ./src/front/client run build
-
-cd_front_client:
-	@cd src/front/client
+	@npm --prefix ./src/front/client run dev
 
 front_start:
 	./runclient.sh

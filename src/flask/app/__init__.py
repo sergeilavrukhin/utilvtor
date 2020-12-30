@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_migrate import Migrate
-from .globals import db, jwt
+from .globals import db, jwt, redis
 from .models import *
 
 def create_backend_app():
@@ -22,4 +22,15 @@ def create_backend_app():
 
   return app
 
+def create_celery_app():
+  app = Flask(__name__)
+  app.config.from_pyfile("config.production.py")
+  db.init_app(app)
+  redis.init_app(app)
+  Migrate(app, db)
+  jwt.init_app(app)
+
+  return app
+
 backend_app = create_backend_app()
+celery_app = create_celery_app()

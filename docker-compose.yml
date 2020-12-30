@@ -13,3 +13,30 @@ services:
     volumes:
       - ./src/flask:/code
     network_mode: host
+
+  celery:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: uv_celery
+    environment:
+      - FLASK_APP=app:celery_app
+      - TZ=Asia/Yekaterinburg
+    restart: always
+    command: [ "celery", "-A", "app", "worker", "-l", "info" ]
+    volumes:
+      - ./src/flask:/code
+    network_mode: host
+
+  redis:
+    image: "redis:4.0.11-alpine"
+    container_name: mshc_redis
+    restart: always
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - redisdata:/data
+      - ./src/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    network_mode: host
+
+volumes:
+  redisdata:
