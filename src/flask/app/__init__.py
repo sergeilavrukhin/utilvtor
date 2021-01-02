@@ -10,11 +10,12 @@ def create_backend_app():
   Migrate(app, db)
   jwt.init_app(app)
 
-
+  from .client.blueprints.Regions import app as Regions
   from .client.blueprints.Queries import app as Queries
   from .client.blueprints.Fkko import app as Fkko
   from .client.blueprints.User import app as User
   root_client_api = "/api/client/"
+  app.register_blueprint(Regions, url_prefix=root_client_api + "regions")
   app.register_blueprint(Queries, url_prefix=root_client_api + "queries")
   app.register_blueprint(Fkko, url_prefix=root_client_api + "code")
   app.register_blueprint(User, url_prefix=root_client_api + "signup")

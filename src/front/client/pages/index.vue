@@ -2,14 +2,24 @@
   <b-container>
     <navbar></navbar>
     <b-row class="mx-0" style="height: 270px;background: url(/img/search.png);">
-      <b-card title="Найти образователей или утилизаторов" class="mt-auto mb-4 mx-auto">
+      <b-card title="Найти заявки образователей" class="mt-auto mb-4 mx-auto">
         <b-card-text>
           <div class="row">
             <div class="col-md-8">
-              <b-form-input placeholder="Код или название отхода"></b-form-input>
+              <vue-autosuggest
+                :suggestions="codes"
+                :input-props="{id:'code', class: 'form-control', placeholder:'Код или название отхода'}"
+                :get-suggestion-value="getSuggestionValue"
+                @selected="onSelected"
+                @input="updateCodes"
+              >
+                <template slot-scope="{suggestion}">
+                  <span class="my-suggestion-item">{{suggestion.item.id}} - {{suggestion.item.name}}</span>
+                </template>
+              </vue-autosuggest>
             </div>
             <div class="col-md-4">
-              <b-button class="btn btn-block btn-success">Найти</b-button>
+              <b-button class="btn btn-block btn-success" @click="foo">Найти</b-button>
             </div>
           </div>
         </b-card-text>
@@ -92,8 +102,63 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      searchcode: null,
+      codes: [{data: null}],
+    }
+  },
+
+  methods: {
+    foo() {
+      if(this.searchcode) window.location = `/code/${this.searchcode}`;
+    },
+    onSelected(item) {
+      this.searchcode = item.item.id;
+    },
+    getSuggestionValue(suggestion) {
+      return suggestion.item.id;
+    },
+    async updateCodes (code) {
+      await this.$axios.$get(`code/search/${code}`
+      ).then((response) => {
+        this.codes[0].data = response;
+      }).catch((error) => {
+        console.log();
+      });
+    }
+  }
+}
 </script>
 
 <style>
+
+.autosuggest__results ul {
+  width: 100%;
+  color: rgba(30, 39, 46,1.0);
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0 .5rem 0;
+}
+.autosuggest__results li {
+  margin: 0 0 0 0;
+  border-radius: 5px;
+  padding: 0.75rem 0 0.75rem 0.75rem;
+  display: flex;
+  align-items: center;
+}
+.autosuggest__results li:hover {
+  cursor: pointer;
+}
+
+#autosuggest {
+  width: 95%;
+  position: absolute;
+  background-color: #fff;
+  z-index: 9999;
+}
+.autosuggest__results-item--highlighted {
+  background-color: rgba(40, 167, 69, 0.2);
+}
 </style>

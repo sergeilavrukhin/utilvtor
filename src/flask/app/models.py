@@ -3,6 +3,10 @@ from sqlalchemy import Column, String, Float, BigInteger, Integer, DateTime
 from hashlib import md5
 import datetime
 
+class Region(db.Model):
+  __tablename__ = "regions"
+  id = Column(Integer, primary_key=True)
+  text = Column(String(255))
 
 class User(db.Model):
   __tablename__ = "users"
@@ -61,23 +65,23 @@ class User(db.Model):
 class QueryType(db.Model):
   __tablename__ = "query_type"
   id = Column(Integer, primary_key=True)
-  name = Column(String(20), nullable=False)
+  text = Column(String(20), nullable=False)
 
 class Unit(db.Model):
   __tablename__ = "units"
   id = Column(Integer, primary_key=True)
-  name = Column(String(10), nullable=False)
+  text = Column(String(10), nullable=False)
 
 class Aggregation(db.Model):
   __tablename__ = "aggregations"
   id = Column(Integer, primary_key=True)
-  name = Column(String(255), nullable=False)
+  text = Column(String(255), nullable=False)
 
 
 class FkkoClass(db.Model):
   __tablename__ = "fkkoclass"
   id = Column(Integer, primary_key=True)
-  name = Column(String(600), nullable=False)
+  text = Column(String(600), nullable=False)
 
 
 class Fkko(db.Model):
@@ -95,11 +99,14 @@ class Fkko(db.Model):
 class Queries(db.Model):
   __tablename__ = "queries"
   id = Column(Integer, primary_key=True)
+  moderation = Column(Integer)
 
   fkko_id = Column("fkko_id", BigInteger, db.ForeignKey('fkko.id'))
   fkko = db.relationship("Fkko")
 
   waste = Column(String(255))
+  region_id = Column("region_id", Integer, db.ForeignKey('regions.id'))
+  region = db.relationship("Region")
   locality = Column(String(255))
   count = Column(Float)
   date_create = Column(DateTime, default=datetime.datetime.utcnow)
@@ -118,12 +125,13 @@ class Queries(db.Model):
   query_type = db.relationship("QueryType")
 
 
-  def __init__(self, fkko, unit, aggr, user, query_type, waste, count, locality, date_expiry):
+  def __init__(self, fkko, unit, aggr, user, query_type, region, waste, count, locality, date_expiry):
     self.setFkko(fkko)
     self.setUnit(unit)
     self.setAggr(aggr)
     self.setUser(user)
     self.setQueryType(query_type)
+    self.setRegion(region)
     self.setWaste(waste)
     self.setCount(count)
     self.setLocality(locality)
@@ -149,6 +157,11 @@ class Queries(db.Model):
     if not isinstance(query_type, QueryType):
       raise DomainException("Передан не тип запроса")
     self.query_type = query_type
+
+  def setRegion(self, region):
+    if not isinstance(region, Region):
+      raise DomainException("Передан не регион")
+    self.region = region
 
   def setWaste(self, waste):
     waste = waste.strip() if waste else None

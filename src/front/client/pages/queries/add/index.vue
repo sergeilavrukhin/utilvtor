@@ -18,7 +18,19 @@
 
           <b-form-group
             id="input-group-2"
-            label="Адрес местонахождения отхода(регион, населенный пункт):*"
+            label="Регион местонахождения отхода:*"
+            label-for="region">
+            <b-form-select
+              id="region"
+              v-model="form.region"
+              :options="region"
+              required
+            ></b-form-select>
+          </b-form-group>
+
+          <b-form-group
+            id="input-group-2"
+            label="Населенный пункт местонахождения отхода:*"
             label-for="address"
           >
             <b-form-input
@@ -26,7 +38,7 @@
               v-model="form.address"
               type="text"
               required
-              placeholder="Адрес местонахождения отхода"
+              placeholder="Населенный пункт местонахождения отхода"
             ></b-form-input>
           </b-form-group>
 
@@ -119,6 +131,7 @@
             <b-form-input
               id="phone"
               v-model="form.phone"
+              v-mask="'+7 (###) ###-##-##'"
               type="text"
               required
               placeholder="Сотовый телефон"
@@ -167,6 +180,24 @@
 
 <script>
 export default {
+  async asyncData({ $axios }) {
+    const query_type = await $axios.$get('queries/query_types/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    const bu = await $axios.$get('queries/units/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    const region = await $axios.$get('regions/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    return { query_type, bu, region }
+  },
   data() {
     return {
       title: 'Заявка на утилизацию, транспортировку или обезвреживание отходов, покупку или продажу вторсырья',
@@ -177,15 +208,17 @@ export default {
         phone: '',
         email: '',
         itn: '',
-        query_type: '',
+        query_type: null,
+        region: null,
         address: '',
         fkko: '',
         count: '',
-        bu: '',
+        bu: null,
       },
       show: true,
-      query_type: [{ value: 1, text: 'Утилизация' }, { value: 2, text: 'Обезвреживание' }],
-      bu: [{ value: 1, text: 'шт.' }, { value: 3, text: 'кг.' }, { value: 3, text: 'тонн.' }],
+      query_type: null,
+      bu: null,
+      region: null,
       success: null,
       error: null,
     };
@@ -211,6 +244,7 @@ export default {
         fkko: this.form.fkko,
         count: this.form.count,
         bu: this.form.bu,
+        region: this.form.region,
       }).then((response) => {
         this.success = response.msg;
         this.error = null;

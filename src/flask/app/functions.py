@@ -1,7 +1,14 @@
-from flask import current_app
+from flask import current_app, render_template
 from email.mime.text import MIMEText
 from smtplib import SMTP_SSL
 from .celery import celery
+import random
+
+def gen_password():
+  password = ''
+  for x in range(10):  # Количество символов (16)
+    password = password + random.choice(list('1234567890abcdefghigklmnopqrstuvyxwzABCDEFGHIGKLMNOPQRSTUVYXWZ'))
+  return password
 
 def send_message_over_smtp_server(msg):
   host = current_app.config["MAIL_SMTP"]
@@ -19,3 +26,14 @@ def sendEmail(to: str, subject: str, body: str):
     msg["From"] = current_app.config["MAIL_LOGIN"]
     msg["To"] = to
     send_message_over_smtp_server(msg)
+
+def mail_signup(email, password):
+  subject = "Добро пожаловать на сайт Веботход.ру"
+  html = render_template("mail_signup.tpl",
+                         title=subject,
+                         login=email,
+                         password=password)
+  sendEmail.delay(email, subject, html)
+
+def mail_query_add():
+  print('test')

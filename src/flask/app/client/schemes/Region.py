@@ -1,11 +1,11 @@
 from marshmallow_sqlalchemy import ModelSchema
-from app.models import Aggregation
+from app.models import Region
 from marshmallow import fields
 
-class AggrClientSchema(ModelSchema):
+class RegionClientSchema(ModelSchema):
     value = fields.Method("getValue")
     class Meta:
-        model = Aggregation
+        model = Region
 
     def getValue(self, el):
         return el.id

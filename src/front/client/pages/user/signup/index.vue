@@ -54,6 +54,7 @@
             <b-form-input
               id="phone"
               v-model="form.phone"
+              v-mask="'+7 (###) ###-##-##'"
               type="text"
               required
               placeholder="Сотовый телефон"
