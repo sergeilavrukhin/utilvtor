@@ -31,7 +31,7 @@ def mail_signup(email, password):
   subject = "Добро пожаловать на сайт Веботход.ру"
   html = render_template("mail_signup.tpl",
                          title=subject,
-                         login=email,
+                         email=email,
                          password=password)
   sendEmail.delay(email, subject, html)
 
