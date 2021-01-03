@@ -57,7 +57,7 @@
               v-mask="'+7 (###) ###-##-##'"
               type="text"
               required
-              placeholder="Сотовый телефон"
+              placeholder="+7 (###) ###-##-##"
             ></b-form-input>
           </b-form-group>
 
@@ -127,7 +127,7 @@ export default {
     async onSubmit(evt) {
       evt.preventDefault();
 
-      await this.$axios.$post('signup/', {
+      await this.$axios.$post('user/sign-up/', {
         firstname: this.form.firstname,
         middlename: this.form.middlename,
         lastname: this.form.lastname,

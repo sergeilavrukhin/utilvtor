@@ -50,6 +50,7 @@ export default {
     ],
     '@nuxtjs/gtm',
     '@nuxtjs/sitemap',
+    '@nuxtjs/auth-next',
   ],
 
   gtm: {
@@ -59,6 +60,35 @@ export default {
   axios: {
     baseURL: process.env.AXIOS_URL
     // proxy: true
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        scheme: 'refresh',
+        token: {
+          property: 'access_token',
+          maxAge: 1800,
+          // type: 'Bearer'
+        },
+        refreshToken: {
+          property: 'refresh_token',
+          data: 'refresh_token',
+          maxAge: 60 * 60 * 24 * 30
+        },
+        user: {
+          property: 'user',
+         // autoFetch: true
+        },
+        endpoints: {
+          login: { url: '/user/sign-in/', method: 'post' },
+          refresh: { url: '/user/refresh/', method: 'post' },
+          user: { url: '/user/', method: 'get' },
+          logout: { url: '/user/logout', method: 'post' }
+        },
+        // autoLogout: false
+      },
+    }
   },
 
   sitemap: {

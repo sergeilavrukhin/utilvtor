@@ -18,7 +18,7 @@ def create_backend_app():
   app.register_blueprint(Regions, url_prefix=root_client_api + "regions")
   app.register_blueprint(Queries, url_prefix=root_client_api + "queries")
   app.register_blueprint(Fkko, url_prefix=root_client_api + "code")
-  app.register_blueprint(User, url_prefix=root_client_api + "signup")
+  app.register_blueprint(User, url_prefix=root_client_api + "user")
 
 
   return app

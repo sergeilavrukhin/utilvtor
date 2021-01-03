@@ -9,7 +9,7 @@
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto">
-        <b-nav-item right href="/user/signup">Зарегистрироваться</b-nav-item>
+        <b-nav-item right href="/user/signin">Войти</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

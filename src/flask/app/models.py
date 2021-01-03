@@ -58,9 +58,14 @@ class User(db.Model):
   def setMiddlename(self, middlename):
     self.middlename = middlename.strip()
 
+  def generateHash(password, salt):
+    f1 = md5(password.encode("utf8")).hexdigest() + salt
+    return md5(f1.encode("utf8")).hexdigest()
+
   def setPassword(self, password, salt):
     f1 = md5(password.encode("utf8")).hexdigest() + salt
     self.password = md5(f1.encode("utf8")).hexdigest()
+
 
 class QueryType(db.Model):
   __tablename__ = "query_type"
