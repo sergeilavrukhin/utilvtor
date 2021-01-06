@@ -31,7 +31,7 @@ services:
 
   redis:
     image: "redis:4.0.11-alpine"
-    container_name: mshc_redis
+    container_name: uv_redis
     restart: always
     command: redis-server /usr/local/etc/redis/redis.conf
     volumes:

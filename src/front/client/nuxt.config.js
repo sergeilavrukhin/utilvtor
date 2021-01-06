@@ -63,6 +63,12 @@ export default {
   },
 
   auth: {
+    redirect: {
+      login: '/user/signin',
+      logout: '/',
+      callback: '/user/signin',
+      home: '/'
+    },
     strategies: {
       local: {
         scheme: 'refresh',
@@ -84,11 +90,12 @@ export default {
           login: { url: '/user/sign-in/', method: 'post' },
           refresh: { url: '/user/refresh/', method: 'post' },
           user: { url: '/user/', method: 'get' },
-          logout: { url: '/user/logout', method: 'post' }
+          logout: { url: '/user/logout/', method: 'post' }
         },
         // autoLogout: false
       },
-    }
+    },
+    fullPathRedirect: true
   },
 
   sitemap: {

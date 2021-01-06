@@ -8,8 +8,11 @@
         <b-nav-item href="/code">Классификатор отходов</b-nav-item>
       </b-navbar-nav>
 
-      <b-navbar-nav class="ml-auto">
+      <b-navbar-nav class="ml-auto" v-if="!loggedIn">
         <b-nav-item right href="/user/signin">Войти</b-nav-item>
+      </b-navbar-nav>
+      <b-navbar-nav class="ml-auto" v-if="loggedIn">
+        <b-nav-item right @click="onLogout">Выйти</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -18,5 +21,17 @@
 <script>
 export default {
   name: 'Navbar',
+  data () {
+    return {
+      loggedIn: this.$auth.loggedIn,
+    }
+  },
+  methods: {
+    async onLogout() {
+      await this.$auth.logout();
+      if(this.$auth.loggedIn == false) this.$router.go("/");
+
+    },
+  },
 };
 </script>

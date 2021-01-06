@@ -43,3 +43,21 @@ def refresh():
         'access_token': create_access_token(identity=current_user)
     }
     return jsonify(ret), 200
+
+@app.route('/')
+@jwt_required
+def user():
+    current_user = get_jwt_identity()
+    ret = {
+        'user': current_user
+    }
+    return jsonify(ret), 200
+
+@app.route('/logout/', methods=["POST"])
+@jwt_required
+def logout():
+    current_user = get_jwt_identity()
+    ret = {
+        'user': current_user
+    }
+    return jsonify(ret), 200

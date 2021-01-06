@@ -3,11 +3,6 @@
     <navbar></navbar>
     <b-row>
       <b-col class="p-5">
-        <b-card v-if="$auth.strategy.token" title="token" class="mb-2">
-          <div style="white-space: nowrap; overflow: auto">
-            {{ $auth.strategy.token.get() || '-' }}
-          </div>
-        </b-card>
         <b-form v-if="!success" @submit="onSubmit">
           <b-form-group
             id="input-group-1"
@@ -77,25 +72,11 @@ export default {
 
       try {
         let response = await this.$auth.loginWith('local', { data: this.form })
+        this.$router.push({path: "/queries"});
         console.log(response)
       } catch (err) {
         console.log(err)
       }
-
-      /*await this.$axios.$post('user/sign-in/', {
-        email: this.form.email,
-        password: this.form.password
-      }).then((response) => {
-        this.success = response.msg;
-        this.error = null;
-      }).catch((error) => {
-        this.success = null;
-        if (error.response) {
-          if (error.response.status === 403) {
-            this.error = error.response.data.msg;
-          }
-        }
-      });*/
     },
   },
 };
