@@ -3,7 +3,7 @@
     <navbar></navbar>
     <div class="row">
       <div class="col-md-12 pl-4 pr-4 pt-4">
-        <router-link class="text-success" href="/queries">Заявки</router-link>
+        <router-link class="text-success" :to="`/queries`">Заявки</router-link>
         <span> &raquo; </span>
         <h1 v-if="item">{{item.query_type.name}} {{item.waste}} {{item.fkko.id}}</h1>
       </div>
@@ -24,8 +24,8 @@
             </ul>
           </b-card-text>
         </b-card>
-        <b-button class="mr-2" variant="outline-success" href="/user/signup">Зарегистрироваться</b-button>
-        <b-button variant="success" href="/queries/add">Разместить заявку</b-button>
+        <b-button class="mr-2" v-if="!loggedIn" variant="outline-success" href="/user/signup">Зарегистрироваться</b-button>
+        <b-button variant="success" href="/queries/add">Разместить другую заявку</b-button>
         <hr class="my-4">
       </div>
     </div>
@@ -35,8 +35,17 @@
 
 <script>
 export default {
+  async asyncData({ params,  $axios }) {
+    const item = await $axios.$get(`queries/${params.id}`).then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    return { item }
+  },
   data() {
     return {
+      loggedIn: this.$auth.loggedIn,
       item: null,
       contacts: null,
       title: 'Заявки',
@@ -46,25 +55,6 @@ export default {
     return {
       title: this.title,
     }
-  },
-  methods: {
-    async loadPage() {
-      /*await this.$http.get(`queries/${this.$route.params.id}`).then((response) => {
-        this.item = response.data;
-      }).catch((error) => {
-        console.log(error);
-      });*/
-    },
-  },
-  async created() {
-    this.loadPage();
-  },
-  watch: {
-    $route(to, from) {
-      if (to.params.id !== from.params.id) {
-        this.loadPage();
-      }
-    },
   },
 };
 </script>

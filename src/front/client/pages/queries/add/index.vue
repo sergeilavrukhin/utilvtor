@@ -81,10 +81,12 @@
               required
             ></b-form-select>
           </b-form-group>
+
           <b-form-group
             id="input-group-1"
             label="*Фамилия:"
             label-for="lastname"
+            v-if="!loggedIn"
           >
             <b-form-input
               id="lastname"
@@ -99,6 +101,7 @@
             id="input-group-1"
             label="*Имя:"
             label-for="firstname"
+            v-if="!loggedIn"
           >
             <b-form-input
               id="firstname"
@@ -113,6 +116,7 @@
             id="input-group-1"
             label="*Отчество:"
             label-for="middlename"
+            v-if="!loggedIn"
           >
             <b-form-input
               id="middlename"
@@ -127,6 +131,7 @@
             id="input-group-1"
             label="*Сотовый телефон:"
             label-for="phone"
+            v-if="!loggedIn"
           >
             <b-form-input
               id="phone"
@@ -142,6 +147,7 @@
             id="input-group-1"
             label="*Электронная почта:"
             label-for="email"
+            v-if="!loggedIn"
           >
             <b-form-input
               id="email"
@@ -156,6 +162,7 @@
             id="input-group-1"
             label="ИНН:"
             label-for="itn"
+            v-if="!loggedIn"
           >
             <b-form-input
               id="itn"
@@ -221,6 +228,7 @@ export default {
       region: null,
       success: null,
       error: null,
+      loggedIn: this.$auth.loggedIn,
     };
   },
   head() {
