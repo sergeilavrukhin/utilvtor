@@ -2,6 +2,8 @@
   <b-navbar toggleable="sm" class="py-1 px-0 mx-0">
     <b-navbar-brand href="/"><center class="text-success">ВЕБОТХОД.РУ</center></b-navbar-brand>
 
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-item href="/queries">Заявки</b-nav-item>
