@@ -62,10 +62,43 @@ def refresh():
 @jwt_required
 def user():
     current_user = get_jwt_identity()
+    user = User.query.filter(User.email == current_user).one_or_none()
     ret = {
-        'user': current_user
+        'user': current_user,
+        'email': user.email,
+        'firstname': user.firstname,
+        'middlename': user.middlename,
+        'lastname': user.lastname,
+        'phone': user.phone,
+        'itn': user.itn
     }
     return jsonify(ret), 200
+
+@app.route("/edit/", methods=["POST"])
+@jwt_required
+def edit():
+  current_user = get_jwt_identity()
+  json = request.get_json()
+  user = User.query.filter(User.email == current_user).one_or_none()
+  if user:
+    if "firstname" in json:
+      user.setFirstname(json["firstname"])
+
+    if "middlename" in json:
+      user.setMiddlename(json["middlename"])
+
+    if "lastname" in json:
+      user.setLastname(json["lastname"])
+
+    if "phone" in json:
+      phone = json["phone"].replace('+', '').replace('(', '').replace(')', '').replace('-', '').replace(' ', '')
+      user.setPhone(phone)
+
+    if "itn" in json:
+      user.setITN(json["itn"])
+
+    db.session.commit()
+    return jsonify({'msg': 'Данные пользователя успешно изменены'}), 200
 
 @app.route('/logout/', methods=["POST"])
 @jwt_required

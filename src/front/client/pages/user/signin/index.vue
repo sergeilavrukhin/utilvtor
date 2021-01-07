@@ -70,13 +70,17 @@ export default {
     async onSubmit(evt) {
       evt.preventDefault();
 
-      try {
-        let response = await this.$auth.loginWith('local', { data: this.form })
+      await this.$auth.loginWith('local', { data: this.form }).
+      then((response) => {
         this.$router.push({path: "/queries"});
-        console.log(response)
-      } catch (err) {
-        console.log(err)
-      }
+      }).catch((error) => {
+        this.success = null;
+        if (error.response) {
+          if (error.response.status === 403) {
+            this.error = error.response.data.msg;
+          }
+        }
+      });
     },
   },
 };
