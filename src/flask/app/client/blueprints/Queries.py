@@ -40,7 +40,7 @@ def createQuery():
     user = User.query.filter(User.email == current_user).one_or_none()
 
   fkko = None
-  if json["fkko"].isdigit():
+  if isinstance(json["fkko"], int):
     fkko = Fkko.query.filter(Fkko.id == int(json["fkko"])).one_or_none()
   if fkko:
     aggr = fkko.aggr

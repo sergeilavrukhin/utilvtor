@@ -10,14 +10,14 @@
     </div>
     <div class="row m-0">
       <div class="col-md-12">
-        <b-card v-if="item" :sub-title="item.query_type.name"
+        <b-card v-if="item" :sub-title="item.query_type.text"
         class="mx-1 my-3">
           <b-card-text>
             <ul>
               <li v-if="item.fkko"><b>Код отхода:</b> {{item.fkko.id}}</li>
               <li><b>Адрес:</b> {{item.locality}}</li>
-              <li><b>Количество:</b> {{item.count}} {{item.unit.name}}</li>
-              <li v-if="item.aggr"><b>Агрегатное состояние:</b> {{item.aggr.name}}</li>
+              <li><b>Количество:</b> {{item.count}} {{item.unit.text}}</li>
+              <li v-if="item.aggr"><b>Агрегатное состояние:</b> {{item.aggr.text}}</li>
               <li><b>Автор:</b> доступно после регистрации</li>
               <li><b>Телефон:</b> доступно после регистрации</li>
               <li><b>Email:</b> доступно после регистрации</li>

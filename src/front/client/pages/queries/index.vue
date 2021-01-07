@@ -9,14 +9,14 @@
     <div class="row m-0">
       <div class="col-md-12">
         <b-card v-for="(item, index) in queries" :key="index"
-        :title="item.waste" :sub-title="item.query_type.name"
+        :title="item.waste" :sub-title="item.query_type.text"
         class="mx-1 my-3">
           <b-card-text>
             <ul>
               <li v-if="item.fkko"><b>Код отхода:</b> {{item.fkko.id}}</li>
               <li><b>Адрес:</b> {{item.locality}}</li>
-              <li><b>Количество:</b> {{item.count}} {{item.unit.name}}</li>
-              <li v-if="item.aggr"><b>Агрегатное состояние:</b> {{item.aggr.name}}</li>
+              <li><b>Количество:</b> {{item.count}} {{item.unit.text}}</li>
+              <li v-if="item.aggr"><b>Агрегатное состояние:</b> {{item.aggr.text}}</li>
             </ul>
           </b-card-text>
           <router-link :to="`queries/${item.id}`" class="text-success">Посмотреть</router-link>

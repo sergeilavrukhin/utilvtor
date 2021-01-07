@@ -47,14 +47,19 @@
             label="Код ФККО или название отхода:*"
             label-for="fkko"
           >
-            <b-form-input
-              id="fkko"
-              v-model="form.fkko"
-              type="text"
-              required
-              placeholder="Код ФККО или название отхода"
-            ></b-form-input>
+            <vue-autosuggest
+                :suggestions="codes"
+                :input-props="{id:'code', class: 'form-control', placeholder:'Код или название отхода'}"
+                :get-suggestion-value="getSuggestionValue"
+                @selected="onSelected"
+                @input="updateCodes"
+              >
+                <template slot-scope="{suggestion}">
+                  <span class="my-suggestion-item">{{suggestion.item.id}} - {{suggestion.item.name}}</span>
+                </template>
+              </vue-autosuggest>
           </b-form-group>
+
 
           <b-form-group
             id="input-group-2"
@@ -229,6 +234,7 @@ export default {
       success: null,
       error: null,
       loggedIn: this.$auth.loggedIn,
+      codes: [{data: null}],
     };
   },
   head() {
@@ -237,6 +243,23 @@ export default {
     }
   },
   methods: {
+    onSelected(item) {
+      this.form.fkko = item.item.id;
+    },
+
+    getSuggestionValue(suggestion) {
+      return suggestion.item.id;
+    },
+
+    async updateCodes (code) {
+      await this.$axios.$get(`code/search/${code}`
+      ).then((response) => {
+        this.codes[0].data = response;
+      }).catch((error) => {
+        console.log();
+      });
+    },
+
     async onSubmit(evt) {
       evt.preventDefault();
 
@@ -268,3 +291,33 @@ export default {
   },
 };
 </script>
+
+<style>
+
+.autosuggest__results ul {
+  width: 100%;
+  color: rgba(30, 39, 46,1.0);
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0 .5rem 0;
+}
+.autosuggest__results li {
+  margin: 0 0 0 0;
+  border-radius: 5px;
+  padding: 0.75rem 0 0.75rem 0.75rem;
+  display: flex;
+  align-items: center;
+}
+.autosuggest__results li:hover {
+  cursor: pointer;
+}
+
+#autosuggest {
+  width: 95%;
+  background-color: #fff;
+  z-index: 9999;
+}
+.autosuggest__results-item--highlighted {
+  background-color: rgba(40, 167, 69, 0.2);
+}
+</style>

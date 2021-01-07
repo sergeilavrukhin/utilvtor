@@ -19,7 +19,7 @@
               </vue-autosuggest>
             </div>
             <div class="col-md-4">
-              <b-button class="btn btn-block btn-success" @click="foo">Найти</b-button>
+              <b-button class="btn btn-block btn-success" @click="find">Найти</b-button>
             </div>
           </div>
         </b-card-text>
@@ -112,7 +112,7 @@ export default {
   },
 
   methods: {
-    foo() {
+    find() {
       if(this.searchcode) window.location = `/code/${this.searchcode}`;
     },
     onSelected(item) {
