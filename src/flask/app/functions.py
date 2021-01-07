@@ -35,5 +35,13 @@ def mail_signup(email, password):
                          password=password)
   sendEmail.delay(email, subject, html)
 
+def mail_recovery(email, password):
+  subject = "Новый пароль на сайт Веботход.ру"
+  html = render_template("mail_recovery.tpl",
+                         title=subject,
+                         email=email,
+                         password=password)
+  sendEmail.delay(email, subject, html)
+
 def mail_query_add():
   print('test')

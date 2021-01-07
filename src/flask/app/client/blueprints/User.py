@@ -1,7 +1,7 @@
 from app.models import User
 from flask import Blueprint, request, jsonify, current_app
 from app.globals import db
-from app.functions import sendEmail, gen_password, mail_signup
+from app.functions import sendEmail, gen_password, mail_signup, mail_recovery
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, jwt_refresh_token_required, create_refresh_token
 
 app = Blueprint('ClientUser', __name__)
@@ -32,6 +32,20 @@ def signIn():
         "access_token": create_access_token(identity=json["email"]),
         "refresh_token": create_refresh_token(identity=json["email"])
       }), 200
+
+  return jsonify({'msg': 'Неверный логин или пароль'}), 403
+
+
+@app.route("/recovery/", methods=["POST"])
+def recovery():
+  json = request.get_json()
+  user = User.query.filter(User.email == json["email"]).one_or_none()
+  if user:
+    password = gen_password()
+    user.setPassword(password, current_app.config["SALT"])
+    db.session.commit()
+    mail_recovery(json["email"], password)
+    return jsonify({'msg': 'Новый пароль отправлен вам на email'}), 200
 
   return jsonify({'msg': 'Неверный логин или пароль'}), 403
 

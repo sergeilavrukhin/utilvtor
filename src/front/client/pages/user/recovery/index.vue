@@ -18,23 +18,7 @@
             ></b-form-input>
           </b-form-group>
 
-          <b-form-group
-            id="input-group-1"
-            label="Пароль:"
-            label-for="password"
-          >
-            <b-form-input
-              id="password"
-              v-model="form.password"
-              type="password"
-              required
-              placeholder="Пароль"
-            ></b-form-input>
-          </b-form-group>
-
-          <b-button type="submit" variant="success mr-2">Войти</b-button>
-          <b-button variant="outline-success" href="/user/signup">Зарегистрироваться</b-button>
-          <b-button variant="outline-success" href="/user/recovery">Восстановить пароль</b-button>
+          <b-button type="submit" variant="success mr-2">Восстановить</b-button>
         </b-form>
         <div v-if="error" class="alert alert-danger mt-4" role="alert">
           {{ error }}
@@ -52,10 +36,9 @@
 export default {
   data() {
     return {
-      title: 'Авторизация',
+      title: 'Восстановление пароля',
       form: {
         email: null,
-        password: null,
       },
       success: null,
       error: null,
@@ -70,9 +53,8 @@ export default {
     async onSubmit(evt) {
       evt.preventDefault();
 
-      await this.$axios.$post('user/sign-in/', {
-        email: this.form.email,
-        password: this.form.password
+      await this.$axios.$post('user/recovery/', {
+        email: this.form.email
       }).then((response) => {
         this.success = response.msg;
         this.error = null;
