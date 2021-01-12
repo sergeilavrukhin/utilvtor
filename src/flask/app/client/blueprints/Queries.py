@@ -13,6 +13,12 @@ def getQueries():
   queriesSchema = QueriesClientSchema(many=True)
   return jsonify(queriesSchema.dump(queries)), 200
 
+@app.route("/code/<int:id>")
+def getQueriesByCode(id):
+  queries = Queries.query.filter(Queries.fkko_id == id).all()
+  queriesSchema = QueriesClientSchema(many=True)
+  return jsonify(queriesSchema.dump(queries)), 200
+
 @app.route("/<int:id>")
 def getQuery(id):
   queries = Queries.query.filter(Queries.id == id).one_or_none()
