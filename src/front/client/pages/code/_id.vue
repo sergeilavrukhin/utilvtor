@@ -23,9 +23,9 @@
           <h2 v-if="!code.fkko.fkkoclass">Категория отхода (код: {{code.fkko.id}}) - {{code.fkko.name}}
            в себе содержит:</h2>
           <h4 v-if="code.fkko.fkkoclass">{{code.fkko.fkkoclass.id}} класс опасности отхода</h4>
-          <i v-if="code.fkko.fkkoclass">{{code.fkko.fkkoclass.name}}</i>
+          <i v-if="code.fkko.fkkoclass">{{code.fkko.fkkoclass.text}}</i>
           <h4 v-if="code.fkko.aggr">Агрегатное состояние и физические формы отхода</h4>
-          <i v-if="code.fkko.aggr">{{ code.fkko.aggr.name }}</i>
+          <i v-if="code.fkko.aggr">{{ code.fkko.aggr.text }}</i>
           <ul v-for="(item, index) in code.codes" :key="index">
             <li><b-link class="text-success" :href="`/code/${item.id}`">
             {{item.id}}</b-link> - {{item.name}}</li>
