@@ -60,7 +60,7 @@ export default {
       title: `${this.item.query_type.text} ${this.item.waste ? this.item.waste : ''} | ${this.item.fkko ? this.item.fkko.id : ''} утилизация, транспортирование, обезвреживание, покупка и продажа`,
       meta: [
         { hid: 'description', name: 'description',
-          content: `Заявка с типом ${this.item.query_type.text} по отходу ${this.item.waste} ${this.item.fkko ? this.item.fkko.id : ''}, так же вы можете найти заявки на утилизацию, транспортирование, обезвреживание, покупка и продажа`,
+          content: `Заявка с типом ${this.item.query_type.text} по отходу ${this.item.waste} ${this.item.fkko ? this.item.fkko.id : ''}, так же вы можете найти заявки на утилизацию, транспортирование, обезвреживание, покупку и продажу`,
         }
       ],
     }
