@@ -106,8 +106,14 @@ export default {
       '/user/**'
     ],
     routes: async () => {
-      const { data } = await axios.get(process.env.BASE_URL + '/api/client/code/map')
-      return data.map((code) => `/code/${code.id}`)
+      var { data } = await axios.get(process.env.BASE_URL + '/api/client/code/map')
+      var maps = data.map((code) => `/code/${code.id}`)
+
+      var { data } = await axios.get(process.env.BASE_URL + '/api/client/queries/map')
+      var queries = data.map((query) => `/queries/${query.id}`)
+      maps = maps.concat(queries)
+      console.log(maps)
+      return maps
     }
   },
 
