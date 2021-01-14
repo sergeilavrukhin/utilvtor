@@ -15,6 +15,7 @@
           <b-card-text>
             <ul>
               <li v-if="item.fkko"><b>Код отхода:</b> {{item.fkko.id}}</li>
+              <li v-if="item.waste"><b>Название отхода:</b> {{item.waste}}</li>
               <li><b>Адрес:</b> {{item.locality}}</li>
               <li><b>Количество:</b> {{item.count}} {{item.unit.text}}</li>
               <li v-if="item.fkko"><b>Класс опасности отхода:</b> {{item.fkko.fkkoclass.text}}</li>
@@ -62,3 +63,15 @@ export default {
   },
 };
 </script>
+
+<style>
+h1 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+</style>
