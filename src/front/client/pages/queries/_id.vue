@@ -18,9 +18,12 @@
               <li><b>Адрес:</b> {{item.locality}}</li>
               <li><b>Количество:</b> {{item.count}} {{item.unit.text}}</li>
               <li v-if="item.aggr"><b>Агрегатное состояние:</b> {{item.aggr.text}}</li>
-              <li><b>Автор:</b> доступно после регистрации</li>
-              <li><b>Телефон:</b> доступно после регистрации</li>
-              <li><b>Email:</b> доступно после регистрации</li>
+              <li><b>Автор:</b> <span v-if="!loggedIn">доступно после регистрации</span>
+              <span v-if="loggedIn">{{item.user.lastname}} {{item.user.firstname}} {{item.user.middlename}}</span></li>
+              <li><b>Телефон:</b> <span v-if="!loggedIn">доступно после регистрации</span>
+              <span v-if="loggedIn">{{item.user.phone}}</span></li>
+              <li><b>Email:</b> <span v-if="!loggedIn">доступно после регистрации</span>
+              <span v-if="loggedIn">{{item.user.email}}</span></li>
             </ul>
           </b-card-text>
         </b-card>
