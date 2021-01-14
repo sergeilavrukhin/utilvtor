@@ -16,6 +16,7 @@
               <li v-if="item.fkko"><b>Код отхода:</b> {{item.fkko.id}}</li>
               <li><b>Адрес:</b> {{item.locality}}</li>
               <li><b>Количество:</b> {{item.count}} {{item.unit.text}}</li>
+              <li v-if="item.fkko"><b>Класс опасности отхода:</b> {{item.fkko.fkkoclass.text}}</li>
               <li v-if="item.aggr"><b>Агрегатное состояние:</b> {{item.aggr.text}}</li>
             </ul>
           </b-card-text>

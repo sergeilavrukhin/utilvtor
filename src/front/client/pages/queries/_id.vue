@@ -17,6 +17,7 @@
               <li v-if="item.fkko"><b>Код отхода:</b> {{item.fkko.id}}</li>
               <li><b>Адрес:</b> {{item.locality}}</li>
               <li><b>Количество:</b> {{item.count}} {{item.unit.text}}</li>
+              <li v-if="item.fkko"><b>Класс опасности отхода:</b> {{item.fkko.fkkoclass.text}}</li>
               <li v-if="item.aggr"><b>Агрегатное состояние:</b> {{item.aggr.text}}</li>
               <li><b>Автор:</b> <span v-if="!loggedIn">доступно после регистрации</span>
               <span v-if="loggedIn">{{item.user.lastname}} {{item.user.firstname}} {{item.user.middlename}}</span></li>

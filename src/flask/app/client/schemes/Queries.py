@@ -14,7 +14,7 @@ class QueriesClientSchema(ModelSchema):
     aggr = fields.Nested(AggrClientSchema, only=("text",))
     query_type = fields.Nested(QueryTypeClientSchema, only=("text",))
     region = fields.Nested(RegionClientSchema, only=("text",))
-    fkko = fields.Nested(FkkoClientSchema, only=("id",))
+    fkko = fields.Nested(FkkoClientSchema, only=("id", "name", "fkkoclass"))
     user = fields.Nested(UserClientSchema, only=("id", "lastname", "middlename", "firstname", "email", "phone"))
     class Meta:
         model = Queries
