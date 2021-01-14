@@ -52,17 +52,16 @@ export default {
       loggedIn: this.$auth.loggedIn,
       item: null,
       contacts: null,
-      title: 'Заявки',
+      title: 'Заявка на утилизацию',
     };
   },
   head() {
     return {
-      title: this.title,
+      title: `${this.item.query_type.text} ${this.item.waste ? this.item.waste : ''} | ${this.item.fkko ? this.item.fkko.id : ''} утилизация, транспортирование, обезвреживание, покупка и продажа`,
     }
   },
 };
 </script>
-
 <style>
 h1 {
   font-size: 16px;
