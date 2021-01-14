@@ -15,7 +15,7 @@
           <b-card-text>
             <ul>
               <li v-if="item.fkko"><b>Код отхода:</b> {{item.fkko.id}}</li>
-              <li><b>Адрес:</b> {{item.locality}}</li>
+              <li><b>Адрес:</b> {{item.region.text}}, {{item.locality}}</li>
               <li><b>Количество:</b> {{item.count}} {{item.unit.text}}</li>
               <li v-if="item.fkko"><b>Класс опасности отхода:</b> {{item.fkko.fkkoclass.text}}</li>
               <li v-if="item.aggr"><b>Агрегатное состояние:</b> {{item.aggr.text}}</li>
@@ -57,10 +57,10 @@ export default {
   },
   head() {
     return {
-      title: `${this.item.query_type.text} ${this.item.waste ? this.item.waste : ''} | ${this.item.fkko ? this.item.fkko.id : ''} утилизация, транспортирование, обезвреживание, покупка и продажа`,
+      title: `${this.item.query_type.text} ${this.item.waste ? this.item.waste : ''} в ${this.item.region.text}, ${this.item.locality}| ${this.item.fkko ? this.item.fkko.id : ''} утилизация, транспортирование, обезвреживание, покупка и продажа`,
       meta: [
         { hid: 'description', name: 'description',
-          content: `Заявка с типом ${this.item.query_type.text} по отходу ${this.item.waste} ${this.item.fkko ? this.item.fkko.id : ''}, так же вы можете найти заявки на утилизацию, транспортирование, обезвреживание, покупку и продажу`,
+          content: `Заявка с типом ${this.item.query_type.text} по отходу ${this.item.waste} ${this.item.fkko ? this.item.fkko.id : ''} в ${this.item.region.text}, ${this.item.locality}, так же вы можете найти заявки на утилизацию, транспортирование, обезвреживание, покупку и продажу по всем регионам России`,
         }
       ],
     }

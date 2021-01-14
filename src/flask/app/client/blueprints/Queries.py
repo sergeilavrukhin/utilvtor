@@ -9,7 +9,7 @@ app = Blueprint('ClientQueries', __name__)
 
 @app.route("/")
 def getQueries():
-  queries = Queries.query.all()
+  queries = Queries.query.order_by(Queries.id.desc()).all()
   queriesSchema = QueriesClientSchema(many=True)
   return jsonify(queriesSchema.dump(queries)), 200
 
