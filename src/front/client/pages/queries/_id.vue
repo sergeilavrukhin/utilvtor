@@ -5,7 +5,7 @@
       <div class="col-md-12 pl-4 pr-4 pt-4">
         <router-link class="text-success" :to="`/queries`">Заявки</router-link>
         <span> &raquo; </span>
-        <h1 v-if="item">{{item.query_type.name}} {{item.waste}} {{item.fkko.id}}</h1>
+        <h1 v-if="item">{{item.query_type.name}} {{item.waste}} <span v-if="item.fkko">{{item.fkko.id}}</span></h1>
       </div>
     </div>
     <div class="row m-0">
