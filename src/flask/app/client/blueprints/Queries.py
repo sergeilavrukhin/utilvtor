@@ -55,18 +55,17 @@ def createQuery():
   fkko = None
   if isinstance(json["fkko"], int):
     fkko = Fkko.query.filter(Fkko.id == int(json["fkko"])).one_or_none()
+
   if fkko:
     aggr = fkko.aggr
-    waste = fkko.name
   else:
     aggr = None
-    waste = json["fkko"]
 
   query_type = QueryType.query.filter(QueryType.id == json["query_type"]).one_or_none()
   unit = Unit.query.filter(Unit.id == json["bu"]).one_or_none()
   region = Region.query.filter(Region.id == json["region"]).one_or_none()
 
-  req = Queries(fkko, unit, aggr, user, query_type, region, waste, json["count"], json["address"], 0)
+  req = Queries(fkko, unit, aggr, user, query_type, region, json["waste"], json["count"], json["address"], 0)
   db.session.add(req)
 
   db.session.commit()

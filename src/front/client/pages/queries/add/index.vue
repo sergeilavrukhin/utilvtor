@@ -44,7 +44,7 @@
 
           <b-form-group
             id="input-group-2"
-            label="Код ФККО или название отхода:*"
+            label="Код ФККО:"
             label-for="fkko"
           >
             <vue-autosuggest
@@ -60,6 +60,19 @@
               </vue-autosuggest>
           </b-form-group>
 
+          <b-form-group
+            id="input-group-2"
+            label="Название отхода:*"
+            label-for="waste"
+          >
+            <b-form-input
+              id="waste"
+              v-model="form.waste"
+              type="text"
+              required
+              placeholder="Название отхода"
+            ></b-form-input>
+          </b-form-group>
 
           <b-form-group
             id="input-group-2"
@@ -224,6 +237,7 @@ export default {
         region: null,
         address: '',
         fkko: '',
+        waste: '',
         count: '',
         bu: null,
       },
@@ -245,6 +259,7 @@ export default {
   methods: {
     onSelected(item) {
       this.form.fkko = item.item.id;
+      this.form.waste = item.item.name;
     },
 
     getSuggestionValue(suggestion) {
@@ -273,6 +288,7 @@ export default {
         query_type: this.form.query_type,
         address: this.form.address,
         fkko: this.form.fkko,
+        waste: this.form.waste,
         count: this.form.count,
         bu: this.form.bu,
         region: this.form.region,
@@ -313,7 +329,7 @@ export default {
 }
 
 #autosuggest {
-  width: 95%;
+  width: 100%;
   background-color: #fff;
   z-index: 9999;
 }
