@@ -7,7 +7,7 @@
         <span> &raquo; </span>
         <span v-for="(item, index) in code.breadcrumb" :key="index">
         <router-link class="text-success"
-        :to="`/code/${item.id}/`">{{item.name}}</router-link> &raquo;
+        :to="`/code/${item.id}`">{{item.name}}</router-link> &raquo;
         </span> <h1>{{code.fkko.name}}</h1>
       </b-col>
     </b-row>

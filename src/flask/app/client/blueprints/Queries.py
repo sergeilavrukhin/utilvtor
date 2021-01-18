@@ -36,7 +36,6 @@ def getQuery(id):
 @jwt_optional
 def createQuery():
   current_user = get_jwt_identity()
-  print(current_user)
 
   password = gen_password()
   json = request.get_json()
