@@ -6,8 +6,8 @@ import random
 
 def gen_password():
   password = ''
-  for x in range(10):  # Количество символов (16)
-    password = password + random.choice(list('1234567890abcdefghigklmnopqrstuvyxwzABCDEFGHIGKLMNOPQRSTUVYXWZ'))
+  for x in range(6):  # Количество символов (16)
+    password = password + random.choice(list('23456789abcdefghjkmnopqrstuvyxwzABCDEFGHJKLMNPQRSTUVYXWZ'))
   return password
 
 def send_message_over_smtp_server(msg):
