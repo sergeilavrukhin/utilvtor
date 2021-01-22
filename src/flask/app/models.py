@@ -183,3 +183,54 @@ class Queries(db.Model):
   def setDateExpiry(self, date_expiry):
     if date_expiry != 0:
       self.date_expiry = date_expiry
+
+class Queries(db.Model):
+  __tablename__ = "queries"
+  id = Column(Integer, primary_key=True)
+  moderation = Column(Integer)
+
+  fkko_id = Column("fkko_id", BigInteger, db.ForeignKey('fkko.id'))
+  fkko = db.relationship("Fkko")
+
+  waste = Column(String(255))
+  region_id = Column("region_id", Integer, db.ForeignKey('regions.id'))
+  region = db.relationship("Region")
+  locality = Column(String(255))
+  count = Column(Float)
+  date_create = Column(DateTime, default=datetime.datetime.utcnow)
+  date_expiry = Column(DateTime, default=datetime.datetime.utcnow)
+
+  unit_id = Column("unit_id", Integer, db.ForeignKey('units.id'))
+  unit = db.relationship("Unit")
+
+  aggr_id = Column("aggr_id", Integer, db.ForeignKey('aggregations.id'))
+  aggr = db.relationship("Aggregation")
+
+  user_id = Column("user_id", Integer, db.ForeignKey('users.id'))
+  user = db.relationship("User")
+
+  query_type_id = Column("query_type_id", Integer, db.ForeignKey('query_type.id'))
+  query_type = db.relationship("QueryType")
+
+
+class Companies(db.Model):
+  __tablename__ = "companies"
+  id = Column(Integer, primary_key=True)
+
+  name = Column(String(255))
+  itn = Column(String(12))
+  # широта
+  latitude = db.Column("latitude", db.String(20), nullable=False)
+  # долгота
+  longitude = db.Column("longitude", db.String(20), nullable=False)
+
+  region_id = Column("region_id", Integer, db.ForeignKey('regions.id'))
+  region = db.relationship("Region")
+
+  def setCoordinates(self, latitude, longitude):
+    if latitude.strip() == '':
+      latitude = "0.0"
+    if longitude.strip() == '':
+      longitude = "0.0"
+    self.latitude = latitude.strip()
+    self.longitude = longitude.strip()
