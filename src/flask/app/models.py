@@ -7,6 +7,7 @@ class Region(db.Model):
   __tablename__ = "regions"
   id = Column(Integer, primary_key=True)
   text = Column(String(255))
+  url = Column(String(255))
 
 class User(db.Model):
   __tablename__ = "users"
@@ -184,34 +185,6 @@ class Queries(db.Model):
     if date_expiry != 0:
       self.date_expiry = date_expiry
 
-class Queries(db.Model):
-  __tablename__ = "queries"
-  id = Column(Integer, primary_key=True)
-  moderation = Column(Integer)
-
-  fkko_id = Column("fkko_id", BigInteger, db.ForeignKey('fkko.id'))
-  fkko = db.relationship("Fkko")
-
-  waste = Column(String(255))
-  region_id = Column("region_id", Integer, db.ForeignKey('regions.id'))
-  region = db.relationship("Region")
-  locality = Column(String(255))
-  count = Column(Float)
-  date_create = Column(DateTime, default=datetime.datetime.utcnow)
-  date_expiry = Column(DateTime, default=datetime.datetime.utcnow)
-
-  unit_id = Column("unit_id", Integer, db.ForeignKey('units.id'))
-  unit = db.relationship("Unit")
-
-  aggr_id = Column("aggr_id", Integer, db.ForeignKey('aggregations.id'))
-  aggr = db.relationship("Aggregation")
-
-  user_id = Column("user_id", Integer, db.ForeignKey('users.id'))
-  user = db.relationship("User")
-
-  query_type_id = Column("query_type_id", Integer, db.ForeignKey('query_type.id'))
-  query_type = db.relationship("QueryType")
-
 
 class Companies(db.Model):
   __tablename__ = "companies"
@@ -220,12 +193,19 @@ class Companies(db.Model):
   name = Column(String(255))
   itn = Column(String(12))
   # широта
-  latitude = db.Column("latitude", db.String(20), nullable=False)
+  latitude = Column(String(20), nullable=True)
   # долгота
-  longitude = db.Column("longitude", db.String(20), nullable=False)
+  longitude = Column(String(20), nullable=True)
 
   region_id = Column("region_id", Integer, db.ForeignKey('regions.id'))
   region = db.relationship("Region")
+
+  phones = Column(String(600))
+  emails = Column(String(600))
+  site = Column(String(255))
+  activity = Column(String(600))
+  locality = Column(String(600))
+  gps = Column(String(255))
 
   def setCoordinates(self, latitude, longitude):
     if latitude.strip() == '':

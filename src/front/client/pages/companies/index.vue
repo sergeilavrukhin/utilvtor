@@ -46,7 +46,7 @@ export default {
   methods: {
     getActivity: (activities, val) => activities[val],
     async loadCompanies() {
-      await this.$http.get('companies/').then((response) => {
+      await this.$axios.get('https://wastecation.ru/api/client/companies/').then((response) => {
         this.companies = response.data.companies;
       }).catch((error) => {
         console.log(error);

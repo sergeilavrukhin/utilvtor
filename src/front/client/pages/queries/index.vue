@@ -22,6 +22,9 @@
           </b-card-text>
           <router-link :to="`queries/${item.id}`" class="text-success">Посмотреть</router-link>
         </b-card>
+        <b-card v-if="queries.length == 0">
+          Заявки не найдены
+        </b-card>
       </div>
       <div class="col-md-4">
         <b-card title="Фильтрация:"
