@@ -3,16 +3,16 @@
     <navbar></navbar>
     <div class="row">
       <div class="col-md-12 p-4">
-        <b-card v-for="(item, index) in companies" :key="index" class="mt-3 mb-3">
+        <b-card v-for="(item, index) in regions" :key="index" class="mt-3 mb-3">
           <b-card-text>
-            <a :href="`${item.uri}/`" class="text-dark"><h2>{{item.name}}</h2></a>
+            <a :href="`companies/region/${item.url}/`" class="text-dark"><h2>{{item.text}}</h2></a>
             <i>Актуальное количество фирм, которое занимается обращением с отходами</i>
-            <ul class="activity">
+            <ul class="activity" v-if="item.activity">
               <li v-for="(c_item, c_index) in item.activity" :key="c_index">
               {{getActivity(activities, c_index)}}: {{c_item}}
               </li>
             </ul>
-            <h6 class="mt-2">Статистика по отходам в регионе <span>{{item.name}}</span></h6>
+            <h6 class="mt-2">Статистика по отходам в регионе <span>{{item.text}}</span></h6>
           </b-card-text>
         </b-card>
       </div>
@@ -23,16 +23,18 @@
 
 <script>
 export default {
-  name: 'Utilisation',
-  metaInfo() {
-    return {
-      title: this.title,
-    };
+  async asyncData({ $axios }) {
+    const regions = await $axios.$get('regions/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    return { regions }
   },
   data() {
     return {
       title: 'Организации занимающиеся утилизацией, переработкой, транспортировкой, обезвреживанием отходов, покупкой и продажей вторсырья',
-      companies: null,
+      regions: null,
       activities: {
         processing: 'Переработка',
         collection: 'Хранение',
@@ -43,18 +45,13 @@ export default {
       },
     };
   },
+  head() {
+    return {
+      title: this.title,
+    }
+  },
   methods: {
     getActivity: (activities, val) => activities[val],
-    async loadCompanies() {
-      await this.$axios.get('https://wastecation.ru/api/client/companies/').then((response) => {
-        this.companies = response.data.companies;
-      }).catch((error) => {
-        console.log(error);
-      });
-    },
-  },
-  async created() {
-    this.loadCompanies();
   },
 };
 </script>

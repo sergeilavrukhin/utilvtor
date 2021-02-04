@@ -2,7 +2,7 @@
   <div class="container">
     <navbar></navbar>
     <br />
-    <center><h1>{{title}}</h1></center>
+    <center><h1>{{company.name}}</h1></center>
     <div class="row">
       <div class="col-md-12 p-4" style="width: 100%; height: 300px;">
         <yandex-map
@@ -35,21 +35,13 @@
                смогут откликнуться на него
             </small>
             <br />
-            <center><b-button class="m-3" variant="outline-success" to="/create/">
+            <center><b-button class="m-3" variant="outline-success" to="/user/signup">
               Зарегистрироваться
             </b-button>
-            <h2>Оставьте заявку на обращение с отходами в {{title}}
+            <h2>Оставьте заявку на обращение с отходами в {{company.name}}
              и другие похожие организации</h2>
-              <b-button class="m-3" variant="success" to="/request/">Разместить заявку</b-button>
+              <b-button class="m-3" variant="success" to="/queries/add">Разместить заявку</b-button>
             </center>
-          </b-card-text>
-        </b-card>
-        <b-card class="mt-3 mb-3" :title="`Лицензии на обработку отходов у ${title}`">
-          <b-card-text>
-            <ul v-for="(item, index) in codes" :key="index">
-              <li><a class="text-success" :href="`/code/${item.id}/`">
-              Код ФККО {{item.id}}</a><br />{{item.name}}</li>
-            </ul>
           </b-card-text>
         </b-card>
       </div>
@@ -60,18 +52,20 @@
 
 <script>
 export default {
-  name: 'UtilisationArea',
-  metaInfo() {
-    return {
-      title: this.title,
-    };
+  async asyncData({ params, $axios }) {
+    const company = await $axios.$get(`companies/${params.id}/`).then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    const coords = [company.gps.long, company.gps.lat];
+    console.log(coords);
+    return { company, coords }
   },
   data() {
     return {
-      title: 'Организации занимающиеся утилизацией, переработкой, транспортировкой, обезвреживанием отходов, покупкой и продажей вторсырья',
-      companies: null,
+      company: null,
       coords: null,
-      codes: null,
       activities: {
         processing: 'Переработка',
         collection: 'Хранение',
@@ -82,20 +76,25 @@ export default {
       },
     };
   },
+  head() {
+    return {
+      title: `${this.company.name}`,
+    }
+  },
   methods: {
     getActivity: (activities, val) => activities[val],
-    async loadPartner() {
-      await this.$http.get(`partner/${this.$route.params.id}/`).then((response) => {
-        this.coords = [response.data.coords.long, response.data.coords.lat];
-        this.title = response.data.entity;
-        this.codes = response.data.codes;
-      }).catch((error) => {
-        console.log(error);
-      });
-    },
-  },
-  async created() {
-    this.loadPartner();
   },
 };
 </script>
+
+<style>
+h1 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+</style>

@@ -20,7 +20,8 @@
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
     "v-mask": "^2.2.3",
-    "vue-autosuggest": "^2.2.0"
+    "vue-autosuggest": "^2.2.0",
+    "vue-yandex-maps": "^0.10.9"
   },
   "devDependencies": {},
   "config": {

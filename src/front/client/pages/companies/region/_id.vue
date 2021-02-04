@@ -7,10 +7,10 @@
           <b-card-text>
             <div class="row">
               <div class="col-md-3">
-                <img :src="`https://static-maps.yandex.ru/1.x/?ll=${item.geo.lat},${item.geo.long}&amp;z=10&amp;l=map&amp;size=240,160`">
+                <img :src="`https://static-maps.yandex.ru/1.x/?ll=${item.gps.lat},${item.gps.long}&amp;z=10&amp;l=map&amp;size=240,160`">
               </div>
               <div class="col-md-9">
-                <a :href="`/partner/${item.id}`" class="text-dark"><h2>{{item.name}}</h2></a>
+                <a :href="`/companies/${item.id}`" class="text-dark"><h2>{{item.name}}</h2></a>
                 <i>{{item.address}}</i>
                 <ul class="activity">
                   <li v-for="(c_item, c_index) in item.activity" :key="c_index">
@@ -40,11 +40,13 @@
 
 <script>
 export default {
-  name: 'UtilisationArea',
-  metaInfo() {
-    return {
-      title: this.title,
-    };
+  async asyncData({ params, $axios }) {
+    const companies = await $axios.$get(`companies/${params.id}/`).then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    return { companies }
   },
   data() {
     return {
@@ -58,24 +60,15 @@ export default {
         utilization: 'Утилизация',
         disposal: 'Захоронение',
       },
-      area: null,
-      city: null,
     };
+  },
+  head() {
+    return {
+      title: this.title,
+    }
   },
   methods: {
     getActivity: (activities, val) => activities[val],
-    async loadCompanies() {
-      await this.$http.get(`companies/${this.$route.params.area}/${this.$route.params.city}/`).then((response) => {
-        this.companies = response.data.companies;
-        this.area = response.data.area;
-        this.city = response.data.city;
-      }).catch((error) => {
-        console.log(error);
-      });
-    },
-  },
-  async created() {
-    this.loadCompanies();
   },
 };
 </script>

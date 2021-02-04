@@ -14,11 +14,13 @@ def create_backend_app():
   from .client.blueprints.Queries import app as Queries
   from .client.blueprints.Fkko import app as Fkko
   from .client.blueprints.User import app as User
+  from .client.blueprints.Companies import app as Companies
   root_client_api = "/api/client/"
   app.register_blueprint(Regions, url_prefix=root_client_api + "regions")
   app.register_blueprint(Queries, url_prefix=root_client_api + "queries")
   app.register_blueprint(Fkko, url_prefix=root_client_api + "code")
   app.register_blueprint(User, url_prefix=root_client_api + "user")
+  app.register_blueprint(Companies, url_prefix=root_client_api + "companies")
 
 
   return app

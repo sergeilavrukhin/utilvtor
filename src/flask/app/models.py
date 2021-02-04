@@ -8,6 +8,7 @@ class Region(db.Model):
   id = Column(Integer, primary_key=True)
   text = Column(String(255))
   url = Column(String(255))
+  activity = Column(String(600))
 
 class User(db.Model):
   __tablename__ = "users"

@@ -23,6 +23,7 @@ export default {
   plugins: [
     '@plugins/v-mask',
     '@plugins/v-autocomplete',
+    '@plugins/ymapPlugin',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
