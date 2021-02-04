@@ -34,14 +34,13 @@
 
           <b-form-group
             id="input-group-1"
-            label="*Отчество:"
+            label="Отчество:"
             label-for="middlename"
           >
             <b-form-input
               id="middlename"
               v-model="form.middlename"
               type="text"
-              required
               placeholder="Отчество"
             ></b-form-input>
           </b-form-group>

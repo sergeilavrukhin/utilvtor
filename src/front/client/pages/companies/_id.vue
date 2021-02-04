@@ -4,22 +4,10 @@
     <br />
     <center><h1>{{company.name}}</h1></center>
     <div class="row">
-      <div class="col-md-12 p-4" style="width: 100%; height: 300px;">
-        <yandex-map
-          v-if="coords"
-          :coords="coords"
-          :zoom="10"
-        >
-          <ymap-marker
-            :coords="coords"
-            marker-id="123"
-            hint-content="some hint"
-          />
-        </yandex-map>
+      <div class="col-md-4 p-4" style="width: 100%; height: 300px;">
+        <img :src="`https://static-maps.yandex.ru/1.x/?ll=${company.gps.lat},${company.gps.long}&amp;z=10&amp;l=map&amp;size=300,250`">
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 p-4">
+      <div class="col-md-8 p-4">
         <b-card class="mt-3 mb-3" title="Контакты">
           <b-card-text>
             <ul>
@@ -28,6 +16,14 @@
               <li>Электронная почта: Нет данных</li>
               <li>Сайт: Нет данных</li>
             </ul>
+          </b-card-text>
+        </b-card>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <b-card class="mt-3 mb-3">
+          <b-card-text>
             <small>
               Вы можете зарегистрироваться, получить доступ к контактам и связаться
                с организацией самостоятельно.Либо разместить бесплатную заявку и утилизаторы,

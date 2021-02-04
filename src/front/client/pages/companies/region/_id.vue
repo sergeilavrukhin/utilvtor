@@ -72,3 +72,16 @@ export default {
   },
 };
 </script>
+
+
+<style>
+h1 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+</style>
