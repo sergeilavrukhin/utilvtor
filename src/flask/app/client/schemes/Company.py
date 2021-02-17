@@ -68,13 +68,25 @@ class CompanyClientShortSchema(ModelSchema):
             return None
 
     def getPhones(self, el):
-        return "reg"
+        if el.phones != None:
+            return "reg"
+        else:
+            return None
 
     def getEmails(self, el):
-        return "reg"
+        if el.emails != None:
+            return "reg"
+        else:
+            return None
 
     def getSite(self, el):
-        return "reg"
+        if el.site != None:
+            return "reg"
+        else:
+            return None
 
     def getLocality(self, el):
-        return "reg"
+        if el.locality != None:
+            return "reg"
+        else:
+            return None

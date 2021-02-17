@@ -11,19 +11,26 @@
         <b-card class="mt-3 mb-3" title="Контакты">
           <b-card-text>
             <ul>
-              <span v-if="company.locality == 'reg'">Для просмотра контактных данных необходимо <a href="/user/signup/">зарегистрироваться</a></span>
               <li v-if="company.locality">Адрес:
+                <span v-if="company.locality == 'reg'">Доступно после <a href="/user/signup/">регистрации</a></span>
                 <span v-if="company.locality != 'reg'">{{company.locality}}</span>
               </li>
+              <li v-if="!company.locality">Адрес: Нет данных</li>
               <li v-if="company.phones">Телефоны:
+                <span v-if="company.phones == 'reg'">Доступно после <a href="/user/signup/">регистрации</a></span>
                 <span v-if="company.phones != 'reg'">{{company.phones.join(', ')}}</span>
               </li>
+              <li v-if="!company.phones">Телефоны: Нет данных</li>
               <li v-if="company.emails">Электронная почта:
+                <span v-if="company.emails == 'reg'">Доступно после <a href="/user/signup/">регистрации</a></span>
                 <span v-if="company.emails != 'reg'">{{company.emails.join(', ')}}</span>
               </li>
+              <li v-if="!company.emails">Электронная почта: Нет данных</li>
               <li v-if="company.site">Сайт:
+                <span v-if="company.site == 'reg'">Доступно после <a href="/user/signup/">регистрации</a></span>
                 <span v-if="company.site != 'reg'">{{company.site}}</span>
               </li>
+              <li v-if="!company.site">Сайт: Нет данных</li>
             </ul>
           </b-card-text>
         </b-card>
