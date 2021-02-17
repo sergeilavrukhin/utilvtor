@@ -1,6 +1,12 @@
 <template>
   <div class="container">
     <navbar></navbar>
+    <b-row>
+      <b-col class="pl-4 pr-4 pt-4">
+        <b-link class="text-success" href="/companies">Компании</b-link>
+        <span> &raquo; </span><h1>{{region_name}}</h1>
+      </b-col>
+    </b-row>
     <div class="row">
       <div class="col-md-12 p-4">
         <b-pagination-nav :link-gen="linkGen" :number-of-pages="nofp" align="center"></b-pagination-nav>
@@ -32,23 +38,22 @@
 <script>
 export default {
   async asyncData({ params, $axios }) {
-    const companies = await $axios.$get(`companies/${params.region}/page/${params.id}/`).then((response) => {
+    const region = await $axios.$get(`companies/${params.region}/page/${params.id}/`).then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);
     });
-    const nofp = await $axios.$get(`companies/${params.region}/count/`).then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    });
-    return { companies, nofp }
+    const companies = region.companies;
+    const nofp = region.count;
+    const region_name = region.name;
+    return { companies, nofp, region_name }
   },
   data() {
     return {
       title: 'Организации занимающиеся утилизацией, переработкой, транспортировкой, обезвреживанием отходов, покупкой и продажей вторсырья',
       companies: null,
       nofp: 10,
+      region_name: null,
       activities: {
         processing: 'Переработка',
         collection: 'Хранение',
