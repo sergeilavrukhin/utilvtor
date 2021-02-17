@@ -5,3 +5,4 @@ from flask_redis import FlaskRedis
 db = SQLAlchemy()
 jwt = JWTManager()
 redis = FlaskRedis()
+POSTS_PER_PAGE = 10

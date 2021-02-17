@@ -32,12 +32,12 @@
 <script>
 export default {
   async asyncData({ params, $axios }) {
-    const companies = await $axios.$get(`companies/${params.id}/`).then((response) => {
+    const companies = await $axios.$get(`companies/${params.region}/page/${params.id}/`).then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);
     });
-    const nofp = await $axios.$get(`companies/${params.id}/count/`).then((response) => {
+    const nofp = await $axios.$get(`companies/${params.region}/count/`).then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);
@@ -67,7 +67,7 @@ export default {
   methods: {
     getActivity: (activities, val) => activities[val],
     linkGen(pageNum) {
-      return pageNum === 1 ? `/companies/region/${this.$route.params.id}/` : `/companies/region/${this.$route.params.id}/page/${pageNum}/`
+      return pageNum === 1 ? `/companies/region/${this.$route.params.region}/` : `/companies/region/${this.$route.params.region}/page/${pageNum}/`
     }
   },
 };
