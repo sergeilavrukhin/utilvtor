@@ -1,7 +1,8 @@
 from app.models import Region, Companies
 from flask import Blueprint, jsonify
-from app.client.schemes.Company import CompanyClientSchema
+from app.client.schemes.Company import CompanyClientSchema, CompanyClientShortSchema
 from app.globals import db, POSTS_PER_PAGE
+from flask_jwt_extended import jwt_optional, get_jwt_identity
 import math
 
 app = Blueprint('ClientCompanies', __name__)
@@ -19,7 +20,12 @@ def getCompaniesByRegion(region, page = 1):
     return jsonify({"msg": "Регион не найден"}), 403
 
 @app.route("/<int:c_id>/")
+@jwt_optional
 def getCompany(c_id):
+  current_user = get_jwt_identity()
   dict = Companies.query.filter_by(id = c_id).one_or_none()
-  dictSchema = CompanyClientSchema()
+  if current_user:
+    dictSchema = CompanyClientSchema()
+  else:
+    dictSchema = CompanyClientShortSchema()
   return jsonify(dictSchema.dump(dict)), 200

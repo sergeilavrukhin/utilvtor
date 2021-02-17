@@ -27,6 +27,7 @@ def getQueriesByCode(id):
   return jsonify(queriesSchema.dump(queries)), 200
 
 @app.route("/<int:id>")
+@jwt_optional
 def getQuery(id):
   queries = Queries.query.filter(Queries.id == id).one_or_none()
   queriesSchema = QueriesClientSchema()

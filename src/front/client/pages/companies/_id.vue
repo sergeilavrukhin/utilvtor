@@ -11,10 +11,21 @@
         <b-card class="mt-3 mb-3" title="Контакты">
           <b-card-text>
             <ul>
-              <li>Контактное лицо: Нет данных</li>
-              <li>Телефон: Нет данных</li>
-              <li>Электронная почта: Нет данных</li>
-              <li>Сайт: Нет данных</li>
+              <li v-if="company.phones">Телефоны:
+                <span v-if="company.phones == 'reg'">Для просмотра необходимо <a href="/user/signup/">зарегистрироваться</a></span>
+                <span v-if="company.phones != 'reg'">{{company.phones.join(', ')}}</span>
+              </li>
+              <li v-if="!company.phones">Телефоны: Нет данных</li>
+              <li v-if="company.emails">Электронная почта:
+                <span v-if="company.emails == 'reg'">Для просмотра необходимо <a href="/user/signup/">зарегистрироваться</a></span>
+                <span v-if="company.emails != 'reg'">{{company.emails.join(', ')}}</span>
+              </li>
+              <li v-if="!company.emails">Электронная почта: Нет данных</li>
+              <li v-if="company.site">Сайт:
+                <span v-if="company.site == 'reg'">Для просмотра необходимо <a href="/user/signup/">зарегистрироваться</a></span>
+                <span v-if="company.site != 'reg'">{{company.site}}</span>
+              </li>
+              <li v-if="!company.site">Сайт: Нет данных</li>
             </ul>
           </b-card-text>
         </b-card>
@@ -92,5 +103,9 @@ h1 {
 h2 {
   font-size: 15px;
   text-transform: uppercase;
+}
+
+a {
+    color: #28a745;
 }
 </style>
