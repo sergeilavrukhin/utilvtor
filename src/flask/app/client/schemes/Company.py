@@ -47,6 +47,7 @@ class CompanyClientShortSchema(ModelSchema):
     emails = fields.Method("getEmails")
     phones = fields.Method("getPhones")
     site = fields.Method("getSite")
+    locality = fields.Method("getLocality")
 
     class Meta:
         model = Companies
@@ -73,4 +74,7 @@ class CompanyClientShortSchema(ModelSchema):
         return "reg"
 
     def getSite(self, el):
+        return "reg"
+
+    def getLocality(self, el):
         return "reg"
