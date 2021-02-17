@@ -186,7 +186,6 @@ class Queries(db.Model):
     if date_expiry != 0:
       self.date_expiry = date_expiry
 
-
 class Companies(db.Model):
   __tablename__ = "companies"
   id = Column(Integer, primary_key=True)
@@ -215,3 +214,13 @@ class Companies(db.Model):
       longitude = "0.0"
     self.latitude = latitude.strip()
     self.longitude = longitude.strip()
+
+
+class CompaniesWaste(db.Model):
+  __tablename__ = "waste_c"
+  id = Column(Integer, primary_key=True)
+  itn = Column(String(12))
+  activity = Column(String(600))
+
+  fkko_id = Column("fkko_id", BigInteger, db.ForeignKey('fkko.id'))
+  fkko = db.relationship("Fkko")
