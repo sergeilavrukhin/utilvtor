@@ -1,5 +1,6 @@
 from marshmallow_sqlalchemy import ModelSchema
 from app.models import Companies
+from app.client.schemes.Region import RegionClientSchema
 from marshmallow import fields
 import json
 
@@ -9,6 +10,7 @@ class CompanyClientSchema(ModelSchema):
     gps = fields.Method("getGPS")
     emails = fields.Method("getEmails")
     phones = fields.Method("getPhones")
+    region = fields.Nested(RegionClientSchema, only=('text', 'url'))
 
     class Meta:
         model = Companies
@@ -48,6 +50,7 @@ class CompanyClientShortSchema(ModelSchema):
     phones = fields.Method("getPhones")
     site = fields.Method("getSite")
     locality = fields.Method("getLocality")
+    region = fields.Nested(RegionClientSchema, only=('text', 'url'))
 
     class Meta:
         model = Companies

@@ -1,6 +1,15 @@
 <template>
   <div class="container">
     <navbar></navbar>
+    <b-row>
+      <b-col class="pl-4 pr-4 pt-4">
+        <b-link class="text-success" href="/companies">Компании</b-link>
+        <span> &raquo; </span>
+        <b-link class="text-success" :href="`/companies/region/${company.region.url}`">{{ company.region.text }}</b-link>
+        <span> &raquo; </span>
+        <span class="uppercase">{{company.name}}</span>
+      </b-col>
+    </b-row>
     <br />
     <center><h1>{{company.name}}</h1></center>
     <div class="row">
@@ -71,7 +80,6 @@ export default {
       console.log(error);
     });
     const coords = [company.gps.long, company.gps.lat];
-    console.log(coords);
     return { company, coords }
   },
   data() {
@@ -107,6 +115,10 @@ h1 {
 
 h2 {
   font-size: 15px;
+  text-transform: uppercase;
+}
+
+.uppercase {
   text-transform: uppercase;
 }
 
