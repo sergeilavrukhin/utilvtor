@@ -93,3 +93,16 @@ class CompanyClientShortSchema(ModelSchema):
             return "reg"
         else:
             return None
+
+
+class CompanyWasteSchema(ModelSchema):
+    gps = fields.Method("getGPS")
+
+    class Meta:
+        model = Companies
+
+    def getGPS(self, el):
+        if el.gps:
+            return json.loads(el.gps)
+        else:
+            return None

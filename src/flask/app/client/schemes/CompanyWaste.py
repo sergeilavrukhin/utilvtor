@@ -1,7 +1,7 @@
 from marshmallow_sqlalchemy import ModelSchema
 from app.models import CompaniesWaste
 from app.client.schemes.Fkko import FkkoClientSchema
-from app.client.schemes.Company import CompanyClientShortSchema
+from app.client.schemes.Company import CompanyWasteSchema
 from marshmallow import fields
 from app.globals import db
 import app.models as models
@@ -35,6 +35,5 @@ class CompanyByWasteClientSchema(ModelSchema):
     def getCompany(self, el):
         itn = el.itn
         company = db.session.query(models.Companies).filter(models.Companies.itn == itn).one_or_none()
-        schema = CompanyClientShortSchema()
-        print(schema.dump(company))
+        schema = CompanyWasteSchema()
         return schema.dump(company)
