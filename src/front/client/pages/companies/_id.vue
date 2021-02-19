@@ -21,22 +21,22 @@
           <b-card-text>
             <ul>
               <li v-if="company.locality">Адрес:
-                <span v-if="company.locality == 'reg'">Доступно после <a href="/user/signup/">регистрации</a></span>
+                <span v-if="company.locality == 'reg'">Доступно после <a href="/user/signup">регистрации</a></span>
                 <span v-if="company.locality != 'reg'">{{company.locality}}</span>
               </li>
               <li v-if="!company.locality">Адрес: Нет данных</li>
               <li v-if="company.phones">Телефоны:
-                <span v-if="company.phones == 'reg'">Доступно после <a href="/user/signup/">регистрации</a></span>
+                <span v-if="company.phones == 'reg'">Доступно после <a href="/user/signup">регистрации</a></span>
                 <span v-if="company.phones != 'reg'">{{company.phones.join(', ')}}</span>
               </li>
               <li v-if="!company.phones">Телефоны: Нет данных</li>
               <li v-if="company.emails">Электронная почта:
-                <span v-if="company.emails == 'reg'">Доступно после <a href="/user/signup/">регистрации</a></span>
+                <span v-if="company.emails == 'reg'">Доступно после <a href="/user/signup">регистрации</a></span>
                 <span v-if="company.emails != 'reg'">{{company.emails.join(', ')}}</span>
               </li>
               <li v-if="!company.emails">Электронная почта: Нет данных</li>
               <li v-if="company.site">Сайт:
-                <span v-if="company.site == 'reg'">Доступно после <a href="/user/signup/">регистрации</a></span>
+                <span v-if="company.site == 'reg'">Доступно после <a href="/user/signup">регистрации</a></span>
                 <span v-if="company.site != 'reg'">{{company.site}}</span>
               </li>
               <li v-if="!company.site">Сайт: Нет данных</li>
@@ -65,6 +65,18 @@
             </center>
           </b-card-text>
         </b-card>
+
+        <b-card v-for="(item, index) in codes" :key="index" class="mt-3 mb-3">
+          <b-card-text>
+            <i>Код ФККО: {{item.fkko.id}}</i>
+            <a :href="`/code/${item.fkko.id}`" class="text-dark"><h2>{{item.fkko.name}}</h2></a>
+            <ul class="activity" v-if="item.activity">
+              <li v-for="(c_item, c_index) in item.activity" :key="c_index">
+              {{getActivity(activities, c_item)}}
+              </li>
+            </ul>
+          </b-card-text>
+        </b-card>
       </div>
     </div>
     <cmp-footer></cmp-footer>
@@ -79,13 +91,19 @@ export default {
     }).catch((error) => {
       console.log(error);
     });
+    const codes = await $axios.$get(`companies/fkkolist/${params.id}/`).then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
     const coords = [company.gps.long, company.gps.lat];
-    return { company, coords }
+    return { company, coords, codes }
   },
   data() {
     return {
       company: null,
       coords: null,
+      codes: null,
       activities: {
         processing: 'Переработка',
         collection: 'Хранение',

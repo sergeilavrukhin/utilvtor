@@ -18,7 +18,6 @@
               </div>
               <div class="col-md-9">
                 <a :href="`/companies/${item.id}`" class="text-dark"><h2>{{item.name}}</h2></a>
-                <i>{{item.address}}</i>
                 <ul class="activity">
                   <li v-for="(c_item, c_index) in item.activity" :key="c_index">
                   {{getActivity(activities, c_item)}}

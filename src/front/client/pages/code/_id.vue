@@ -34,6 +34,19 @@
         </b-card>
      </b-col>
     </b-row>
+    <b-row>
+      <b-col align="center">
+        <h2>Топ 3 компании работающие с данным видом отходов:</h2>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-card v-for="(item, index) in companies" :key="index" class="m-5" style="width: 280px;">
+        <b-card-text align="center">
+          <img :src="`https://static-maps.yandex.ru/1.x/?ll=${item.company.gps.lat},${item.company.gps.long}&amp;z=10&amp;l=map&amp;size=240,160`">
+          <br /><a :href="`/companies/${item.company.id}`" class="text-dark uppercase">{{item.company.name}}</a>
+        </b-card-text>
+      </b-card>
+    </b-row>
     <cmp-footer></cmp-footer>
   </b-container>
 </template>
@@ -46,7 +59,13 @@ export default {
     }).catch((error) => {
       console.log(error);
     });
-    return { code }
+
+    const companies = await $axios.$get(`companies/byfkko/${params.id}/`).then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    return { code, companies }
   },
   data() {
     return {
@@ -56,6 +75,7 @@ export default {
   },
   head() {
     return {
+      companies: null,
       title: `Утилизация ${this.code.fkko.name} | ${this.code.fkko.id} утилизация, транспортирование, обезвреживание, покупка и продажа`,
       meta: [
         { hid: 'description', name: 'description',
@@ -75,6 +95,10 @@ h1 {
 
 h2 {
   font-size: 15px;
+  text-transform: uppercase;
+}
+
+.uppercase {
   text-transform: uppercase;
 }
 </style>

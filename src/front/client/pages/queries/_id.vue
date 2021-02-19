@@ -19,11 +19,11 @@
               <li><b>Количество:</b> {{item.count}} {{item.unit.text}}</li>
               <li v-if="item.fkko"><b>Класс опасности отхода:</b> {{item.fkko.fkkoclass.text}}</li>
               <li v-if="item.aggr"><b>Агрегатное состояние:</b> {{item.aggr.text}}</li>
-              <li><b>Автор:</b> <span v-if="!loggedIn">доступно после регистрации</span>
+              <li><b>Автор:</b> <span v-if="!loggedIn">доступно после <a class="text-success" href="/user/signup">регистрации</a></span>
               <span v-if="loggedIn">{{item.user.firstname}} {{item.user.middlename}}</span></li>
-              <li><b>Телефон:</b> <span v-if="!loggedIn">доступно после регистрации</span>
+              <li><b>Телефон:</b> <span v-if="!loggedIn">доступно после <a class="text-success" href="/user/signup">регистрации</a></span>
               <span v-if="loggedIn">{{item.user.phone}}</span></li>
-              <li><b>Email:</b> <span v-if="!loggedIn">доступно после регистрации</span>
+              <li><b>Email:</b> <span v-if="!loggedIn">доступно после <a class="text-success" href="/user/signup">регистрации</a></span>
               <span v-if="loggedIn">{{item.user.email}}</span></li>
             </ul>
           </b-card-text>

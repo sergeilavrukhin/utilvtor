@@ -18,3 +18,16 @@ class QueriesClientSchema(ModelSchema):
     user = fields.Nested(UserClientSchema, only=("id", "lastname", "middlename", "firstname", "email", "phone"))
     class Meta:
         model = Queries
+
+class QueriesClientShortSchema(ModelSchema):
+    unit = fields.Nested(UnitClientSchema, only=("text",))
+    aggr = fields.Nested(AggrClientSchema, only=("text",))
+    query_type = fields.Nested(QueryTypeClientSchema, only=("text",))
+    region = fields.Nested(RegionClientSchema, only=("text",))
+    fkko = fields.Nested(FkkoClientSchema, only=("id", "name", "fkkoclass"))
+    user = fields.Method("getUser")
+    class Meta:
+        model = Queries
+
+    def getUser(self, el):
+        return None
