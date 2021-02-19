@@ -1,5 +1,5 @@
 <template>
-  <div class="row m-1">
+  <div class="row m-1 mt-5">
     <div class="col-md-4 p-4 bg-light">
       <a class="text-success" href="tel:+79221942202">+7 (922) 194-22-02</a><br />
     </div>
