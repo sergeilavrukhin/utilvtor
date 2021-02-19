@@ -34,14 +34,14 @@
         </b-card>
      </b-col>
     </b-row>
-    <b-row>
+    <b-row v-if="companies">
       <b-col align="center">
         <h2>Топ 3 компании работающие с данным видом отходов:</h2>
       </b-col>
     </b-row>
     <b-row>
       <b-card v-for="(item, index) in companies" :key="index" class="m-5" style="width: 280px;">
-        <b-card-text align="center" v-if="item.company">
+        <b-card-text align="center">
           <img :src="`https://static-maps.yandex.ru/1.x/?ll=${item.company.gps.lat},${item.company.gps.long}&amp;z=10&amp;l=map&amp;size=240,160`">
           <br /><a :href="`/companies/${item.company.id}`" class="text-dark uppercase">{{item.company.name}}</a>
         </b-card-text>
