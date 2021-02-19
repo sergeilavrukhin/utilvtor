@@ -40,12 +40,14 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-card v-for="(item, index) in companies" :key="index" class="m-5" style="width: 280px;">
-        <b-card-text align="center" v-if="item.company">
-          <img :src="`https://static-maps.yandex.ru/1.x/?ll=${item.company.gps.lat},${item.company.gps.long}&amp;z=10&amp;l=map&amp;size=240,160`">
-          <br /><a :href="`/companies/${item.company.id}`" class="text-dark uppercase">{{item.company.name}}</a>
-        </b-card-text>
-      </b-card>
+      <div v-for="(item, index) in companies" :key="index">
+        <b-card class="m-5" v-if="item.company" style="width: 280px;">
+          <b-card-text align="center">
+            <img :src="`https://static-maps.yandex.ru/1.x/?ll=${item.company.gps.lat},${item.company.gps.long}&amp;z=10&amp;l=map&amp;size=240,160`">
+            <br /><a :href="`/companies/${item.company.id}`" class="text-dark uppercase">{{item.company.name}}</a>
+          </b-card-text>
+        </b-card>
+      </div>
     </b-row>
     <cmp-footer></cmp-footer>
   </b-container>
