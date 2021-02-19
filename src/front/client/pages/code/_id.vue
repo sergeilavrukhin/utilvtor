@@ -36,7 +36,7 @@
     </b-row>
     <b-row v-if="companies">
       <b-col align="center">
-        <h2>Топ 3 компании работающие с данным видом отходов:</h2>
+        <h2>Компании работающие с данным видом отходов:</h2>
       </b-col>
     </b-row>
     <b-row>
@@ -48,6 +48,11 @@
           </b-card-text>
         </b-card>
       </div>
+    </b-row>
+    <b-row v-if="companies">
+      <b-col align="center">
+        <a href="/companies" class="text-dark uppercase">Посмотреть все компании</a>
+      </b-col>
     </b-row>
     <cmp-footer></cmp-footer>
   </b-container>
