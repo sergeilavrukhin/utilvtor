@@ -34,7 +34,9 @@ class CompanyByWasteClientSchema(ModelSchema):
 
     def getCompany(self, el):
         itn = el.itn
-        print(itn)
         company = db.session.query(models.Companies).filter(models.Companies.itn == itn).one_or_none()
-        schema = CompanyWasteSchema()
-        return schema.dump(company)
+        if compnay:
+            schema = CompanyWasteSchema()
+            return schema.dump(company)
+        else:
+            return None
