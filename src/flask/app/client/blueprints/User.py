@@ -3,6 +3,7 @@ from flask import Blueprint, request, jsonify, current_app
 from app.globals import db
 from app.functions import sendEmail, gen_password, mail_signup, mail_recovery
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, jwt_refresh_token_required, create_refresh_token
+from app.client.schemes.User import UserClientSchema
 
 app = Blueprint('ClientUser', __name__)
 
@@ -113,3 +114,15 @@ def logout():
         'user': current_user
     }
     return jsonify(ret), 200
+
+@app.route('/list/')
+@jwt_required
+def user_list():
+    current_user = get_jwt_identity()
+    user = User.query.filter(User.email == current_user).one_or_none()
+    if user.email == "sergei.a.lavrukhin@gmail.com":
+      list = User.query.all()
+      listSchema = UserClientSchema(many=True)
+      return jsonify(listSchema.dump(list)), 200
+    else:
+      return None

@@ -56,7 +56,7 @@ export default {
       activities: {
         processing: 'Переработка',
         collection: 'Хранение',
-        deactivation: 'Обезвереживание',
+        deactivation: 'Обезвреживание',
         transportation: 'Транспортировка',
         utilization: 'Утилизация',
         disposal: 'Захоронение',
