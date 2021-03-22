@@ -82,7 +82,7 @@
             <b-form-input
               id="itn"
               v-model="form.itn"
-              type="text"
+              type="number"
               placeholder="ИНН"
             ></b-form-input>
           </b-form-group>

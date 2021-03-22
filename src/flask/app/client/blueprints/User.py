@@ -15,6 +15,11 @@ def signUp():
   else:
     phone = json["phone"].replace('+', '').replace('(', '').replace(')', '').replace('-', '').replace(' ', '')
     password = gen_password()
+    if json["itn"] != "":
+      if (len(json["itn"]) == 12) or (len(json["itn"]) == 10):
+        pass
+      else:
+        return jsonify({'msg': 'ИНН должен состоять из 10 или 12 символов'}), 403
     req = User(json["lastname"], json["firstname"], json["middlename"], "", phone, json["email"], json["itn"], password, current_app.config["SALT"])
     db.session.add(req)
     db.session.commit()
