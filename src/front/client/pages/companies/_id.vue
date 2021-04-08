@@ -21,23 +21,27 @@
           <b-card-text>
             <ul>
               <li v-if="company.locality">Адрес:
-                <span v-if="company.locality == 'reg'">Доступно после <a href="/user/signup">регистрации</a></span>
-                <span v-if="company.locality != 'reg'">{{company.locality}}</span>
+                <span v-if="company.locality != 'get'">{{company.locality}}</span>
+                <b-button v-if="company.locality == 'get'" class="m-2" size="sm" variant="success"
+                @click="getContacts('locality')">Показать</b-button>
               </li>
               <li v-if="!company.locality">Адрес: Нет данных</li>
               <li v-if="company.phones">Телефоны:
-                <span v-if="company.phones == 'reg'">Доступно после <a href="/user/signup">регистрации</a></span>
-                <span v-if="company.phones != 'reg'">{{company.phones.join(', ')}}</span>
+                <span v-if="company.phones != 'get'">{{company.phones.join(', ')}}</span>
+                <b-button v-if="company.phones == 'get'" class="m-2" size="sm" variant="success"
+                @click="getContacts('phones')">Показать</b-button>
               </li>
               <li v-if="!company.phones">Телефоны: Нет данных</li>
               <li v-if="company.emails">Электронная почта:
-                <span v-if="company.emails == 'reg'">Доступно после <a href="/user/signup">регистрации</a></span>
-                <span v-if="company.emails != 'reg'">{{company.emails.join(', ')}}</span>
+                <span v-if="company.emails != 'get'">{{company.emails.join(', ')}}</span>
+                <b-button v-if="company.emails == 'get'" class="m-2" size="sm" variant="success"
+                @click="getContacts('emails')">Показать</b-button>
               </li>
               <li v-if="!company.emails">Электронная почта: Нет данных</li>
               <li v-if="company.site">Сайт:
-                <span v-if="company.site == 'reg'">Доступно после <a href="/user/signup">регистрации</a></span>
-                <span v-if="company.site != 'reg'">{{company.site}}</span>
+                <span v-if="company.site != 'get'">{{company.site}}</span>
+                <b-button v-if="company.site == 'get'" class="m-2" size="sm" variant="success"
+                @click="getContacts('site')">Показать</b-button>
               </li>
               <li v-if="!company.site">Сайт: Нет данных</li>
             </ul>
@@ -121,6 +125,24 @@ export default {
   },
   methods: {
     getActivity: (activities, val) => activities[val],
+    async getContacts(type) {
+      await this.$axios.$get(`companies/${this.company.id}/contacts/${type}/`).then((response) => {
+        if (type == 'locality') {
+          this.company.locality = response.data;
+        }
+        if (type == 'phones') {
+          this.company.phones = response.data;
+        }
+        if (type == 'emails') {
+          this.company.emails = response.data;
+        }
+        if (type == 'site') {
+          this.company.site = response.data;
+        }
+      }).catch((error) => {
+        console.log(error);
+      });
+    },
   },
 };
 </script>

@@ -1,10 +1,10 @@
 from app.models import Region, Companies, CompaniesWaste
 from flask import Blueprint, jsonify
-from app.client.schemes.Company import CompanyClientSchema, CompanyClientShortSchema
+from app.client.schemes.Company import CompanyClientSchema
 from app.client.schemes.CompanyWaste import CompanyWasteClientSchema, CompanyByWasteClientSchema
 from app.globals import db, POSTS_PER_PAGE
-from flask_jwt_extended import jwt_optional, get_jwt_identity
 import math
+import json
 
 app = Blueprint('ClientCompanies', __name__)
 
@@ -21,20 +21,36 @@ def getCompaniesByRegion(region, page = 1):
     return jsonify({"msg": "Регион не найден"}), 403
 
 @app.route("/<int:c_id>/")
-@jwt_optional
 def getCompany(c_id):
-  current_user = get_jwt_identity()
   dict = Companies.query.filter_by(id = c_id).one_or_none()
-  if current_user:
-    dictSchema = CompanyClientSchema()
-  else:
-    dictSchema = CompanyClientShortSchema()
+  dictSchema = CompanyClientSchema()
   return jsonify(dictSchema.dump(dict)), 200
+
+@app.route("/<int:c_id>/contacts/<type>/")
+def getCompanyContacts(c_id, type):
+  company = Companies.query.filter_by(id = c_id).one_or_none()
+  data = 'get'
+  if type == 'locality':
+    if company.locality != None:
+      data = company.locality
+
+  if type == 'site':
+    if company.site != None:
+      data = company.site
+
+  if type == 'emails':
+    if company.emails != None:
+      data = json.loads(company.emails)
+
+  if type == 'phones':
+    if company.phones != None:
+      data = json.loads(company.phones)
+
+  return jsonify({'data': data}), 200
 
 @app.route("/fkkolist/<int:c_id>/")
 def getCompanyFkkoList(c_id):
   c = Companies.query.filter_by(id = c_id).one_or_none()
-
   if c:
     dict = CompaniesWaste.query.filter_by(itn = c.itn).all()
     dictSchema = CompanyWasteClientSchema(many=True)
