@@ -1,6 +1,7 @@
 <template>
   <b-container>
     <navbar></navbar>
+    <search></search>
     <b-row>
       <b-col class="pl-4 pr-4 pt-4">
         <h1>{{ title }}</h1>

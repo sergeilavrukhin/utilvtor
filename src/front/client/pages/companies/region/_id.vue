@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <navbar></navbar>
+    <search></search>
     <b-row>
       <b-col class="pl-4 pr-4 pt-4">
         <b-link class="text-success" href="/companies">Компании</b-link>
@@ -97,6 +98,19 @@ h2 {
     color: #fff;
     background-color: #28a745;
     border-color: #28a745;
+}
+
+.activity{
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+}
+.activity li {
+  float: left;
+  list-style-type: none;
+  padding: 5px;
+  margin: 2px;
+  border: 1px solid #ccc;
 }
 
 </style>

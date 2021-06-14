@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <navbar></navbar>
+    <search></search>
     <div class="row">
       <div class="col-md-12 pl-4 pr-4 pt-4">
         <router-link class="text-success" :to="`/queries`">Заявки</router-link>

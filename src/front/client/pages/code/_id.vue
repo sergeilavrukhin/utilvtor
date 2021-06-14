@@ -1,6 +1,7 @@
 <template>
   <b-container>
     <navbar></navbar>
+    <search></search>
     <b-row>
       <b-col v-if="code" class="pl-4 pr-4 pt-4">
         <b-link class="text-success" href="/code">Блоки кодов ФККО</b-link>

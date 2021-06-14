@@ -1,30 +1,8 @@
 <template>
   <b-container>
     <navbar></navbar>
-    <b-row class="mx-0" style="height: 270px;background: url(/img/search.png);">
-      <b-card title="Найти заявки образователей" class="mt-auto mb-4 mx-auto">
-        <b-card-text>
-          <div class="row">
-            <div class="col-md-8">
-              <vue-autosuggest
-                :suggestions="codes"
-                :input-props="{id:'code', class: 'form-control', placeholder:'Код или название отхода'}"
-                :get-suggestion-value="getSuggestionValue"
-                @selected="onSelected"
-                @input="updateCodes"
-              >
-                <template slot-scope="{suggestion}">
-                  <span class="my-suggestion-item">{{suggestion.item.id}} - {{suggestion.item.name}}</span>
-                </template>
-              </vue-autosuggest>
-            </div>
-            <div class="col-md-4">
-              <b-button class="btn btn-block btn-success" @click="find">Найти</b-button>
-            </div>
-          </div>
-        </b-card-text>
-      </b-card>
-    </b-row>
+    <b-row class="mx-0" style="height: 270px;background: url(/img/search.png);"></b-row>
+    <search></search>
     <b-row>
       <b-col class="p-4">
         <h1>Агрегатор отходов</h1>
@@ -106,30 +84,8 @@ export default {
   data () {
     return {
       loggedIn: this.$auth.loggedIn,
-      searchcode: null,
-      codes: [{data: null}],
     }
   },
-
-  methods: {
-    find() {
-      if(this.searchcode) window.location = `/code/${this.searchcode}`;
-    },
-    onSelected(item) {
-      this.searchcode = item.item.id;
-    },
-    getSuggestionValue(suggestion) {
-      return suggestion.item.id;
-    },
-    async updateCodes (code) {
-      await this.$axios.$get(`code/search/${code}`
-      ).then((response) => {
-        this.codes[0].data = response;
-      }).catch((error) => {
-        console.log();
-      });
-    }
-  }
 }
 </script>
 

@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <navbar></navbar>
+    <search></search>
     <div class="row">
       <div class="col-md-12 p-4">
         <b-card v-for="(item, index) in regions" :key="index" class="mt-3 mb-3">
@@ -12,6 +13,8 @@
               {{getActivity(activities, c_index)}}: {{c_item}}
               </li>
             </ul>
+            <br />
+            <br />
             <h6 class="mt-2">Статистика по отходам в регионе <span>{{item.text}}</span></h6>
           </b-card-text>
         </b-card>
@@ -55,3 +58,18 @@ export default {
   },
 };
 </script>
+
+<style>
+.activity{
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+}
+.activity li {
+  float: left;
+  list-style-type: none;
+  padding: 5px;
+  margin: 2px;
+  border: 1px solid #ccc;
+}
+</style>

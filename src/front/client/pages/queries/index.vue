@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <navbar></navbar>
+    <search></search>
     <h1>{{ title }}</h1>
     <hr class="my-4">
       <b-button class="mr-2" v-if="!loggedIn" variant="outline-success" href="/user/signup">Зарегистрироваться</b-button>
