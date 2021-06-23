@@ -10,19 +10,6 @@
         <b-nav-item href="/code">Классификатор отходов</b-nav-item>
         <b-nav-item href="/companies">Утилизаторы</b-nav-item>
       </b-navbar-nav>
-      <b-navbar-nav class="ml-auto" v-if="!loggedIn">
-        <b-nav-item right href="/user/signin">Войти</b-nav-item>
-      </b-navbar-nav>
-
-      <b-navbar-nav class="ml-auto" v-if="loggedIn">
-        <b-nav-item-dropdown right>
-          <template #button-content>
-            <em>{{ user }}</em>
-          </template>
-          <b-dropdown-item href="/user/profile">Профиль</b-dropdown-item>
-          <b-dropdown-item @click="onLogout">Выйти</b-dropdown-item>
-        </b-nav-item-dropdown>
-      </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 </template>

@@ -2,7 +2,7 @@ from app.models import Queries, User, Fkko, QueryType, Unit, Region
 from flask import Blueprint, request, jsonify, current_app
 from app.functions import sendEmail, gen_password, mail_signup, mail_query_add
 from app.globals import db
-from app.client.schemes.Queries import QueriesClientShortSchema, QueriesClientSchema, QueryTypeClientSchema, UnitClientSchema
+from app.client.schemes.Queries import QueriesClientShortSchema, QueriesClientSchema, QueryTypeClientSchema
 from flask_jwt_extended import jwt_optional, jwt_required, get_jwt_identity
 
 app = Blueprint('ClientQueries', __name__)
@@ -31,10 +31,12 @@ def getQueriesByCode(id):
 def getQuery(id):
   current_user = get_jwt_identity()
   queries = Queries.query.filter(Queries.id == id).one_or_none()
-  if current_user:
-    queriesSchema = QueriesClientSchema()
-  else:
-    queriesSchema = QueriesClientShortSchema()
+  #if current_user:
+  #  queriesSchema = QueriesClientSchema()
+  #else:
+  #  queriesSchema = QueriesClientShortSchema()
+  queriesSchema = QueriesClientSchema()
+
   return jsonify(queriesSchema.dump(queries)), 200
 
 @app.route("/", methods=["post"])

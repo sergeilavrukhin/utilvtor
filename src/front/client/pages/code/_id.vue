@@ -13,9 +13,6 @@
       </b-col>
     </b-row>
     <hr class="my-4">
-      <b-button class="mr-2" v-if="!loggedIn" variant="outline-success" href="/user/signup">Зарегистрироваться</b-button>
-      <b-button variant="success" href="/queries/add">Разместить заявку</b-button>
-    <hr class="my-4">
     <b-row>
       <b-col v-if="code.fkko" class="p-4">
         <b-card class="mt-3 mb-3">

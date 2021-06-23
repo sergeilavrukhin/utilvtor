@@ -3,23 +3,13 @@
     <navbar></navbar>
     <search></search>
     <h1>{{ title }}</h1>
-    <hr class="my-4">
-      <b-button class="mr-2" v-if="!loggedIn" variant="outline-success" href="/user/signup">Зарегистрироваться</b-button>
-      <b-button variant="success" href="/queries/add">Разместить заявку</b-button>
-    <hr class="my-4">
     <div class="row m-0">
       <div class="col-md-8">
         <b-card v-for="(item, index) in queries" :key="index"
-        :title="item.waste" :sub-title="item.query_type.text"
+         :title="`${item.query_type.text} ${item.waste}`" :sub-title="`Регион: ${item.region.text}`"
         class="mx-1 my-3">
           <b-card-text>
-            <ul>
-              <li v-if="item.fkko"><b>Код отхода:</b> {{item.fkko.id}}</li>
-              <li><b>Адрес:</b> {{item.region.text}}, {{item.locality}}</li>
-              <li><b>Количество:</b> {{item.count}} {{item.unit.text}}</li>
-              <li v-if="item.fkko"><b>Класс опасности отхода:</b> {{item.fkko.fkkoclass.text}}</li>
-              <li v-if="item.aggr"><b>Агрегатное состояние:</b> {{item.aggr.text}}</li>
-            </ul>
+          {{ item.description }}
           </b-card-text>
           <router-link :to="`queries/${item.id}`" class="text-success">Посмотреть</router-link>
         </b-card>

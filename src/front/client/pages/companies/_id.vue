@@ -64,7 +64,6 @@
             <center>
             <h2>Оставьте заявку на обращение с отходами в {{company.name}}
              и другие похожие организации</h2>
-              <b-button class="m-3" variant="success" to="/queries/add">Разместить заявку</b-button>
             </center>
           </b-card-text>
         </b-card>
