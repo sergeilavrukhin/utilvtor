@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="row m-0">
-      <div class="col-md-12">
+      <div class="col-md-8">
         <b-card v-if="item" :sub-title="item.query_type.text"
         class="mx-1 my-3">
           <b-card-text>
@@ -21,9 +21,9 @@
             {{item.description}}
           </b-card-text>
         </b-card>
-        <b-button class="mr-2" v-if="!loggedIn" variant="outline-success" href="/user/signup">Зарегистрироваться</b-button>
-        <b-button variant="success" href="/queries/add">Разместить другую заявку</b-button>
-        <hr class="my-4">
+      </div>
+      <div class="col-md-4">
+        <queryadd :region="region" :query_type="query_type"></queryadd>
       </div>
     </div>
     <cmp-footer></cmp-footer>
@@ -33,17 +33,29 @@
 <script>
 export default {
   async asyncData({ params,  $axios }) {
+    const query_type = await $axios.$get('queries/query_types/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    const region = await $axios.$get('regions/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
     const item = await $axios.$get(`queries/${params.id}`).then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);
     });
-    return { item }
+    return { item, query_type, region }
   },
   data() {
     return {
       loggedIn: this.$auth.loggedIn,
       item: null,
+      query_type: null,
+      region: null,
       contacts: null,
       title: 'Заявка на утилизацию',
     };

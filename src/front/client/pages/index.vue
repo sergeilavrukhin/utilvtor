@@ -4,7 +4,7 @@
     <b-row class="mx-0" style="height: 270px;background: url(/img/search.png);"></b-row>
     <search></search>
     <b-row>
-      <b-col class="p-4">
+      <b-col class="p-4 col-md-8">
         <h1>Агрегатор отходов</h1>
         <p>Цель нашего агрегатора отходов собрать абсолютно все фирмы,
      которые образуют, утилизирую, перевозят отходы и покупают, продают вторсырье</p>
@@ -71,6 +71,9 @@
           </b-card-text>
         </b-card>
      </b-col>
+     <b-col class="col-md-4">
+        <queryadd :region="region" :query_type="query_type"></queryadd>
+     </b-col>
     </b-row>
     <cmp-footer></cmp-footer>
   </b-container>
@@ -78,9 +81,24 @@
 
 <script>
 export default {
+  async asyncData({ $axios }) {
+    const query_type = await $axios.$get('queries/query_types/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    const region = await $axios.$get('regions/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    return { query_type, region }
+  },
   data () {
     return {
       loggedIn: this.$auth.loggedIn,
+      query_type: null,
+      region: null,
     }
   },
 }

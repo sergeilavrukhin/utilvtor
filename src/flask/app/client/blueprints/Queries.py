@@ -46,38 +46,22 @@ def createQuery():
 
   password = gen_password()
   json = request.get_json()
-  if json["email"] != "":
-    user = User.query.filter(User.email == json["email"]).one_or_none()
-    if user:
-      return jsonify({'msg': 'Пользователь с таким email уже зарегистрирован'}), 403
-    else:
-      phone = json["phone"].replace('+', '').replace('(', '').replace(')', '').replace('-', '').replace(' ', '')
-      user = User(json["lastname"], json["firstname"], json["middlename"], "", phone, json["email"], json["itn"],
-                  password, current_app.config["SALT"])
+  phone = json["phone"].replace('+', '').replace('(', '').replace(')', '').replace('-', '').replace(' ', '')
+  if json["phone"] != "":
+    user = User.query.filter(User.phone == json["phone"]).one_or_none()
+    if user == None:
+      user = User(json["firstname"], phone, password, current_app.config["SALT"])
       db.session.add(user)
   else:
-    user = User.query.filter(User.email == current_user).one_or_none()
-
-  fkko = None
-  if isinstance(json["fkko"], int):
-    fkko = Fkko.query.filter(Fkko.id == int(json["fkko"])).one_or_none()
-
-  if fkko:
-    aggr = fkko.aggr
-  else:
-    aggr = None
+    return jsonify({'msg': 'Не удалось разместить заявку'}), 403
 
   query_type = QueryType.query.filter(QueryType.id == json["query_type"]).one_or_none()
-  unit = Unit.query.filter(Unit.id == json["bu"]).one_or_none()
   region = Region.query.filter(Region.id == json["region"]).one_or_none()
 
-  req = Queries(fkko, unit, aggr, user, query_type, region, json["waste"], json["count"], json["address"], 0)
+  req = Queries(user, query_type, region, json["waste"], json["description"])
   db.session.add(req)
 
   db.session.commit()
-  if json["email"] != "":
-    mail_signup(json["email"], password)
-  mail_query_add()
   return jsonify({'msg': 'Заявка успешно создана и отправлена на модерацию'}), 201
 
 @app.route("/query_types/")

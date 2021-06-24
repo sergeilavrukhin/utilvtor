@@ -18,7 +18,7 @@
         </b-card>
       </div>
       <div class="col-md-4">
-        <b-card title="Фильтрация:"
+        <!--<b-card title="Фильтрация:"
         class="mx-1 my-3">
           <b-card-text>
             Код ФККО:<br />
@@ -34,7 +34,8 @@
               </template>
             </vue-autosuggest>
           </b-card-text>
-        </b-card>
+        </b-card>-->
+        <queryadd :region="region" :query_type="query_type"></queryadd>
       </div>
     </div>
     <cmp-footer></cmp-footer>
@@ -50,11 +51,23 @@ export default {
     }).catch((error) => {
       console.log(error);
     });
-    return { queries }
+    const query_type = await $axios.$get('queries/query_types/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    const region = await $axios.$get('regions/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    return { queries, query_type, region }
   },
   data() {
     return {
       loggedIn: this.$auth.loggedIn,
+      query_type: null,
+      region: null,
       searchcode: null,
       queries: null,
       title: 'Заявки на утилизацию, транспортирование, обезвреживание оходов, а так же покупку и продажу вторсырья',

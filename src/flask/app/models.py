@@ -89,10 +89,12 @@ class Queries(db.Model):
   description = Column(Text)
 
 
-  def __init__(self, user, query_type, region):
+  def __init__(self, user, query_type, region, waste, description):
     self.setUser(user)
     self.setQueryType(query_type)
     self.setRegion(region)
+    self.waste = waste
+    self.description = description
 
   def setUser(self, user):
     if not isinstance(user, User):

@@ -14,7 +14,7 @@
     </b-row>
     <hr class="my-4">
     <b-row>
-      <b-col v-if="code.fkko" class="p-4">
+      <b-col v-if="code.fkko" class="pb-4 col-md-8">
         <b-card class="mt-3 mb-3">
           <b-card-text>
           <h2 v-if="code.fkko.fkkoclass">Отход (код: {{code.fkko.id}}) - {{code.fkko.name}}</h2>
@@ -30,22 +30,30 @@
           </ul>
           </b-card-text>
         </b-card>
-     </b-col>
-    </b-row>
-    <b-row v-if="companies">
-      <b-col align="center">
         <h2>Компании работающие с данным видом отходов:</h2>
+        <div v-for="(item, index) in companies" :key="index">
+          <b-card v-if="item.company">
+            <b-card-text>
+              <div class="row">
+                <div class="col-md-5">
+                  <img :src="`https://static-maps.yandex.ru/1.x/?ll=${item.company.gps.lat},${item.company.gps.long}&amp;z=10&amp;l=map&amp;size=240,160`">
+                </div>
+                <div class="col-md-7">
+                  <a :href="`/companies/${item.company.id}`" class="text-dark"><h2>{{item.company.name}}</h2></a>
+                  <ul class="activity">
+                    <li v-for="(c_item, c_index) in item.company.activity" :key="c_index">
+                    {{getActivity(activities, c_item)}}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </b-card-text>
+          </b-card>
+        </div>
       </b-col>
-    </b-row>
-    <b-row>
-      <div v-for="(item, index) in companies" :key="index">
-        <b-card class="m-5" v-if="item.company" style="width: 280px;">
-          <b-card-text align="center">
-            <img :src="`https://static-maps.yandex.ru/1.x/?ll=${item.company.gps.lat},${item.company.gps.long}&amp;z=10&amp;l=map&amp;size=240,160`">
-            <br /><a :href="`/companies/${item.company.id}`" class="text-dark uppercase">{{item.company.name}}</a>
-          </b-card-text>
-        </b-card>
-      </div>
+      <b-col class="col-md-4">
+        <queryadd :region="region" :query_type="query_type"></queryadd>
+      </b-col>
     </b-row>
     <b-row v-if="companies">
       <b-col align="center">
@@ -70,12 +78,33 @@ export default {
     }).catch((error) => {
       console.log(error);
     });
-    return { code, companies }
+
+    const query_type = await $axios.$get('queries/query_types/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    const region = await $axios.$get('regions/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    return { query_type, region, code, companies }
   },
   data() {
     return {
       loggedIn: this.$auth.loggedIn,
       code: null,
+      region: null,
+      query_type: null,
+      activities: {
+        processing: 'Переработка',
+        collection: 'Хранение',
+        deactivation: 'Обезвреживание',
+        transportation: 'Транспортировка',
+        utilization: 'Утилизация',
+        disposal: 'Захоронение',
+      },
     }
   },
   head() {
@@ -88,6 +117,9 @@ export default {
         }
       ],
     }
+  },
+  methods: {
+    getActivity: (activities, val) => activities[val],
   },
 };
 </script>
@@ -105,5 +137,18 @@ h2 {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.activity{
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+}
+.activity li {
+  float: left;
+  list-style-type: none;
+  padding: 5px;
+  margin: 2px;
+  border: 1px solid #ccc;
 }
 </style>

@@ -17,7 +17,7 @@
       <div class="col-md-4 p-4" style="width: 100%; height: 300px;">
         <img :src="`https://static-maps.yandex.ru/1.x/?ll=${company.gps.lat},${company.gps.long}&amp;z=10&amp;l=map&amp;size=300,250`">
       </div>
-      <div class="col-md-8 p-4">
+      <div class="col-md-8">
         <b-card class="mt-3 mb-3" title="Контакты">
           <b-card-text>
             <ul>
@@ -52,22 +52,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12">
-        <b-card class="mt-3 mb-3">
-          <b-card-text>
-            <small>
-              Вы можете так же разместить бесплатную заявку. Утилизаторы,
-               транспортные компании или покупатели вторсырья увидят ваше объявление и
-               смогут откликнуться на него
-            </small>
-            <br />
-            <center>
-            <h2>Оставьте заявку на обращение с отходами в {{company.name}}
-             и другие похожие организации</h2>
-            </center>
-          </b-card-text>
-        </b-card>
-
+      <div class="col-md-8">
         <b-card v-for="(item, index) in codes" :key="index" class="mt-3 mb-3">
           <b-card-text>
             <i>Код ФККО: {{item.fkko.id}}</i>
@@ -79,6 +64,9 @@
             </ul>
           </b-card-text>
         </b-card>
+      </div>
+      <div class="col-md-4">
+        <queryadd :region="region" :query_type="query_type"></queryadd>
       </div>
     </div>
     <cmp-footer></cmp-footer>
@@ -99,11 +87,24 @@ export default {
       console.log(error);
     });
     const coords = [company.gps.long, company.gps.lat];
-    return { company, coords, codes }
+
+    const query_type = await $axios.$get('queries/query_types/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    const region = await $axios.$get('regions/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    return { query_type, region, company, coords, codes }
   },
   data() {
     return {
       company: null,
+      region: null,
+      query_type: null,
       coords: null,
       codes: null,
       activities: {

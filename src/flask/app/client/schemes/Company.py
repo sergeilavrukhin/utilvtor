@@ -59,6 +59,7 @@ class CompanyClientSchema(ModelSchema):
 
 class CompanyWasteSchema(ModelSchema):
     gps = fields.Method("getGPS")
+    activity = fields.Method("getActivity")
 
     class Meta:
         model = Companies
@@ -66,5 +67,11 @@ class CompanyWasteSchema(ModelSchema):
     def getGPS(self, el):
         if el.gps:
             return json.loads(el.gps)
+        else:
+            return None
+
+    def getActivity(self, el):
+        if el.activity != None:
+            return json.loads(el.activity)
         else:
             return None

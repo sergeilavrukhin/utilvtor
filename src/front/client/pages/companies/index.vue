@@ -3,8 +3,8 @@
     <navbar></navbar>
     <search></search>
     <div class="row">
-      <div class="col-md-12 p-4">
-        <b-card v-for="(item, index) in regions" :key="index" class="mt-3 mb-3">
+      <div class="col-md-8">
+        <b-card v-for="(item, index) in region" :key="index" class="mt-3 mb-3">
           <b-card-text>
             <a :href="`companies/region/${item.url}`" class="text-dark"><h2>{{item.text}}</h2></a>
             <i>Актуальное количество фирм, которое занимается обращением с отходами</i>
@@ -13,11 +13,12 @@
               {{getActivity(activities, c_index)}}: {{c_item}}
               </li>
             </ul>
-            <br />
-            <br />
             <h6 class="mt-2">Статистика по отходам в регионе <span>{{item.text}}</span></h6>
           </b-card-text>
         </b-card>
+      </div>
+      <div class="col-md-4">
+        <queryadd :region="region" :query_type="query_type"></queryadd>
       </div>
     </div>
     <cmp-footer></cmp-footer>
@@ -27,17 +28,23 @@
 <script>
 export default {
   async asyncData({ $axios }) {
-    const regions = await $axios.$get('regions/').then((response) => {
+    const query_type = await $axios.$get('queries/query_types/').then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);
     });
-    return { regions }
+    const region = await $axios.$get('regions/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    return { query_type, region }
   },
   data() {
     return {
       title: 'Организации занимающиеся утилизацией, переработкой, транспортировкой, обезвреживанием отходов, покупкой и продажей вторсырья',
-      regions: null,
+      region: null,
+      query_type: null,
       activities: {
         processing: 'Переработка',
         collection: 'Хранение',
@@ -66,7 +73,6 @@ export default {
   margin: 0px;
 }
 .activity li {
-  float: left;
   list-style-type: none;
   padding: 5px;
   margin: 2px;

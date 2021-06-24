@@ -9,15 +9,15 @@
       </b-col>
     </b-row>
     <div class="row">
-      <div class="col-md-12 p-4">
+      <div class="col-md-8">
         <b-pagination-nav :link-gen="linkGen" :number-of-pages="nofp" align="center"></b-pagination-nav>
         <b-card v-for="(item, index) in companies" :key="index" class="mt-3 mb-3">
           <b-card-text>
             <div class="row">
-              <div class="col-md-3">
+              <div class="col-md-5">
                 <img :src="`https://static-maps.yandex.ru/1.x/?ll=${item.gps.lat},${item.gps.long}&amp;z=10&amp;l=map&amp;size=240,160`">
               </div>
-              <div class="col-md-9">
+              <div class="col-md-7">
                 <a :href="`/companies/${item.id}`" class="text-dark"><h2>{{item.name}}</h2></a>
                 <ul class="activity">
                   <li v-for="(c_item, c_index) in item.activity" :key="c_index">
@@ -30,6 +30,9 @@
         </b-card>
         <b-pagination-nav :link-gen="linkGen" :number-of-pages="nofp" align="center"></b-pagination-nav>
       </div>
+      <div class="col-md-4">
+        <queryadd :region="region" :query_type="query_type"></queryadd>
+      </div>
     </div>
     <cmp-footer></cmp-footer>
   </div>
@@ -38,20 +41,33 @@
 <script>
 export default {
   async asyncData({ params, $axios }) {
-    const region = await $axios.$get(`companies/${params.id}/`).then((response) => {
+    const region_one = await $axios.$get(`companies/${params.id}/`).then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);
     });
-    const companies = region.companies;
-    const nofp = region.count;
-    const region_name = region.name;
-    return { companies, nofp, region_name }
+    const companies = region_one.companies;
+    const nofp = region_one.count;
+    const region_name = region_one.name;
+
+    const query_type = await $axios.$get('queries/query_types/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    const region = await $axios.$get('regions/').then((response) => {
+      return response;
+    }).catch((error) => {
+      console.log(error);
+    });
+    return { query_type, region, companies, nofp, region_name }
   },
   data() {
     return {
       title: 'Организации занимающиеся утилизацией, переработкой, транспортировкой, обезвреживанием отходов, покупкой и продажей вторсырья',
       companies: null,
+      region: null,
+      query_type: null,
       nofp: 10,
       region_name: null,
       activities: {
