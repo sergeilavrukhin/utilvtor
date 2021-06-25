@@ -56,6 +56,10 @@ export default {
       const companies = region_one.companies;
       const nofp = region_one.count;
       const region_name = region_one.name;
+    } else {
+      const companies = null;
+      const nofp = 0;
+      const region_name = null;
     }
 
     const query_type = await $axios.$get('queries/query_types/').then((response) => {
