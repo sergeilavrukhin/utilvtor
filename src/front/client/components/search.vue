@@ -24,22 +24,23 @@ export default {
   name: 'Search',
   data () {
     return {
-      searchcode: null,
+      search: null,
       codes: [{data: null}],
     }
   },
 
   methods: {
     find() {
-      if(this.searchcode) window.location = `/code/${this.searchcode}`;
+      if(this.search) window.location = `/companies/search/${this.search}`;
     },
     onSelected(item) {
-      this.searchcode = item.item.id;
+      this.search = item.item.id;
     },
     getSuggestionValue(suggestion) {
       return suggestion.item.id;
     },
     async updateCodes (code) {
+      this.search = code;
       await this.$axios.$get(`code/search/${code}`
       ).then((response) => {
         this.codes[0].data = response;

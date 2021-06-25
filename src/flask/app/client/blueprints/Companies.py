@@ -20,6 +20,15 @@ def getCompaniesByRegion(region, page = 1):
   else:
     return jsonify({"msg": "Регион не найден"}), 403
 
+@app.route("/search/<search>/")
+@app.route("/search/<search>/page/<int:page>/")
+def getSearchCompanies(search, page = 1):
+  likesearch = "%{}%".format(search)
+  c = db.session.query(Companies.id).filter(Companies.name.like(likesearch)).count()
+  dict = Companies.query.filter(Companies.name.like(likesearch)).paginate(page, POSTS_PER_PAGE, False).items
+  dictSchema = CompanyClientSchema(many=True)
+  return jsonify({"companies": dictSchema.dump(dict), "count": "{}".format(math.ceil(c/POSTS_PER_PAGE))}), 200
+
 @app.route("/<int:c_id>/")
 def getCompany(c_id):
   dict = Companies.query.filter_by(id = c_id).one_or_none()
