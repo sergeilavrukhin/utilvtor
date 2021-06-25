@@ -46,9 +46,6 @@ export default {
     }).catch((error) => {
       console.log(error);
     });
-    const companies = region_one.companies;
-    const nofp = region_one.count;
-    const region_name = region_one.name;
 
     const query_type = await $axios.$get('queries/query_types/').then((response) => {
       return response;
@@ -60,7 +57,15 @@ export default {
     }).catch((error) => {
       console.log(error);
     });
-    return { query_type, region, companies, nofp, region_name }
+
+    if(region_one) {
+      const companies = region_one.companies;
+      const nofp = region_one.count;
+      const region_name = region_one.name;
+      return { query_type, region, companies, nofp, region_name }
+    } else {
+      return { query_type, region}
+    }
   },
   data() {
     return {
