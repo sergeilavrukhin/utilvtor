@@ -70,8 +70,8 @@ def getQueryTypes():
   dictSchema = QueryTypeClientSchema(many=True)
   return jsonify(dictSchema.dump(dict)), 200
 
-@app.route("/units/")
-def getUnits():
-  dict = Unit.query.all()
-  dictSchema = UnitClientSchema(many=True)
-  return jsonify(dictSchema.dump(dict)), 200
+#@app.route("/units/")
+#def getUnits():
+#  dict = Unit.query.all()
+#  dictSchema = UnitClientSchema(many=True)
+#  return jsonify(dictSchema.dump(dict)), 200
