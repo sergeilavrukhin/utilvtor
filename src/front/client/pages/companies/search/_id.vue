@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-md-8">
         <b-pagination-nav :link-gen="linkGen" :number-of-pages="nofp" align="center"></b-pagination-nav>
-        <b-card v-if="companies" v-for="(item, index) in companies" :key="index" class="mt-3 mb-3">
+        <b-card v-for="(item, index) in companies" :key="index" class="mt-3 mb-3">
           <b-card-text>
             <div class="row">
               <div class="col-md-5">
@@ -26,11 +26,6 @@
                 </ul>
               </div>
             </div>
-          </b-card-text>
-        </b-card>
-        <b-card v-if="!companies" class="mt-3 mb-3">
-          <b-card-text>
-            Компаний по вашему запросу не найдено
           </b-card-text>
         </b-card>
         <b-pagination-nav :link-gen="linkGen" :number-of-pages="nofp" align="center"></b-pagination-nav>
