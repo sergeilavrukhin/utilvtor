@@ -89,18 +89,6 @@
           </b-form-group>
 
           <b-form-group
-            id="input-group-2"
-            label="Ед.изм:*"
-            label-for="bu">
-            <b-form-select
-              id="bu"
-              v-model="form.bu"
-              :options="bu"
-              required
-            ></b-form-select>
-          </b-form-group>
-
-          <b-form-group
             id="input-group-1"
             label="*Фамилия:"
             label-for="lastname"
@@ -210,17 +198,12 @@ export default {
     }).catch((error) => {
       console.log(error);
     });
-    const bu = await $axios.$get('queries/units/').then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    });
     const region = await $axios.$get('regions/').then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);
     });
-    return { query_type, bu, region }
+    return { query_type, region }
   },
   data() {
     return {
@@ -238,11 +221,9 @@ export default {
         fkko: '',
         waste: '',
         count: '',
-        bu: null,
       },
       show: true,
       query_type: null,
-      bu: null,
       region: null,
       success: null,
       error: null,
@@ -289,7 +270,6 @@ export default {
         fkko: this.form.fkko,
         waste: this.form.waste,
         count: this.form.count,
-        bu: this.form.bu,
         region: this.form.region,
       }).then((response) => {
         this.success = response.msg;
