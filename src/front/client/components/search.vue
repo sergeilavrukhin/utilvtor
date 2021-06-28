@@ -31,9 +31,7 @@ export default {
 
   methods: {
     find() {
-      if(this.search) {
-        window.location = `/companies/search/${search}`;
-      }
+      if(this.search) window.location = `/companies/search/${this.search}`;
     },
     onSelected(item) {
       this.search = item.item.id;
