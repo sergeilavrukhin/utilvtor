@@ -49,6 +49,8 @@ export default {
     var search = encodeURI(params.id);
     const region_one = await $axios.$get(`companies/search/${search}/`).then((response) => {
       return response;
+    }).catch((error) => {
+      console.log(error);
     });
 
     const query_type = await $axios.$get('queries/query_types/').then((response) => {
