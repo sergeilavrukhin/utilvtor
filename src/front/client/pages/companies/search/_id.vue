@@ -48,8 +48,6 @@ export default {
   async asyncData({ params, $axios }) {
     const region_one = await $axios.$get(`companies/search/${params.id}/`).then((response) => {
       return response;
-    }).catch((error) => {
-      console.log(error);
     });
 
     const query_type = await $axios.$get('queries/query_types/').then((response) => {
