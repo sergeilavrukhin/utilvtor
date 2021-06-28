@@ -3,7 +3,7 @@
     <div class="col-md-9">
       <vue-autosuggest
         :suggestions="codes"
-        :input-props="{id:'code', class: 'form-control', placeholder:'Введите код или название отхода'}"
+        :input-props="{id:'code', class: 'form-control', placeholder:'Введите название компании'}"
         :get-suggestion-value="getSuggestionValue"
         @selected="onSelected"
         @input="updateCodes"
@@ -41,12 +41,12 @@ export default {
     },
     async updateCodes (code) {
       this.search = code;
-      await this.$axios.$get(`code/search/${code}`
+      /*await this.$axios.$get(`code/search/${code}`
       ).then((response) => {
         this.codes[0].data = response;
       }).catch((error) => {
         console.log();
-      });
+      });*/
     }
   }
 };
