@@ -31,7 +31,10 @@ export default {
 
   methods: {
     find() {
-      if(this.search) window.location = `/companies/search/${this.search}`;
+      if(this.search) {
+        var search = encodeURI(this.search);
+        window.location = `/companies/search/${search}`;
+      }
     },
     onSelected(item) {
       this.search = item.item.id;
