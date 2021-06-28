@@ -32,7 +32,6 @@ export default {
   methods: {
     find() {
       if(this.search) {
-        var search = encodeURI(this.search);
         window.location = `/companies/search/${search}`;
       }
     },
