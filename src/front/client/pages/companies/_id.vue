@@ -40,7 +40,7 @@
               </li>
               <li v-if="!company.emails">Электронная почта: Нет данных</li>
               <li v-if="company.site">Сайт:
-                <span v-if="company.site != 'get'">{{company.site}}</span>
+                <span v-if="company.site != 'get'">{{company.site.join(', ')}}</span>
                 <b-button v-if="company.site == 'get'" class="m-2" size="sm" variant="success"
                 @click="getContacts('site')">Показать</b-button>
               </li>

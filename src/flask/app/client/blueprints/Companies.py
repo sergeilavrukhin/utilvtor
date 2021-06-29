@@ -28,7 +28,6 @@ def getSearchCompanies(search, page = 1):
   c = db.session.query(Companies.id).filter(Companies.name.like(likesearch)).count()
   dict = Companies.query.filter(Companies.name.like(likesearch)).paginate(page, POSTS_PER_PAGE, False).items
   dictSchema = CompanyClientSchema(many=True)
-  print(dictSchema)
   return jsonify({"companies": dictSchema.dump(dict), "count": "{}".format(math.ceil(c/POSTS_PER_PAGE))}), 200
 
 @app.route("/<int:c_id>/")
@@ -47,7 +46,7 @@ def getCompanyContacts(c_id, type):
 
   if type == 'site':
     if company.site != None:
-      data = company.site
+      data = json.loads(company.site)
 
   if type == 'emails':
     if company.emails != None:
