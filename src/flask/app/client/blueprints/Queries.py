@@ -58,10 +58,15 @@ def createQuery():
   query_type = QueryType.query.filter(QueryType.id == json["query_type"]).one_or_none()
   region = Region.query.filter(Region.id == json["region"]).one_or_none()
 
-  req = Queries(user, query_type, region, json["waste"], json["description"])
+  description = ""
+  if json["description"] != "":
+    description = json["description"]
+  req = Queries(user, query_type, region, json["waste"], description)
   db.session.add(req)
 
   db.session.commit()
+
+  mail_query_add(phone, json["waste"])
   return jsonify({'msg': 'Заявка успешно создана и отправлена на модерацию'}), 201
 
 @app.route("/query_types/")

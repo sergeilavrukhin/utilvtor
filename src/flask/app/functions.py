@@ -43,5 +43,10 @@ def mail_recovery(email, password):
                          password=password)
   sendEmail.delay(email, subject, html)
 
-def mail_query_add():
-  print('test')
+def mail_query_add(phone, waste):
+  subject = "Новая заявка на сайте"
+  html = render_template("mail_query_add.tpl",
+                         title=subject,
+                         phone=phone,
+                         waste=waste)
+  sendEmail.delay("sergei.a.lavrukhin@gmail.com", subject, html)

@@ -73,14 +73,13 @@
 
         <b-form-group
           id="input-group-1"
-          label="Описание:*"
+          label="Описание:"
           label-for="description">
           <b-form-textarea
           id="description"
           v-model="form.description"
           placeholder="Введите описание..."
           rows="3"
-          required
           max-rows="6">
           </b-form-textarea>
         </b-form-group>

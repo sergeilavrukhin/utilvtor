@@ -165,9 +165,8 @@
           <div class="card-body">
             <p class="card-text">
               <h4>Заявка успешно создана и отправлена на модерацию.</h4>
-              Ваш логин: {{ email }}<br />
-              Пароль: {{ password }}<br />
-              <a href="https://webothod.ru/user/signin" target="_self">Авторизоваться</a>
+              Телефон: {{ phone }}<br />
+              Отход: {{ waste }}
             </p>
           </div>
         </div>
