@@ -3,6 +3,7 @@ from flask import Blueprint, jsonify
 from app.client.schemes.Company import CompanyClientSchema
 from app.client.schemes.CompanyWaste import CompanyWasteClientSchema, CompanyByWasteClientSchema
 from app.globals import db, POSTS_PER_PAGE
+from sqlalchemy import or_
 import math
 import json
 
@@ -24,9 +25,17 @@ def getCompaniesByRegion(region, page = 1):
 @app.route("/search/<search>/page/<int:page>/")
 def getSearchCompanies(search, page = 1):
   likesearch = "%{}%".format(search)
-  print(likesearch)
-  c = db.session.query(Companies.id).filter(Companies.name.like(likesearch)).count()
-  dict = Companies.query.filter(Companies.name.like(likesearch)).paginate(page, POSTS_PER_PAGE, False).items
+
+  in_company = []
+  cw = CompaniesWaste.query.with_entities(CompaniesWaste.itn).filter_by(fkko_id=search).group_by(
+    CompaniesWaste.itn).all()
+  for row in cw:
+    in_company.append(row.itn)
+  print(in_company)
+
+  c = db.session.query(Companies.id).filter(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company))).count()
+  dict = Companies.query.filter(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company))).paginate(page, POSTS_PER_PAGE, False).items
+
   dictSchema = CompanyClientSchema(many=True)
   return jsonify({"companies": dictSchema.dump(dict), "count": "{}".format(math.ceil(c/POSTS_PER_PAGE))}), 200
 
