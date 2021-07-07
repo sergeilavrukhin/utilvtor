@@ -41,7 +41,7 @@ class User(db.Model):
 class QueryType(db.Model):
   __tablename__ = "query_type"
   id = Column(Integer, primary_key=True)
-  text = Column(String(20), nullable=False)
+  text = Column(String(40), nullable=False)
 
 class Unit(db.Model):
   __tablename__ = "units"

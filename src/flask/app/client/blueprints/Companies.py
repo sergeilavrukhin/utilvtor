@@ -31,7 +31,6 @@ def getSearchCompanies(search, page = 1):
     CompaniesWaste.itn).all()
   for row in cw:
     in_company.append(row.itn)
-  print(in_company)
 
   c = db.session.query(Companies.id).filter(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company))).count()
   dict = Companies.query.filter(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company))).paginate(page, POSTS_PER_PAGE, False).items
@@ -55,7 +54,10 @@ def getCompanyContacts(c_id, type):
 
   if type == 'site':
     if company.site != None:
-      data = json.loads(company.site)
+      try:
+        data = json.loads(company.site)
+      except:
+        data = json.loads("[\"{}\"]".format(company.site))
 
   if type == 'emails':
     if company.emails != None:
