@@ -15,15 +15,33 @@
           <b-card-text>
             <div class="row">
               <div class="col-md-5">
-                <img :src="`https://static-maps.yandex.ru/1.x/?ll=${item.gps.lat},${item.gps.long}&amp;z=10&amp;l=map&amp;size=240,160`">
+                <a :href="`/companies/${item.id}`">
+                  <img :src="`https://static-maps.yandex.ru/1.x/?ll=${item.gps.lat},${item.gps.long}&amp;z=10&amp;l=map&amp;size=240,160`">
+                </a>
               </div>
               <div class="col-md-7">
-                <a :href="`/companies/${item.id}`" class="text-dark"><h2>{{item.name}}</h2></a>
-                <ul class="activity">
-                  <li v-for="(c_item, c_index) in item.activity" :key="c_index">
-                  {{getActivity(activities, c_item)}}
-                  </li>
-                </ul>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <a :href="`/companies/${item.id}`" class="text-dark"><h2>{{item.name}}</h2></a>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <ul class="activity">
+                      <li v-for="(c_item, c_index) in item.activity" :key="c_index">
+                      {{getActivity(activities, c_item)}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="row mt-2">
+                  <div class="col-md-12">
+                    <b-button class="btn btn-success mr-2" :href="`/companies/${item.id}`">Посмотреть контакты</b-button>
+                  </div>
+                </div>
               </div>
             </div>
           </b-card-text>
