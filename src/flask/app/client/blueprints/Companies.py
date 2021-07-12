@@ -1,4 +1,4 @@
-from app.models import Region, Companies, CompaniesWaste
+from app.models import Region, Companies, CompaniesWaste, Fkko
 from flask import Blueprint, jsonify
 from app.client.schemes.Company import CompanyClientSchema
 from app.client.schemes.CompanyWaste import CompanyWasteClientSchema, CompanyByWasteClientSchema
@@ -27,10 +27,17 @@ def getSearchCompanies(search, page = 1):
   likesearch = "%{}%".format(search)
 
   in_company = []
-  cw = CompaniesWaste.query.with_entities(CompaniesWaste.itn).filter_by(fkko_id=search).group_by(
+  cw = CompaniesWaste.query.with_entities(CompaniesWaste.itn).filter_by(fkko_id=search.replace(' ', '')).group_by(
     CompaniesWaste.itn).all()
   for row in cw:
     in_company.append(row.itn)
+
+  cwn = db.session.query(Fkko.id).filter(Fkko.name.like(likesearch)).all()
+  for row in cwn:
+    cw = CompaniesWaste.query.with_entities(CompaniesWaste.itn).filter_by(fkko_id=row.id).group_by(
+      CompaniesWaste.itn).all()
+    for row2 in cw:
+      in_company.append(row2.itn)
 
   c = db.session.query(Companies.id).filter(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company))).count()
   dict = Companies.query.filter(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company))).paginate(page, POSTS_PER_PAGE, False).items

@@ -3,7 +3,7 @@
     <div class="col-md-9">
       <vue-autosuggest
         :suggestions="codes"
-        :input-props="{id:'code', class: 'form-control', placeholder:'Введите название компании или код отхода'}"
+        :input-props="{id:'code', class: 'form-control', placeholder:'Введите код или название отхода, или название компании'}"
         :get-suggestion-value="getSuggestionValue"
         @selected="onSelected"
         @input="updateCodes"
