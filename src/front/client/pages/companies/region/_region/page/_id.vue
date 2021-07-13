@@ -100,7 +100,7 @@ export default {
   },
   head() {
     return {
-      title: this.title,
+      title: `${this.title} ${this.region_name}`,
     }
   },
   methods: {
