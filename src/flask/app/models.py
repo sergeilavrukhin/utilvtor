@@ -14,17 +14,24 @@ class User(db.Model):
   __tablename__ = "users"
   id = Column(Integer, primary_key=True)
   phone = Column(String(11))
+  email = Column(String(255))
   firstname = Column(String(255), nullable=False)
   password = Column(String(255), nullable=False)
+  date_create = Column(DateTime, default=datetime.datetime.utcnow)
 
-  def __init__(self, firstname, phone, password, salt):
+  def __init__(self, firstname, phone, email, password, salt):
     self.setFirstname(firstname)
     self.setPhone(phone)
+    self.setEmail(email)
     self.setPassword(password, salt)
 
   def setPhone(self, phone):
     phone = phone.strip() if phone else None
     self.phone = phone
+
+  def setEmail(self, email):
+    email = email.strip() if email else None
+    self.email = email
 
   def setFirstname(self, firstname):
     self.firstname = firstname.strip()

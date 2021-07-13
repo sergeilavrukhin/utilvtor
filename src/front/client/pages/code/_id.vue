@@ -84,7 +84,7 @@ export default {
     }).catch((error) => {
       console.log(error);
     });
-    const region = await $axios.$get('regions/').then((response) => {
+    const region = await $axios.$get('regions/list/').then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);

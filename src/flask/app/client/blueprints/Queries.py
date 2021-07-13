@@ -29,12 +29,7 @@ def getQueriesByCode(id):
 @app.route("/<int:id>")
 @jwt_optional
 def getQuery(id):
-  current_user = get_jwt_identity()
   queries = Queries.query.filter(Queries.id == id).one_or_none()
-  #if current_user:
-  #  queriesSchema = QueriesClientSchema()
-  #else:
-  #  queriesSchema = QueriesClientShortSchema()
   queriesSchema = QueriesClientSchema()
 
   return jsonify(queriesSchema.dump(queries)), 200
@@ -42,15 +37,14 @@ def getQuery(id):
 @app.route("/", methods=["post"])
 @jwt_optional
 def createQuery():
-  current_user = get_jwt_identity()
-
   password = gen_password()
   json = request.get_json()
+
   phone = json["phone"].replace('+', '').replace('(', '').replace(')', '').replace('-', '').replace(' ', '')
   if json["phone"] != "":
     user = User.query.filter(User.phone == json["phone"]).one_or_none()
     if user == None:
-      user = User(json["firstname"], phone, password, current_app.config["SALT"])
+      user = User(json["firstname"], phone, json["email"], password, current_app.config["SALT"])
       db.session.add(user)
   else:
     return jsonify({'msg': 'Не удалось разместить заявку'}), 403

@@ -116,13 +116,12 @@ def logout():
     return jsonify(ret), 200
 
 @app.route('/list/')
-@jwt_required
 def user_list():
-    current_user = get_jwt_identity()
-    user = User.query.filter(User.email == current_user).one_or_none()
-    if user.email == "sergei.a.lavrukhin@gmail.com":
-      list = User.query.all()
-      listSchema = UserClientSchema(many=True)
-      return jsonify(listSchema.dump(list)), 200
-    else:
-      return None
+    #current_user = get_jwt_identity()
+    #user = User.query.filter(User.email == current_user).one_or_none()
+    #if user.email == "sergei.a.lavrukhin@gmail.com":
+    list = User.query.all()
+    listSchema = UserClientSchema(many=True)
+    return jsonify(listSchema.dump(list)), 200
+    #else:
+    #  return None

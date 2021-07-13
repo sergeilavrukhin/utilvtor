@@ -9,7 +9,7 @@ from marshmallow import fields
 class QueriesClientSchema(ModelSchema):
     query_type = fields.Nested(QueryTypeClientSchema, only=("text",))
     region = fields.Nested(RegionClientSchema, only=("text",))
-    user = fields.Nested(UserClientSchema, only=("id", "firstname", "phone"))
+    user = fields.Nested(UserClientSchema, only=("id", "firstname", "phone", "email"))
     class Meta:
         model = Queries
 

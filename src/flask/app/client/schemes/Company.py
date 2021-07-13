@@ -34,25 +34,29 @@ class CompanyClientSchema(ModelSchema):
 
     def getPhones(self, el):
         if el.phones != None:
-            return "get"
+            return json.loads(el.phones)
         else:
             return None
 
     def getEmails(self, el):
         if el.emails != None:
-            return "get"
+            return json.loads(el.emails)
         else:
             return None
 
     def getSite(self, el):
         if el.site != None:
-            return "get"
+            try:
+                data = json.loads(el.site)
+            except:
+                data = json.loads("[\"{}\"]".format(el.site))
+            return data
         else:
             return None
 
     def getLocality(self, el):
         if el.locality != None:
-            return "get"
+            return el.locality
         else:
             return None
 

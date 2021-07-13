@@ -34,6 +34,19 @@
         </b-form-group>
 
         <b-form-group
+          id="input-group-1"
+          label="Электронная почта:"
+          label-for="email"
+        >
+          <b-form-input
+            id="email"
+            v-model="form.email"
+            type="email"
+            placeholder="Электронная почта"
+          ></b-form-input>
+        </b-form-group>
+
+        <b-form-group
           id="input-group-2"
           label="Запрос:*"
           label-for="query_type">
@@ -104,6 +117,7 @@ export default {
       form: {
         firstname: '',
         phone: '',
+        email: '',
         query_type: null,
         region: null,
         waste: '',
@@ -121,6 +135,7 @@ export default {
       await this.$axios.$post('queries/', {
         firstname: this.form.firstname,
         phone: this.form.phone,
+        email: this.form.email,
         query_type: this.form.query_type,
         waste: this.form.waste,
         region: this.form.region,

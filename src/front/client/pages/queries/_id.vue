@@ -17,6 +17,7 @@
             <ul>
               <li><b>Автор:</b>{{item.user.firstname}}</li>
               <li><b>Телефон:</b> {{item.user.phone}}</li>
+              <li><b>Email:</b> {{item.user.email}}</li>
             </ul>
             {{item.description}}
           </b-card-text>
@@ -38,7 +39,7 @@ export default {
     }).catch((error) => {
       console.log(error);
     });
-    const region = await $axios.$get('regions/').then((response) => {
+    const region = await $axios.$get('regions/list/').then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);

@@ -1,17 +1,16 @@
 <template>
   <b-row class="mx-0 my-3">
     <div class="col-md-9">
-      <vue-autosuggest
-        :suggestions="codes"
-        :input-props="{id:'code', class: 'form-control', placeholder:'Введите код или название отхода, или название компании'}"
-        :get-suggestion-value="getSuggestionValue"
-        @selected="onSelected"
-        @input="updateCodes"
+      <b-form-group
+        id="input-group-1"
       >
-        <template slot-scope="{suggestion}">
-          <span class="my-suggestion-item">{{suggestion.item.id}} - {{suggestion.item.name}}</span>
-        </template>
-      </vue-autosuggest>
+        <b-form-input
+          id="search"
+          v-model="search"
+          type="text"
+          placeholder="Введите код или название отхода, или название компании"
+        ></b-form-input>
+      </b-form-group>
     </div>
     <div class="col-md-3">
       <b-button class="btn btn-block btn-success" @click="find">Найти где утилизировать</b-button>
@@ -25,6 +24,7 @@ export default {
   data () {
     return {
       search: null,
+      regions: null,
       codes: [{data: null}],
     }
   },
@@ -33,22 +33,7 @@ export default {
     find() {
       if(this.search) window.location = `/companies/search/${this.search}`;
     },
-    onSelected(item) {
-      this.search = item.item.id;
-    },
-    getSuggestionValue(suggestion) {
-      return suggestion.item.id;
-    },
-    async updateCodes (code) {
-      this.search = code;
-      /*await this.$axios.$get(`code/search/${code}`
-      ).then((response) => {
-        this.codes[0].data = response;
-      }).catch((error) => {
-        console.log();
-      });*/
-    }
-  }
+  },
 };
 </script>
 
