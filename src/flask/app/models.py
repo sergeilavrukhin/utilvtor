@@ -143,7 +143,7 @@ class Companies(db.Model):
 class CompaniesWaste(db.Model):
   __tablename__ = "waste_c"
   id = Column(Integer, primary_key=True)
-  itn = Column(String(12))
+  itn = Column(String(12), index = True)
   activity = Column(String(600))
 
   fkko_id = Column("fkko_id", BigInteger, db.ForeignKey('fkko.id'))
