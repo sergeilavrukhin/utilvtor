@@ -105,7 +105,7 @@ export default {
   methods: {
     getActivity: (activities, val) => activities[val],
     linkGen(pageNum) {
-      return pageNum === 1 ? `/companies/region/${this.$route.params.id}/` : `/companies/region/${this.$route.params.id}/page/${pageNum}/`
+      return pageNum === 1 ? `/companies/region/${this.$route.params.id}` : `/companies/region/${this.$route.params.id}/page/${pageNum}`
     }
   },
 };
