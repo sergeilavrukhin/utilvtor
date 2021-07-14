@@ -43,6 +43,7 @@ export default {
       codes: [{data: null}],
     }
   },
+  fetchOnServer: false,
 
   methods: {
     find() {
