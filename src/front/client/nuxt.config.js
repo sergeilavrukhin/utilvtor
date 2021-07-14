@@ -2,6 +2,9 @@ const axios = require('axios')
 
 export default {
   mode: process.env.MODE,
+  publicRuntimeConfig: {
+    baseURL: process.env.BASE_URL,
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'Биржа отходов Веботход.ру - утилизация отходов, покупка и продажа вторсырья',

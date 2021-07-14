@@ -57,7 +57,7 @@ export default {
   },
   async fetch() {
     this.regions = await fetch(
-      `${window.location.origin}/api/client/regions/list/all/`
+      `${this.$config.baseURL}/api/client/regions/list/all/`
     ).then(res => res.json())
   }
 };
