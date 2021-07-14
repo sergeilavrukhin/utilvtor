@@ -60,7 +60,7 @@
 export default {
   async asyncData({ params, $axios }) {
     var search = encodeURI(params.search);
-    const region_one = await $axios.$get(`companies/search/${search}/page/${params.id}/`).then((response) => {
+    const region_one = await $axios.$get(`companies/search/${search}/region/${params.region}`).then((response) => {
       return response;
     });
 

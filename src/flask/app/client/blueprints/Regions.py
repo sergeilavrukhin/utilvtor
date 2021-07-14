@@ -13,7 +13,7 @@ def getRegions():
 @app.route("/list/")
 def getRegionsList():
   dict = Region.query.all()
-  dictSchema = RegionClientSchema(many=True, only=("id", "text"))
+  dictSchema = RegionClientSchema(many=True, only=("value", "text"))
   return jsonify(dictSchema.dump(dict)), 200
 
 @app.route("/list/all/")
@@ -21,8 +21,9 @@ def getRegionsListWithAll():
   dict = Region.query.all()
   data = {
     "id": 0,
+    "value": 0,
     "text": "Все регионы"
   }
   dict.insert(0, data)
-  dictSchema = RegionClientSchema(many=True, only=("id", "text"))
+  dictSchema = RegionClientSchema(many=True, only=("value", "text"))
   return jsonify(dictSchema.dump(dict)), 200

@@ -22,8 +22,10 @@ def getCompaniesByRegion(region, page = 1):
     return jsonify({"msg": "Регион не найден"}), 403
 
 @app.route("/search/<search>/")
+@app.route("/search/<search>/region/<region>/")
 @app.route("/search/<search>/page/<int:page>/")
-def getSearchCompanies(search, page = 1):
+@app.route("/search/<search>/region/<region>/page/<int:page>/")
+def getSearchCompanies(search, region = 0, page = 1):
   likesearch = "%{}%".format(search)
 
   in_company = []

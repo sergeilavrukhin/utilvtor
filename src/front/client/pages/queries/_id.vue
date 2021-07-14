@@ -15,6 +15,7 @@
         class="mx-1 my-3">
           <b-card-text>
             <ul>
+              <li><b>Дата заявки:</b> {{item.date_create}}</li>
               <li><b>Автор:</b>{{item.user.firstname}}</li>
               <li><b>Телефон:</b> {{item.user.phone}}</li>
               <li><b>Email:</b> {{item.user.email}}</li>

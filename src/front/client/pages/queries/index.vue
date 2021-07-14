@@ -9,6 +9,7 @@
          :title="`${item.query_type.text} ${item.waste}`" :sub-title="`Регион: ${item.region.text}`"
         class="mx-1 my-3">
           <b-card-text>
+          Дата заявки: {{ item.date_create }}<br />
           {{ item.description }}
           </b-card-text>
           <router-link :to="`queries/${item.id}`" class="text-success">Посмотреть</router-link>

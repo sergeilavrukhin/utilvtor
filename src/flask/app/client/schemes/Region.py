@@ -11,7 +11,10 @@ class RegionClientSchema(ModelSchema):
         model = Region
 
     def getValue(self, el):
-        return el.id
+        if isinstance(el, dict):
+            return el['id']
+        else:
+            return el.id
 
     def getActivity(self, el):
         return json.loads(el.activity)

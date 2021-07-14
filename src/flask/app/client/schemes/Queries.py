@@ -10,8 +10,12 @@ class QueriesClientSchema(ModelSchema):
     query_type = fields.Nested(QueryTypeClientSchema, only=("text",))
     region = fields.Nested(RegionClientSchema, only=("text",))
     user = fields.Nested(UserClientSchema, only=("id", "firstname", "phone", "email"))
+    date_create = fields.Method("getDate")
     class Meta:
         model = Queries
+
+    def getDate(self, el):
+        return el.date_create.strftime("%d.%m.%Y")
 
 class QueriesClientShortSchema(ModelSchema):
     query_type = fields.Nested(QueryTypeClientSchema, only=("text",))
