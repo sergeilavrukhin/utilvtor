@@ -43,7 +43,6 @@ export default {
       codes: [{data: null}],
     }
   },
-  fetchOnServer: false,
 
   methods: {
     find() {
@@ -58,7 +57,7 @@ export default {
   },
   async fetch() {
     this.regions = await fetch(
-      '/api/client/regions/list/all/'
+      `${window.location.origin}/api/client/regions/list/all/`
     ).then(res => res.json())
   }
 };
