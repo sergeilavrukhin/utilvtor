@@ -3,6 +3,9 @@ from flask_migrate import Migrate
 from .globals import db, jwt, redis
 from .models import *
 
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
+
 def create_backend_app():
   app = Flask(__name__)
   app.config.from_pyfile("config.production.py")
@@ -22,6 +25,11 @@ def create_backend_app():
   app.register_blueprint(User, url_prefix=root_client_api + "user")
   app.register_blueprint(Companies, url_prefix=root_client_api + "companies")
 
+  if not app.debug:
+    sentry_sdk.init(
+      dsn="https://443945891ad8454faaffe40331a11010@o494728.ingest.sentry.io/5860579",
+      integrations=[FlaskIntegration()]
+    )
 
   return app
 
@@ -33,6 +41,11 @@ def create_celery_app():
   Migrate(app, db)
   jwt.init_app(app)
 
+  if not app.debug:
+    sentry_sdk.init(
+      dsn="https://443945891ad8454faaffe40331a11010@o494728.ingest.sentry.io/5860579",
+      integrations=[FlaskIntegration()]
+    )
   return app
 
 backend_app = create_backend_app()
