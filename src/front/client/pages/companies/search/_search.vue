@@ -9,9 +9,9 @@
       </b-col>
     </b-row>
     <div class="row">
-      <div class="col-md-8">
+      <div v-if="companies.length > 0" class="col-md-8">
         <b-pagination-nav :link-gen="linkGen" :number-of-pages="nofp" align="center"></b-pagination-nav>
-        <b-card v-if="companies" v-for="(item, index) in companies" :key="index" class="mt-3 mb-3">
+        <b-card v-for="(item, index) in companies" :key="index" class="mt-3 mb-3">
           <b-card-text>
             <div class="row">
               <div class="col-md-5">
@@ -48,6 +48,13 @@
         </b-card>
         <b-pagination-nav :link-gen="linkGen" :number-of-pages="nofp" align="center"></b-pagination-nav>
       </div>
+      <div v-if="companies.length == 0" class="col-md-8">
+        <b-card class="mt-3 mb-3">
+          <b-card-text>
+            Компаний по вашему запросу не найдено
+          </b-card-text>
+        </b-card>
+      </div>
       <div class="col-md-4">
         <queryadd :region="region" :query_type="query_type"></queryadd>
       </div>
@@ -60,8 +67,17 @@
 export default {
   async asyncData({ params, $axios }) {
     var search = encodeURI(params.search);
-    const region_one = await $axios.$get(`companies/search/${search}/page/${params.id}/`).then((response) => {
+    var url = `companies/search/${search}/`;
+    if(params.region) {
+      url = url + `region/${params.region}/`;
+    }
+    if(params.page) {
+      url = url + `page/${params.page}/`;
+    }
+    const region_one = await $axios.$get(url).then((response) => {
       return response;
+    }).catch((error) => {
+      console.log(error);
     });
 
     const query_type = await $axios.$get('queries/query_types/').then((response) => {
@@ -110,7 +126,11 @@ export default {
   methods: {
     getActivity: (activities, val) => activities[val],
     linkGen(pageNum) {
-      return pageNum === 1 ? `/companies/search/${this.$route.params.search}` : `/companies/search/${this.$route.params.search}/page/${pageNum}`
+      var url = `/companies/search/${this.$route.params.search}`;
+      if(this.$route.params.region) {
+        url = url + `/region/${this.$route.params.region}`;
+      }
+      return pageNum === 1 ? url : `${url}/page/${pageNum}`
     }
   },
 };
