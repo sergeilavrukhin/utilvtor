@@ -115,6 +115,10 @@ export default {
       var { data } = await axios.get(process.env.BASE_URL + '/api/client/queries/map')
       var queries = data.map((query) => `/queries/${query.id}`)
       maps = maps.concat(queries)
+
+      var { data } = await axios.get(process.env.BASE_URL + '/api/client/companies/map')
+      var companies = data.map((query) => `/companies/${query.id}`)
+      maps = maps.concat(companies)
       return maps
     }
   },

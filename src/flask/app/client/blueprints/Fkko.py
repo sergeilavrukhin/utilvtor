@@ -24,11 +24,12 @@ def getFkko():
   codesSchema = FkkoClientSchema(many=True, only=("id", "name"))
   return jsonify(codesSchema.dump(codes)), 200
 
+
 @app.route("/map")
-def getFkkoList():
-  codes = Fkko.query.all()
-  codesSchema = FkkoClientSchema(many=True, only=("id",))
-  return jsonify(codesSchema.dump(codes)), 200
+def getMapList():
+  list = Fkko.query.all()
+  mapSchema = FkkoClientSchema(many=True, only=("id",))
+  return jsonify(mapSchema.dump(list)), 200
 
 @app.route("/<int:fkko_id>")
 def getFkkoById(fkko_id):

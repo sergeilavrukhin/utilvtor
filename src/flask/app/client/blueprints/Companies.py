@@ -9,6 +9,12 @@ import json
 
 app = Blueprint('ClientCompanies', __name__)
 
+@app.route("/map")
+def getMapList():
+  list = Companies.query.all()
+  mapSchema = CompanyClientSchema(many=True, only=("id",))
+  return jsonify(mapSchema.dump(list)), 200
+
 @app.route("/<region>/")
 @app.route("/<region>/page/<int:page>/")
 def getCompaniesByRegion(region, page = 1):

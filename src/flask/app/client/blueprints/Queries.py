@@ -15,10 +15,10 @@ def getQueries():
 
 
 @app.route("/map")
-def getQueryList():
-  queries = Queries.query.all()
-  queriesSchema = QueriesClientSchema(many=True, only=("id",))
-  return jsonify(queriesSchema.dump(queries)), 200
+def getMapList():
+  list = Queries.query.all()
+  mapSchema = QueriesClientSchema(many=True, only=("id",))
+  return jsonify(mapSchema.dump(list)), 200
 
 @app.route("/code/<int:id>")
 def getQueriesByCode(id):
