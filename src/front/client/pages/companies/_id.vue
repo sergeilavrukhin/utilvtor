@@ -54,7 +54,7 @@
         </b-card>
       </div>
       <div class="col-md-4">
-        <queryadd :region="region" :query_type="query_type"></queryadd>
+        <queryadd></queryadd>
       </div>
     </div>
     <cmp-footer></cmp-footer>
@@ -75,24 +75,11 @@ export default {
       console.log(error);
     });
     const coords = [company.gps.long, company.gps.lat];
-
-    const query_type = await $axios.$get('queries/query_types/').then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    });
-    const region = await $axios.$get('regions/list/').then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    });
-    return { query_type, region, company, coords, codes }
+    return { company, coords, codes }
   },
   data() {
     return {
       company: null,
-      region: null,
-      query_type: null,
       coords: null,
       codes: null,
       activities: {

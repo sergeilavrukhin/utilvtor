@@ -110,7 +110,6 @@
 
 <script>
 export default {
-  props: ['region', 'query_type'],
   data() {
     return {
       title: 'Заявка на утилизацию, транспортировку или обезвреживание отходов, покупку или продажу вторсырья',
@@ -126,7 +125,17 @@ export default {
       show: true,
       success: null,
       error: null,
+      region: null,
+      query_type: null,
     };
+  },
+  async fetch() {
+    this.region = await fetch(
+      `${this.$config.baseURL}api/client/regions/list/`
+    ).then(res => res.json())
+    this.query_type = await fetch(
+      `${this.$config.baseURL}api/client/queries/query_types/`
+    ).then(res => res.json())
   },
   methods: {
     async onSubmit(evt) {

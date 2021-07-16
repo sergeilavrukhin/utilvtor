@@ -52,7 +52,7 @@
         </div>
       </b-col>
       <b-col class="col-md-4">
-        <queryadd :region="region" :query_type="query_type"></queryadd>
+        <queryadd></queryadd>
       </b-col>
     </b-row>
     <b-row v-if="companies">
@@ -78,25 +78,12 @@ export default {
     }).catch((error) => {
       console.log(error);
     });
-
-    const query_type = await $axios.$get('queries/query_types/').then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    });
-    const region = await $axios.$get('regions/list/').then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    });
-    return { query_type, region, code, companies }
+    return { code, companies }
   },
   data() {
     return {
       loggedIn: this.$auth.loggedIn,
       code: null,
-      region: null,
-      query_type: null,
       activities: {
         processing: 'Переработка',
         collection: 'Хранение',

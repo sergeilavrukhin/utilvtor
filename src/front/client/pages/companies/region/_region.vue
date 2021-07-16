@@ -5,7 +5,7 @@
     <b-row>
       <b-col class="pl-4 pr-4 pt-4">
         <b-link class="text-success" href="/companies">Компании</b-link>
-        <span> &raquo; </span><h1>Поиск по утилизаторам</h1>
+        <span> &raquo; </span><h1>{{region_name}}</h1>
       </b-col>
     </b-row>
     <div class="row">
@@ -23,38 +23,31 @@
 <script>
 export default {
   async asyncData({ params, $axios }) {
-    var search = encodeURI(params.search);
-    var url = `companies/search/${search}/`;
-    if(params.region) {
-      url = url + `region/${params.region}/`;
-    }
-    if(params.page) {
-      url = url + `page/${params.page}/`;
-    }
+    var url = `companies/${params.region}/`;
+    if (params.page) url = url + `page/${params.page}/`;
+
     const region_one = await $axios.$get(url).then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);
     });
+    const companies = region_one.companies;
+    const nofp = region_one.count;
+    const region_name = region_one.name;
 
-    if(region_one) {
-      const companies = region_one.companies;
-      const nofp = region_one.count;
-      const region_name = region_one.name;
-      return { companies, nofp, region_name }
-    }
+    return { companies, nofp, region_name }
   },
   data() {
     return {
       title: 'Организации занимающиеся утилизацией, переработкой, транспортировкой, обезвреживанием отходов, покупкой и продажей вторсырья',
       companies: null,
       nofp: 10,
-      region_name: null
+      region_name: null,
     };
   },
   head() {
     return {
-      title: this.title,
+      title: `${this.title} ${this.region_name}`,
     }
   },
 };

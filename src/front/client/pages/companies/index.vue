@@ -4,7 +4,7 @@
     <search></search>
     <div class="row">
       <div class="col-md-8">
-        <b-card v-for="(item, index) in region" :key="index" class="mt-3 mb-3">
+        <b-card v-for="(item, index) in regions" :key="index" class="mt-3 mb-3">
           <b-card-text>
             <a :href="`companies/region/${item.url}`" class="text-dark"><h2>{{item.text}}</h2></a>
             <i>Актуальное количество фирм, которое занимается обращением с отходами</i>
@@ -18,7 +18,7 @@
         </b-card>
       </div>
       <div class="col-md-4">
-        <queryadd :region="region" :query_type="query_type"></queryadd>
+        <queryadd></queryadd>
       </div>
     </div>
     <cmp-footer></cmp-footer>
@@ -28,23 +28,17 @@
 <script>
 export default {
   async asyncData({ $axios }) {
-    const query_type = await $axios.$get('queries/query_types/').then((response) => {
+    const regions = await $axios.$get('regions/').then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);
     });
-    const region = await $axios.$get('regions/').then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    });
-    return { query_type, region }
+    return { regions }
   },
   data() {
     return {
       title: 'Организации занимающиеся утилизацией, переработкой, транспортировкой, обезвреживанием отходов, покупкой и продажей вторсырья',
-      region: null,
-      query_type: null,
+      regions: null,
       activities: {
         processing: 'Переработка',
         collection: 'Хранение',

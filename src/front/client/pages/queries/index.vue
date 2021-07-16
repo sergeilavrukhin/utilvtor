@@ -36,7 +36,7 @@
             </vue-autosuggest>
           </b-card-text>
         </b-card>-->
-        <queryadd :region="region" :query_type="query_type"></queryadd>
+        <queryadd></queryadd>
       </div>
     </div>
     <cmp-footer></cmp-footer>
@@ -52,23 +52,11 @@ export default {
     }).catch((error) => {
       console.log(error);
     });
-    const query_type = await $axios.$get('queries/query_types/').then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    });
-    const region = await $axios.$get('regions/list/').then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    });
-    return { queries, query_type, region }
+    return { queries }
   },
   data() {
     return {
       loggedIn: this.$auth.loggedIn,
-      query_type: null,
-      region: null,
       searchcode: null,
       queries: null,
       title: 'Заявки на утилизацию, транспортирование, обезвреживание оходов, а так же покупку и продажу вторсырья',

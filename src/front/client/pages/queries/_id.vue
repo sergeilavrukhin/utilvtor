@@ -25,7 +25,7 @@
         </b-card>
       </div>
       <div class="col-md-4">
-        <queryadd :region="region" :query_type="query_type"></queryadd>
+        <queryadd></queryadd>
       </div>
     </div>
     <cmp-footer></cmp-footer>
@@ -35,29 +35,17 @@
 <script>
 export default {
   async asyncData({ params,  $axios }) {
-    const query_type = await $axios.$get('queries/query_types/').then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    });
-    const region = await $axios.$get('regions/list/').then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    });
     const item = await $axios.$get(`queries/${params.id}`).then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);
     });
-    return { item, query_type, region }
+    return { item }
   },
   data() {
     return {
       loggedIn: this.$auth.loggedIn,
       item: null,
-      query_type: null,
-      region: null,
       contacts: null,
       title: 'Заявка на утилизацию',
     };

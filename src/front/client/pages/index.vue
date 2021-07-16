@@ -72,7 +72,7 @@
         </b-card>
      </b-col>
      <b-col class="col-md-4">
-        <queryadd :region="region" :query_type="query_type"></queryadd>
+        <queryadd></queryadd>
      </b-col>
     </b-row>
     <cmp-footer></cmp-footer>
@@ -81,24 +81,9 @@
 
 <script>
 export default {
-  async asyncData({ $axios }) {
-    const query_type = await $axios.$get('queries/query_types/').then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    });
-    const region = await $axios.$get('regions/list/').then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    });
-    return { query_type, region }
-  },
   data () {
     return {
-      loggedIn: this.$auth.loggedIn,
-      query_type: null,
-      region: null,
+      loggedIn: this.$auth.loggedIn
     }
   },
 }
