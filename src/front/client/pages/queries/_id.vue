@@ -44,7 +44,6 @@ export default {
   },
   data() {
     return {
-      loggedIn: this.$auth.loggedIn,
       item: null,
       contacts: null,
       title: 'Заявка на утилизацию',

@@ -57,7 +57,7 @@
     </b-row>
     <b-row v-if="companies">
       <b-col align="center">
-        <a href="/companies" class="text-success uppercase">Посмотреть все компании</a>
+        <a :href="`/companies/search/${this.$route.params.id}`" class="text-success uppercase">Посмотреть все компании</a>
       </b-col>
     </b-row>
     <cmp-footer></cmp-footer>
@@ -82,7 +82,6 @@ export default {
   },
   data() {
     return {
-      loggedIn: this.$auth.loggedIn,
       code: null,
       activities: {
         processing: 'Переработка',

@@ -6,7 +6,7 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item href="/queries">Заявки</b-nav-item>
+        <b-nav-item href="/queries/list">Заявки</b-nav-item>
         <b-nav-item href="/code">Классификатор отходов</b-nav-item>
         <b-nav-item href="/companies">Утилизаторы</b-nav-item>
       </b-navbar-nav>
@@ -19,8 +19,6 @@ export default {
   name: 'Navbar',
   data () {
     return {
-      loggedIn: this.$auth.loggedIn,
-      user: this.$auth.user,
     }
   },
   methods: {

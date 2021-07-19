@@ -21,8 +21,6 @@ def getCompaniesByRegion(region, page = 1):
   region = Region.query.filter_by(url = region).one_or_none()
   if region:
     dict = Companies.query.filter_by(region = region).paginate(page, POSTS_PER_PAGE, False).items
-    for di in dict:
-      print(di.emails)
     dictSchema = CompanyClientSchema(many=True)
     c = db.session.query(Companies.id).filter_by(region = region).count()
     return jsonify({"companies": dictSchema.dump(dict), "name": region.text, "count": "{}".format(math.ceil(c/POSTS_PER_PAGE))}), 200

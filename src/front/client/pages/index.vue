@@ -83,39 +83,8 @@
 export default {
   data () {
     return {
-      loggedIn: this.$auth.loggedIn
     }
   },
 }
 </script>
 
-<style>
-
-.autosuggest__results ul {
-  width: 100%;
-  color: rgba(30, 39, 46,1.0);
-  list-style: none;
-  margin: 0;
-  padding: 0.5rem 0 .5rem 0;
-}
-.autosuggest__results li {
-  margin: 0 0 0 0;
-  border-radius: 5px;
-  padding: 0.75rem 0 0.75rem 0.75rem;
-  display: flex;
-  align-items: center;
-}
-.autosuggest__results li:hover {
-  cursor: pointer;
-}
-
-#autosuggest {
-  width: 95%;
-  position: absolute;
-  background-color: #fff;
-  z-index: 9999;
-}
-.autosuggest__results-item--highlighted {
-  background-color: rgba(40, 167, 69, 0.2);
-}
-</style>

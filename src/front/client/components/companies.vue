@@ -54,8 +54,6 @@ export default {
   props: ['companies', 'nofp'],
   data () {
     return {
-      loggedIn: this.$auth.loggedIn,
-      user: this.$auth.user,
       activities: {
         processing: 'Переработка',
         collection: 'Хранение',
