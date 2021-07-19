@@ -31,11 +31,13 @@ export default {
     }).catch((error) => {
       console.log(error);
     });
-    const companies = region_one.companies;
-    const nofp = region_one.count;
-    const region_name = region_one.name;
 
-    return { companies, nofp, region_name }
+    if(region_one) {
+      const companies = region_one.companies;
+      const nofp = region_one.count;
+      const region_name = region_one.name;
+      return { companies, nofp, region_name }
+    }
   },
   data() {
     return {

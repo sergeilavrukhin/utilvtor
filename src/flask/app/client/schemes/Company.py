@@ -22,25 +22,41 @@ class CompanyClientSchema(ModelSchema):
 
     def getActivity(self, el):
         if el.activity != None:
-            return json.loads(el.activity)
+            try:
+                data = json.loads(el.activity)
+            except:
+                data = None
+            return data
         else:
             return None
 
     def getGPS(self, el):
         if el.gps != None:
-            return json.loads(el.gps)
+            try:
+                data = json.loads(el.gps)
+            except:
+                data = None
+            return data
         else:
             return None
 
     def getPhones(self, el):
         if el.phones != None:
-            return json.loads(el.phones)
+            try:
+                data = json.loads(el.phones)
+            except:
+                data = None
+            return data
         else:
             return None
 
     def getEmails(self, el):
         if el.emails != None:
-            return json.loads(el.emails)
+            try:
+                data = json.loads(el.emails)
+            except:
+                data = None
+            return data
         else:
             return None
 
@@ -49,7 +65,10 @@ class CompanyClientSchema(ModelSchema):
             try:
                 data = json.loads(el.site)
             except:
-                data = json.loads("[\"{}\"]".format(el.site))
+                try:
+                    data = json.loads("[\"{}\"]".format(el.site))
+                except:
+                    data = None
             return data
         else:
             return None
