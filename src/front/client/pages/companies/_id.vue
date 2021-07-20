@@ -94,7 +94,12 @@ export default {
   },
   head() {
     return {
-      title: `${this.company.name} ${this.company.region.text} (ИНН: ${this.company.itn})`,
+      title: `Компания ${this.company.name} из региона ${this.company.region.text} (ИНН: ${this.company.itn}) | утилизация, переработка, транспортирование, обезвреживание отходов, покупка и продажа вторсырья`,
+      meta: [
+        { hid: 'description', name: 'description',
+          content: `Компания ${this.company.name} из региона ${this.company.region.text} (ИНН: ${this.company.itn}) занимается утилизацией, переработкой, транспортированием, обезвреживанием отходов, так же вы можете найти другие компании по всем регионам России`,
+        }
+      ],
     }
   },
   methods: {

@@ -51,10 +51,10 @@ export default {
   },
   head() {
     return {
-      title: `${this.item.query_type.text} ${this.item.waste ? this.item.waste : ''} в ${this.item.region.text}, ${this.item.locality}| ${this.item.fkko ? this.item.fkko.id : ''} утилизация, транспортирование, обезвреживание, покупка и продажа`,
+      title: `${this.item.query_type.text} ${this.item.waste ? this.item.waste : ''} в ${this.item.region.text} | утилизация, транспортирование, обезвреживание, покупка и продажа`,
       meta: [
         { hid: 'description', name: 'description',
-          content: `Заявка с типом ${this.item.query_type.text} по отходу ${this.item.waste} ${this.item.fkko ? this.item.fkko.id : ''} в ${this.item.region.text}, ${this.item.locality}, так же вы можете найти заявки на утилизацию, транспортирование, обезвреживание, покупку и продажу по всем регионам России`,
+          content: `Заявка с типом ${this.item.query_type.text} по отходу ${this.item.waste} в ${this.item.region.text}, так же вы можете найти заявки на утилизацию, транспортирование, обезвреживание, покупку и продажу по всем регионам России`,
         }
       ],
     }
