@@ -9,7 +9,7 @@
         Дата заявки: {{ item.date_create }}<br />
         {{ item.description }}
         </b-card-text>
-        <router-link :to="`queries/${item.id}`" class="text-success">Посмотреть</router-link>
+        <router-link :to="`/queries/${item.id}`" class="text-success">Посмотреть</router-link>
       </b-card>
       <b-pagination-nav :link-gen="linkGen" :number-of-pages="nofp" align="center"></b-pagination-nav>
     </div>

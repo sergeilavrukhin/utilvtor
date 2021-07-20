@@ -67,13 +67,13 @@
 <script>
 export default {
   async asyncData({ params, $axios }) {
-    const code = await $axios.$get(`code/${params.id}`).then((response) => {
+    const code = await $axios.$get(`code/${params.code}`).then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);
     });
 
-    const companies = await $axios.$get(`companies/byfkko/${params.id}/`).then((response) => {
+    const companies = await $axios.$get(`companies/byfkko/${params.code}/`).then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);
