@@ -57,7 +57,7 @@
     </b-row>
     <b-row v-if="companies">
       <b-col align="center">
-        <a :href="`/companies/search/${this.$route.params.id}`" class="text-success uppercase">Посмотреть все компании</a>
+        <a :href="`/companies/search/${this.$route.params.code}`" class="text-success uppercase">Посмотреть все компании</a>
       </b-col>
     </b-row>
     <cmp-footer></cmp-footer>
