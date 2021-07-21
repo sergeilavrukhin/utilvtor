@@ -24,6 +24,7 @@
 export default {
   async asyncData({ params, $axios }) {
     var url = `companies/${params.region}/`;
+    if (params.activity) url = url + `activity/${params.activity}/`;
     if (params.page) url = url + `page/${params.page}/`;
 
     const region_one = await $axios.$get(url).then((response) => {

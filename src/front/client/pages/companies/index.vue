@@ -10,7 +10,7 @@
             <i>Актуальное количество фирм, которое занимается обращением с отходами</i>
             <ul class="activity" v-if="item.activity">
               <li v-for="(c_item, c_index) in item.activity" :key="c_index">
-              {{getActivity(activities, c_index)}}: {{c_item}}
+                <a :href="`companies/region/${item.url}/activity/${c_index}`">{{getActivity(activities, c_index)}}: {{c_item}}</a>
               </li>
             </ul>
             <h6 class="mt-2">Статистика по отходам в регионе <span>{{item.text}}</span></h6>

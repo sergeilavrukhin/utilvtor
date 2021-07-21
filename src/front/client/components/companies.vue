@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div v-if="companies.length > 0" class="col-md-12">
-      <b-pagination-nav :link-gen="linkGen" :number-of-pages="nofp" align="center"></b-pagination-nav>
+      <b-pagination-nav v-if="nofp != 0" :link-gen="linkGen" :number-of-pages="nofp" align="center"></b-pagination-nav>
       <b-card v-for="(item, index) in companies" :key="index" class="mt-3 mb-3">
         <b-card-text>
           <div class="row">
@@ -36,7 +36,7 @@
           </div>
         </b-card-text>
       </b-card>
-      <b-pagination-nav :link-gen="linkGen" :number-of-pages="nofp" align="center"></b-pagination-nav>
+      <b-pagination-nav v-if="nofp != 0" :link-gen="linkGen" :number-of-pages="nofp" align="center"></b-pagination-nav>
     </div>
     <div v-if="companies.length == 0" class="col-md-12">
       <b-card class="mt-3 mb-3">
@@ -74,6 +74,9 @@ export default {
         }
       } else {
         var url = `/companies/region/${this.$route.params.region}`;
+        if(this.$route.params.activity) {
+          url = url + `/activity/${this.$route.params.activity}`;
+        }
       }
       return pageNum === 1 ? url : `${url}/page/${pageNum}`
     }

@@ -1,7 +1,7 @@
 from app.models import Region, Companies, CompaniesWaste, Fkko
 from flask import Blueprint, jsonify
 from app.client.schemes.Company import CompanyClientSchema
-from app.client.schemes.CompanyWaste import CompanyWasteClientSchema, CompanyByWasteClientSchema
+from app.client.schemes.CompanyWaste import CompanyWasteClientSchema
 from app.globals import db, POSTS_PER_PAGE
 from sqlalchemy import or_, and_
 import math
@@ -17,7 +17,9 @@ def getMapList():
 
 @app.route("/<region>/")
 @app.route("/<region>/page/<int:page>/")
-def getCompaniesByRegion(region, page = 1):
+@app.route("/<region>/activity/<activity>/")
+@app.route("/<region>/activity/<activity>/page/<int:page>/")
+def getCompaniesByRegion(region, page = 1, activity = None):
   region = Region.query.filter_by(url = region).one_or_none()
   if region:
     dict = Companies.query.filter_by(region = region).paginate(page, POSTS_PER_PAGE, False).items
@@ -31,7 +33,9 @@ def getCompaniesByRegion(region, page = 1):
 @app.route("/search/<search>/region/<region>/")
 @app.route("/search/<search>/page/<int:page>/")
 @app.route("/search/<search>/region/<region>/page/<int:page>/")
-def getSearchCompanies(search, region = 0, page = 1):
+@app.route("/search/<search>/<region>/activity/<activity>/")
+@app.route("/search/<search>/<region>/activity/<activity>/page/<int:page>/")
+def getSearchCompanies(search, region = 0, page = 1, activity = None):
   likesearch = "%{}%".format(search)
 
   in_company = []
@@ -102,6 +106,14 @@ def getCompanyFkkoList(c_id):
 
 @app.route("/byfkko/<int:code>/")
 def getCompanyByFkko(code):
-  dict = CompaniesWaste.query.with_entities(CompaniesWaste.itn).filter_by(fkko_id=code).group_by(CompaniesWaste.itn).limit(3)
-  dictSchema = CompanyByWasteClientSchema(many=True)
+  in_company = []
+  cw = CompaniesWaste.query.with_entities(CompaniesWaste.itn).filter_by(fkko_id=code).group_by(
+    CompaniesWaste.itn).all()
+
+  for row in cw:
+    in_company.append(row.itn)
+
+  dict = Companies.query.filter(Companies.itn.in_(in_company)).limit(3)
+
+  dictSchema = CompanyClientSchema(many=True)
   return jsonify(dictSchema.dump(dict)), 200
