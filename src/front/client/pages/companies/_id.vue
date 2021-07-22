@@ -43,7 +43,7 @@
       <div class="col-md-8">
         <b-card v-for="(item, index) in codes" :key="index" class="mt-3 mb-3">
           <b-card-text>
-            <i>Код ФККО: {{item.fkko.id}}</i>
+            <i>Код ФККО: {{item.fkko.id}} | {{item.fkko.codespace}}</i>
             <a :href="`/code/${item.fkko.id}`" class="text-dark"><h2>{{item.fkko.name}}</h2></a>
             <ul class="activity" v-if="item.activity">
               <li v-for="(c_item, c_index) in item.activity" :key="c_index">

@@ -5,7 +5,7 @@ from marshmallow import fields
 import json
 
 class CompanyWasteClientSchema(ModelSchema):
-    fkko = fields.Nested(FkkoClientSchema, only=("id", "name"))
+    fkko = fields.Nested(FkkoClientSchema, only=("id", "name", "codespace"))
     activity = fields.Method("getActivity")
 
     class Meta:

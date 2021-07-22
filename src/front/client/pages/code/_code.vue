@@ -17,8 +17,8 @@
       <b-col v-if="code.fkko" class="pb-4 col-md-8">
         <b-card class="mt-3 mb-3">
           <b-card-text>
-          <h2 v-if="code.fkko.fkkoclass">Отход (код: {{code.fkko.id}}) - {{code.fkko.name}}</h2>
-          <h2 v-if="!code.fkko.fkkoclass">Категория отхода (код: {{code.fkko.id}}) - {{code.fkko.name}}
+          <h2 v-if="code.fkko.fkkoclass">Отход (код фкко: {{code.fkko.id}} | {{code.fkko.codespace}}) - {{code.fkko.name}}</h2>
+          <h2 v-if="!code.fkko.fkkoclass">Категория отхода (код: {{code.fkko.id}} | {{code.fkko.codespace}}) - {{code.fkko.name}}
            в себе содержит:</h2>
           <h4 v-if="code.fkko.fkkoclass">{{code.fkko.fkkoclass.id}} класс опасности отхода</h4>
           <i v-if="code.fkko.fkkoclass">{{code.fkko.fkkoclass.text}}</i>
@@ -26,7 +26,7 @@
           <i v-if="code.fkko.aggr">{{ code.fkko.aggr.text }}</i>
           <ul v-for="(item, index) in code.codes" :key="index">
             <li><b-link class="text-success" :href="`/code/${item.id}`">
-            {{item.id}}</b-link> - {{item.name}}</li>
+            {{item.id}} | {{item.codespace}}</b-link> - {{item.name}}</li>
           </ul>
           </b-card-text>
         </b-card>
@@ -78,10 +78,10 @@ export default {
   head() {
     return {
       companies: null,
-      title: `Утилизация ${this.code.fkko.name} | ${this.code.fkko.id} утилизация, транспортирование, обезвреживание, покупка и продажа`,
+      title: `Утилизация ${this.code.fkko.name} | код фкко ${this.code.fkko.id} ${this.code.fkko.codespace} утилизация, транспортирование, обезвреживание, покупка и продажа`,
       meta: [
         { hid: 'description', name: 'description',
-          content: `На нашей бирже отходов вы сможете утилизировать или обезвредить ${this.code.fkko.name}, а так же найти подрядчика в виде транспортной компании для сбора и вывоза, всего лишь в несколько кликов!`,
+          content: `На нашей бирже отходов вы сможете утилизировать или обезвредить ${this.code.fkko.name} код фкко ${this.code.fkko.id} | ${this.code.fkko.codespace}, а так же найти подрядчика в виде транспортной компании для сбора и вывоза, всего лишь в несколько кликов!`,
         }
       ],
     }

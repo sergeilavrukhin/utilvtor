@@ -21,7 +21,7 @@ def getParents(parent_id):
 @app.route("/")
 def getFkko():
   codes = Fkko.query.filter(Fkko.parent_id == None).all()
-  codesSchema = FkkoClientSchema(many=True, only=("id", "name"))
+  codesSchema = FkkoClientSchema(many=True, only=("id", "name", "codespace"))
   return jsonify(codesSchema.dump(codes)), 200
 
 
@@ -34,7 +34,7 @@ def getMapList():
 @app.route("/<int:fkko_id>")
 def getFkkoById(fkko_id):
   codes = Fkko.query.filter(Fkko.parent_id == fkko_id).all()
-  codesSchema = FkkoClientSchema(many=True, only=("id", "name"))
+  codesSchema = FkkoClientSchema(many=True, only=("id", "name", "codespace"))
   fkko = Fkko.query.filter(Fkko.id == fkko_id).one_or_none()
   fkkoSchema = FkkoClientSchema()
 
@@ -47,5 +47,5 @@ def getFkkoById(fkko_id):
 @app.route("/search/<string:fkko>")
 def searchFkkoById(fkko):
   codes = Fkko.query.filter(and_(or_(Fkko.id.like("%{}%".format(fkko)), Fkko.name.like("%{}%".format(fkko))), Fkko.fkkoclass_id.isnot(None))).limit(10).all()
-  codesSchema = FkkoClientSchema(many=True, only=("id", "name"))
+  codesSchema = FkkoClientSchema(many=True, only=("id", "name", "codespace"))
   return jsonify(codesSchema.dump(codes)), 200

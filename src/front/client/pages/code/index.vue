@@ -15,7 +15,7 @@
           <b-card-text>
           <ul v-for="(item, index) in codes" :key="index">
             <li><b-link class="text-success" :href="`/code/${item.id}`">
-            {{item.id}}</b-link> - {{item.name}}</li>
+            {{item.id}} - {{item.codespace}}</b-link> - {{item.name}}</li>
           </ul>
           </b-card-text>
         </b-card>
