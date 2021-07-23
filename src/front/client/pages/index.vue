@@ -85,6 +85,13 @@ export default {
     return {
     }
   },
+  head: {
+    script: [{
+      innerHTML: "(function () {window['yandexChatWidgetCallback'] = function() {try {window.yandexChatWidget = new Ya.ChatWidget({guid: '1a527303-189c-968c-678e-05b2efaea1e9',buttonText: 'Ответим на ваши вопросы',title: 'Webothod.ru',theme: 'light',collapsedDesktop: 'hover',collapsedTouch: 'always'});} catch(e) { }};var n = document.getElementsByTagName('script')[0],s = document.createElement('script');s.async = true;s.charset = 'UTF-8';s.src = 'https://yastatic.net/s3/chat/widget.js';n.parentNode.insertBefore(s, n);})();",
+      type: 'text/javascript',
+      charset: 'utf-8'
+    }]
+  },
 }
 </script>
 
