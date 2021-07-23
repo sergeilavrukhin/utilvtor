@@ -56,10 +56,6 @@ export default {
     '@nuxtjs/auth-next',
   ],
 
-  gtm: {
-    id: 'G-V4VL08V30N',
-  },
-
   axios: {
     baseURL: process.env.AXIOS_URL
     // proxy: true
