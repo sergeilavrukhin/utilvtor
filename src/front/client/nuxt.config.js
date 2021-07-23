@@ -7,11 +7,11 @@ export default {
   },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'Биржа отходов Веботход.ру - утилизация отходов, покупка и продажа вторсырья',
+    title: 'Биржа отходов Веботход.ру - утилизация, хранение, переработка, транспортирование, обезвреживание, захоронение отходов, покупка и продажа вторсырья',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Биржа отходов Веботход.ру - утилизация, обезвреживание, переработка, транспортирование отходов, покупка и продажа вторсырья' }
+      { hid: 'description', name: 'description', content: 'Биржа отходов Веботход.ру - утилизация, хранение, переработка, транспортирование, обезвреживание, захоронение отходов, покупка и продажа вторсырья' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
