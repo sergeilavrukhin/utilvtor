@@ -22,9 +22,15 @@ def getMapList():
 def getCompaniesByRegion(region, page = 1, activity = None):
   region = Region.query.filter_by(url = region).one_or_none()
   if region:
-    dict = Companies.query.filter_by(region = region).paginate(page, POSTS_PER_PAGE, False).items
-    dictSchema = CompanyClientSchema(many=True)
-    c = db.session.query(Companies.id).filter_by(region = region).count()
+    if activity:
+      activitysearch = "%{}%".format(activity)
+      dict = Companies.query.filter(Companies.activity.like(activitysearch), Companies.region==region).paginate(page, POSTS_PER_PAGE, False).items
+      dictSchema = CompanyClientSchema(many=True)
+      c = db.session.query(Companies.id).filter(Companies.activity.like(activitysearch), Companies.region==region).count()
+    else:
+      dict = Companies.query.filter_by(region = region).paginate(page, POSTS_PER_PAGE, False).items
+      dictSchema = CompanyClientSchema(many=True)
+      c = db.session.query(Companies.id).filter_by(region = region).count()
     return jsonify({"companies": dictSchema.dump(dict), "name": region.text, "count": "{}".format(math.ceil(c/POSTS_PER_PAGE))}), 200
   else:
     return jsonify({"msg": "Регион не найден"}), 403
@@ -32,33 +38,47 @@ def getCompaniesByRegion(region, page = 1, activity = None):
 @app.route("/search/<search>/")
 @app.route("/search/<search>/region/<region>/")
 @app.route("/search/<search>/page/<int:page>/")
+@app.route("/search/<search>/activity/<activity>/")
+@app.route("/search/<search>/activity/<activity>/page/<int:page>/")
 @app.route("/search/<search>/region/<region>/page/<int:page>/")
-@app.route("/search/<search>/<region>/activity/<activity>/")
-@app.route("/search/<search>/<region>/activity/<activity>/page/<int:page>/")
+@app.route("/search/<search>/region/<region>/activity/<activity>/")
+@app.route("/search/<search>/region/<region>/activity/<activity>/page/<int:page>/")
 def getSearchCompanies(search, region = 0, page = 1, activity = None):
   likesearch = "%{}%".format(search)
 
   in_company = []
-  cw = CompaniesWaste.query.with_entities(CompaniesWaste.itn).filter_by(fkko_id=search.replace(' ', '')).group_by(
+  cw =  db.session.query(CompaniesWaste.itn).with_entities(CompaniesWaste.itn).filter_by(fkko_id=search.replace(' ', '')).group_by(
     CompaniesWaste.itn).all()
   for row in cw:
     in_company.append(row.itn)
 
-  cwn = db.session.query(Fkko.id).filter(Fkko.name.like(likesearch)).all()
+  fkkolist = []
+  cwn = db.session.query(Fkko.id).filter(Fkko.name.like(likesearch)).limit(1000)
   for row in cwn:
-    cw = CompaniesWaste.query.with_entities(CompaniesWaste.itn).filter_by(fkko_id=row.id).group_by(
+    fkkolist.append(row.id)
+
+  if len(fkkolist) > 0:
+    cw = db.session.query(CompaniesWaste.itn).with_entities(CompaniesWaste.itn).filter(CompaniesWaste.fkko_id.in_(fkkolist)).group_by(
       CompaniesWaste.itn).all()
-    for row2 in cw:
-      in_company.append(row2.itn)
+    for row in cw:
+      in_company.append(row.itn)
 
   if region == 0:
-    c = db.session.query(Companies.id).filter(
-      or_(Companies.name.like(likesearch), Companies.itn.in_(in_company))).count()
-    dict = Companies.query.filter(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company))).paginate(page, POSTS_PER_PAGE, False).items
+    if activity:
+      activitysearch = "%{}%".format(activity)
+      c = db.session.query(Companies.id).filter(or_(and_(Companies.activity.like(activitysearch), Companies.name.like(likesearch)),and_(Companies.activity.like(activitysearch), Companies.itn.in_(in_company)))).count()
+      dict = Companies.query.filter(or_(and_(Companies.activity.like(activitysearch), Companies.name.like(likesearch)), and_(Companies.activity.like(activitysearch), Companies.itn.in_(in_company)))).paginate(page, POSTS_PER_PAGE, False).items
+    else:
+      c = db.session.query(Companies.id).filter(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company))).count()
+      dict = Companies.query.filter(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company))).paginate(page, POSTS_PER_PAGE, False).items
   else:
-    c = db.session.query(Companies.id).filter(
-      and_(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company)), Companies.region_id == region)).count()
-    dict = Companies.query.filter(and_(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company)), Companies.region_id == region)).paginate(page, POSTS_PER_PAGE, False).items
+    if activity:
+      activitysearch = "%{}%".format(activity)
+      c = db.session.query(Companies.id).filter(and_(Companies.activity.like(activitysearch), or_(Companies.name.like(likesearch), Companies.itn.in_(in_company)),Companies.region_id == region)).count()
+      dict = Companies.query.filter(and_(Companies.activity.like(activitysearch), or_(Companies.name.like(likesearch), Companies.itn.in_(in_company)), Companies.region_id == region)).paginate(page, POSTS_PER_PAGE, False).items
+    else:
+      c = db.session.query(Companies.id).filter(and_(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company)), Companies.region_id == region)).count()
+      dict = Companies.query.filter(and_(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company)), Companies.region_id == region)).paginate(page, POSTS_PER_PAGE, False).items
 
   dictSchema = CompanyClientSchema(many=True)
   return jsonify({"companies": dictSchema.dump(dict), "count": "{}".format(math.ceil(c/POSTS_PER_PAGE))}), 200

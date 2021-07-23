@@ -20,8 +20,14 @@
               <div class="row">
                 <div class="col-md-12">
                   <ul class="activity">
-                    <li v-for="(c_item, c_index) in item.activity" :key="c_index">
-                    {{getActivity(activities, c_item)}}
+                    <li v-if="$route.params.region" v-for="(c_item, c_index) in item.activity" :key="c_index">
+                    <a :href="`/companies/region/${$route.params.region}/activity/${c_item}`">{{getActivity(activities, c_item)}}</a>
+                    </li>
+                    <li v-if="$route.params.code" v-for="(c_item, c_index) in item.activity" :key="c_index">
+                    <a :href="`/companies/search/${$route.params.code}/activity/${c_item}`">{{getActivity(activities, c_item)}}</a>
+                    </li>
+                    <li v-if="$route.params.search" v-for="(c_item, c_index) in item.activity" :key="c_index">
+                    <a :href="`/companies/search/${$route.params.search}/activity/${c_item}`">{{getActivity(activities, c_item)}}</a>
                     </li>
                   </ul>
                 </div>
@@ -72,6 +78,9 @@ export default {
         if(this.$route.params.region) {
           url = url + `/region/${this.$route.params.region}`;
         }
+        if(this.$route.params.activity) {
+          url = url + `/activity/${this.$route.params.activity}`;
+        }
       } else {
         var url = `/companies/region/${this.$route.params.region}`;
         if(this.$route.params.activity) {
@@ -106,5 +115,8 @@ export default {
   padding: 5px;
   margin: 2px;
   border: 1px solid #ccc;
+}
+.activity li a{
+  color: #28a745;
 }
 </style>

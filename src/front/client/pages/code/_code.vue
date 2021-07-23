@@ -31,15 +31,11 @@
           </b-card-text>
         </b-card>
         <h2>Компании работающие с данным видом отходов:</h2>
+        <a v-if="companies" :href="`/companies/search/${this.$route.params.code}`" class="text-success uppercase">Посмотреть все компании</a>
         <companies :companies="companies" nofp="0"></companies>
       </b-col>
       <b-col class="col-md-4">
         <queryadd></queryadd>
-      </b-col>
-    </b-row>
-    <b-row v-if="companies">
-      <b-col align="center">
-        <a :href="`/companies/search/${this.$route.params.code}`" class="text-success uppercase">Посмотреть все компании</a>
       </b-col>
     </b-row>
     <cmp-footer></cmp-footer>

@@ -72,4 +72,7 @@ export default {
   margin: 2px;
   border: 1px solid #ccc;
 }
+.activity li a{
+  color: #28a745;
+}
 </style>
