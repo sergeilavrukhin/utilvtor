@@ -1,5 +1,5 @@
 from .globals import db
-from sqlalchemy import Column, String, Float, BigInteger, Integer, DateTime, Text
+from sqlalchemy import Column, String, Float, BigInteger, Integer, DateTime, Text, Boolean
 from hashlib import md5
 import datetime
 
@@ -138,6 +138,7 @@ class Companies(db.Model):
   activity = Column(String(600))
   locality = Column(String(600))
   gps = Column(String(255))
+  checked = Column(Boolean, default=False)
 
   def setCoordinates(self, latitude, longitude):
     if latitude.strip() == '':
