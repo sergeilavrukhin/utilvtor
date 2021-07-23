@@ -23,7 +23,7 @@
 <script>
 export default {
   async asyncData({ params, $axios }) {
-    var search = params.search;
+    var search = encodeURI(params.search);
     var url = `companies/search/${search}/`;
     if(params.region) {
       url = url + `region/${params.region}/`;
