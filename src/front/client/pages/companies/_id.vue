@@ -47,7 +47,7 @@
             <a :href="`/code/${item.fkko.id}`" class="text-dark"><h2>{{item.fkko.name}}</h2></a>
             <ul class="activity" v-if="item.activity">
               <li v-for="(c_item, c_index) in item.activity" :key="c_index">
-              {{getActivity(activities, c_item)}}
+              <a :href="`/companies/search/${item.fkko.id}/activity/${c_item}`">{{getActivity(activities, c_item)}}</a>
               </li>
             </ul>
           </b-card-text>

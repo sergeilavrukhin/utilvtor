@@ -6,3 +6,12 @@ db = SQLAlchemy()
 jwt = JWTManager()
 redis = FlaskRedis()
 POSTS_PER_PAGE = 10
+
+activities = [
+  "processing",
+  "collection",
+  "deactivation",
+  "transportation",
+  "utilization",
+  "disposal",
+]

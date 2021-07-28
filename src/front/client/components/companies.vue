@@ -20,7 +20,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <ul class="activity">
-                    <li v-if="$route.params.region" v-for="(c_item, c_index) in item.activity" :key="c_index">
+                    <li v-if="($route.params.region) && (!$route.params.code) && (!$route.params.search)" v-for="(c_item, c_index) in item.activity" :key="c_index">
                     <a :href="`/companies/region/${$route.params.region}/activity/${c_item}`">{{getActivity(activities, c_item)}}</a>
                     </li>
                     <li v-if="$route.params.code" v-for="(c_item, c_index) in item.activity" :key="c_index">

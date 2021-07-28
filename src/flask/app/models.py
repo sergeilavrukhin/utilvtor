@@ -157,3 +157,17 @@ class CompaniesWaste(db.Model):
 
   fkko_id = Column("fkko_id", BigInteger, db.ForeignKey('fkko.id'))
   fkko = db.relationship("Fkko")
+
+class SiteClick(db.Model):
+  __tablename__ = "site_click"
+  id = Column(Integer, primary_key=True)
+  company_id = Column("companies_id", Integer, db.ForeignKey('companies.id'))
+  company = db.relationship("Companies")
+
+  def __init__(self, company):
+    self.setCompany(company)
+
+  def setCompany(self, company):
+    if not isinstance(company, Companies):
+      raise DomainException("Передана не компания")
+    self.company = company

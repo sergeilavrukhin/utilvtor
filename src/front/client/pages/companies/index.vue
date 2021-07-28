@@ -6,7 +6,7 @@
       <div class="col-md-8">
         <b-card v-for="(item, index) in regions" :key="index" class="mt-3 mb-3">
           <b-card-text>
-            <a :href="`companies/region/${item.url}`" class="text-dark"><h2>{{item.text}}</h2></a>
+            <a :href="`companies/region/${item.url}`"><h2>{{item.text}}</h2></a>
             <i>Актуальное количество фирм, которое занимается обращением с отходами</i>
             <ul class="activity" v-if="item.activity">
               <li v-for="(c_item, c_index) in item.activity" :key="c_index">
@@ -72,7 +72,11 @@ export default {
   margin: 2px;
   border: 1px solid #ccc;
 }
-.activity li a{
+a{
+  color: #28a745;
+}
+
+a:hover{
   color: #28a745;
 }
 </style>

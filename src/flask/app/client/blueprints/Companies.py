@@ -1,8 +1,9 @@
-from app.models import Region, Companies, CompaniesWaste, Fkko
+from app.models import Region, Companies, CompaniesWaste, Fkko, SiteClick
 from flask import Blueprint, jsonify
 from app.client.schemes.Company import CompanyClientSchema
 from app.client.schemes.CompanyWaste import CompanyWasteClientSchema
-from app.globals import db, POSTS_PER_PAGE
+from app.client.schemes.Region import RegionClientSchema
+from app.globals import db, POSTS_PER_PAGE, activities
 from sqlalchemy import or_, and_
 import math
 import json
@@ -14,6 +15,23 @@ def getMapList():
   list = Companies.query.all()
   mapSchema = CompanyClientSchema(many=True, only=("id",))
   return jsonify(mapSchema.dump(list)), 200
+
+@app.route("/region/map")
+def getRegionMapList():
+  list = Region.query.all()
+  mapSchema = RegionClientSchema(many=True, only=("url",))
+  return jsonify(mapSchema.dump(list)), 200
+
+
+@app.route("/region/activity/map")
+def getRegionActivityMapList():
+  list = Region.query.all()
+  region_activity = []
+  for region in list:
+    for activity in activities:
+      data = {"url": region.url, "activity": activity}
+      region_activity.append(data)
+  return jsonify(region_activity), 200
 
 @app.route("/<region>/")
 @app.route("/<region>/page/<int:page>/")
@@ -88,6 +106,14 @@ def getCompany(c_id):
   dict = Companies.query.filter_by(id = c_id).one_or_none()
   dictSchema = CompanyClientSchema()
   return jsonify(dictSchema.dump(dict)), 200
+
+@app.route("/siteclick/<int:c_id>/")
+def CompanySiteClick(c_id):
+  company = Companies.query.filter_by(id = c_id).one_or_none()
+  siteclick = SiteClick(company)
+  db.session.add(siteclick)
+  db.session.commit()
+  return jsonify({"msg": "ok"}), 201
 
 @app.route("/<int:c_id>/contacts/<type>/")
 def getCompanyContacts(c_id, type):

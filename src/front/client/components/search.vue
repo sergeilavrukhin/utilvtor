@@ -54,6 +54,8 @@ export default {
         } else {
           window.location = `/companies/search/${this.search}/region/${this.form.regions}`;
         }
+      } else {
+        window.location = `/companies`;
       }
     },
   },
