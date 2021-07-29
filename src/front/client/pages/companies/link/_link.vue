@@ -3,7 +3,7 @@
     <navbar></navbar>
     <b-row>
       <b-col class="pl-4 pr-4 pt-4">
-       <center><h2>Вы переходите на сайт: <a :href="`${$route.params.link}`" class="text-dark">{{$route.params.link}}</a></h2></center>
+       <center><h2>Вы переходите на сайт: <a :href="`${repslash($route.params.link)}`" class="text-dark">{{repslash($route.params.link)}}</a></h2></center>
       </b-col>
     </b-row>
     <cmp-footer></cmp-footer>
@@ -23,6 +23,11 @@ export default {
   data() {
     return {
     };
+  },
+  methods: {
+    repslash(uri) {
+      return uri.replace('-slas-', '//')
+    },
   },
 };
 </script>

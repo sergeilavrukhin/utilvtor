@@ -31,7 +31,7 @@
               <li v-if="company.emails">Электронная почта: {{company.emails.join(', ')}}</li>
               <li v-if="!company.emails">Электронная почта: Нет данных</li>
 
-              <li v-if="company.site">Сайт: <a :href="`/companies/link/${encode(company.site.join(', '))}/company/${company.id}`">{{company.site.join(', ')}}</a></li>
+              <li v-if="company.site">Сайт: <a :href="`/companies/link/${repslash(company.site.join(', '))}/company/${company.id}`">{{company.site.join(', ')}}</a></li>
               <li v-if="!company.site">Сайт: Нет данных</li>
             </ul>
             <i>*В случае если контакты некорректны, просим сообщить нам об этом на электронную почту: <a href="mailto:info@webothod.ru">info@webothod.ru</a></i>
@@ -104,8 +104,8 @@ export default {
   },
   methods: {
     getActivity: (activities, val) => activities[val],
-    encode(uri) {
-      return encodeURIComponent(uri)
+    repslash(uri) {
+      return uri.replace('//', '-slas-')
     },
     async getContacts(type) {
       await this.$axios.$get(`companies/${this.company.id}/contacts/${type}/`).then((response) => {
