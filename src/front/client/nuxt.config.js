@@ -125,6 +125,11 @@ export default {
       var companies_region = data.map((query) => `/companies/region/${query.url}/activity/${query.activity}`)
       maps = maps.concat(companies_region)
 
+
+      var { data } = await axios.get(process.env.BASE_URL + '/api/client/companies/search/map')
+      var search_codes = data.map((code) => `/companies/search/${code.id}`)
+      maps = maps.concat(search_codes)
+
       return maps
     }
   },

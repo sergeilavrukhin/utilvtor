@@ -3,6 +3,7 @@ from flask import Blueprint, jsonify
 from app.client.schemes.Company import CompanyClientSchema
 from app.client.schemes.CompanyWaste import CompanyWasteClientSchema
 from app.client.schemes.Region import RegionClientSchema
+from app.client.schemes.Fkko import FkkoClientSchema
 from app.globals import db, POSTS_PER_PAGE, activities
 from sqlalchemy import or_, and_
 import math
@@ -22,7 +23,6 @@ def getRegionMapList():
   mapSchema = RegionClientSchema(many=True, only=("url",))
   return jsonify(mapSchema.dump(list)), 200
 
-
 @app.route("/region/activity/map")
 def getRegionActivityMapList():
   list = Region.query.all()
@@ -32,6 +32,12 @@ def getRegionActivityMapList():
       data = {"url": region.url, "activity": activity}
       region_activity.append(data)
   return jsonify(region_activity), 200
+
+@app.route("/search/map")
+def getSearchMapList():
+  list = Fkko.query.all()
+  mapSchema = FkkoClientSchema(many=True, only=("id",))
+  return jsonify(mapSchema.dump(list)), 200
 
 @app.route("/<region>/")
 @app.route("/<region>/page/<int:page>/")
