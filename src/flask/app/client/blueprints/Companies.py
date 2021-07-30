@@ -34,10 +34,20 @@ def getRegionActivityMapList():
   return jsonify(region_activity), 200
 
 @app.route("/search/map")
-def getSearchMapList():
+def getSearchRegionMapList():
   list = Fkko.query.all()
   mapSchema = FkkoClientSchema(many=True, only=("id",))
   return jsonify(mapSchema.dump(list)), 200
+
+@app.route("/search/activity/map")
+def getSearchMapList():
+  list = Fkko.query.all()
+  fkko_activity = []
+  for fkko in list:
+    for activity in activities:
+      data = {"id": fkko.id, "activity": activity}
+      fkko_activity.append(data)
+  return jsonify(fkko_activity), 200
 
 @app.route("/<region>/")
 @app.route("/<region>/page/<int:page>/")

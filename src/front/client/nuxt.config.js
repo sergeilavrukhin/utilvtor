@@ -130,6 +130,10 @@ export default {
       var search_codes = data.map((code) => `/companies/search/${code.id}`)
       maps = maps.concat(search_codes)
 
+      var { data } = await axios.get(process.env.BASE_URL + '/api/client/companies/search/activity/map')
+      var search_codes = data.map((code) => `/companies/search/${code.id}/activity/${code.activity}`)
+      maps = maps.concat(search_codes)
+
       return maps
     }
   },

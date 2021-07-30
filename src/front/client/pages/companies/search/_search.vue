@@ -57,7 +57,7 @@ export default {
   },
   head() {
     return {
-      title: this.title,
+      title: `${this.title} ${this.$route.params.search}`,
     }
   },
 };

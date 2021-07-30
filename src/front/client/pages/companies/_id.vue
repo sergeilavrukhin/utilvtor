@@ -21,7 +21,7 @@
         <b-card class="mt-3 mb-3" title="Контакты">
           <b-card-text>
             <ul>
-              <li v-if="company.locality">Адрес:{{company.locality}}</li>
+              <li v-if="company.locality">Адрес: {{company.locality}}</li>
               <li v-if="!company.locality">Адрес: Нет данных</li>
               <li>ИНН: {{company.itn}}</li>
 
@@ -94,10 +94,10 @@ export default {
   },
   head() {
     return {
-      title: `Компания ${this.company.name} из региона ${this.company.region.text} (ИНН: ${this.company.itn}) | утилизация, хранение, переработка, транспортирование, обезвреживание, захоронение отходов, покупка и продажа вторсырья`,
+      title: `Компания ${this.company.name} по адресу ${this.company.locality} (ИНН: ${this.company.itn}) | утилизация, хранение, переработка, транспортирование, обезвреживание, захоронение отходов, покупка и продажа вторсырья`,
       meta: [
         { hid: 'description', name: 'description',
-          content: `Компания ${this.company.name} из региона ${this.company.region.text} (ИНН: ${this.company.itn}) занимается утилизацией, хранением, переработкой, транспортированием, обезвреживанием, захоронением отходов, покупкой и продажей вторсырья так же вы можете найти другие компании по всем регионам России`,
+          content: `Компания ${this.company.name} по адресу ${this.company.region.text} ${this.company.locality} (ИНН: ${this.company.itn}) занимается утилизацией, хранением, переработкой, транспортированием, обезвреживанием, захоронением отходов, покупкой и продажей вторсырья так же вы можете найти другие компании по всем регионам России`,
         }
       ],
     }
