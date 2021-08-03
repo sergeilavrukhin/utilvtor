@@ -28,6 +28,8 @@
             <li><b-link class="text-success" :href="`/code/${item.id}`">
             {{item.id}} | {{item.codespace}}</b-link> - {{item.name}}</li>
           </ul>
+          <h4 v-if="code.fkko.keywords">Под этим кодом вы можете утилизировать такие отходы:</h4>
+          <i v-if="code.fkko.keywords">{{code.fkko.keywords}}</i>
           </b-card-text>
         </b-card>
         <h2>Компании работающие с данным видом отходов:</h2>
