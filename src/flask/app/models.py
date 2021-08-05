@@ -149,6 +149,15 @@ class Companies(db.Model):
     self.latitude = latitude.strip()
     self.longitude = longitude.strip()
 
+class CompaniesUsers(db.Model):
+  __tablename__ = "companies_users"
+  id = Column(Integer, primary_key=True)
+  company_id = Column("company_id", Integer, db.ForeignKey('companies.id'))
+  company = db.relationship("Companies")
+
+  fkko_id = Column("fkko_id", BigInteger, db.ForeignKey('fkko.id'))
+  fkko = db.relationship("Fkko")
+
 class CompaniesWaste(db.Model):
   __tablename__ = "waste_c"
   id = Column(Integer, primary_key=True)
