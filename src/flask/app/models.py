@@ -10,11 +10,20 @@ class Region(db.Model):
   url = Column(String(255))
   activity = Column(String(600))
 
+
+class UserType(db.Model):
+  __tablename__ = "user_type"
+  id = Column(Integer, primary_key=True)
+  name = Column(String(25))
+
 class User(db.Model):
   __tablename__ = "users"
   id = Column(Integer, primary_key=True)
   phone = Column(String(11))
   email = Column(String(255))
+
+  type_id = Column("type_id", Integer, db.ForeignKey('user_type.id'))
+  type = db.relationship("UserType")
   firstname = Column(String(255), nullable=False)
   password = Column(String(255), nullable=False)
   date_create = Column(DateTime, default=datetime.datetime.utcnow)

@@ -21,6 +21,7 @@ openpyxl = "==3.0.1"
 psycopg2 = "==2.8.6"
 Flask-Script = "==2.0.6"
 sentry-sdk = {extras = ["flask"], version = "==0.13.2"}
+pysyge = "==1.2.0"
 
 [requires]
 python_full_version = "3.6"

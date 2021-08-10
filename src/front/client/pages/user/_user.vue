@@ -1,37 +1,19 @@
 <template>
-  <b-container>
+  <div class="container">
     <navbar></navbar>
-    <div class="row">
-      <div class="col-md-12 p-4">
-        <b-card v-for="(item, index) in list" :key="index" class="mt-3 mb-3">
-          <b-card-text>
-            <h2>Имя: {{item.firstname}}</h2>
-            <b>E-mail:</b>{{item.email}}<br />
-            <b>Телефон:</b>{{item.phone}}<br />
-          </b-card-text>
-        </b-card>
-      </div>
-    </div>
+    <h1>{{ title }}</h1>
     <cmp-footer></cmp-footer>
-  </b-container>
+  </div>
 </template>
 
 <script>
 export default {
-  async asyncData({ params, $axios }) {
-    const list = await $axios.$get(`user/list`).then((response) => {
-      return response;
-    }).catch((error) => {
-      console.log(error);
-    });
-    return { list }
+  async asyncData({ $axios }) {
   },
   data() {
     return {
-      title: 'Список пользователей',
-      list: null,
-      success: null,
-      error: null,
+      queries: null,
+      title: 'Информация о пользователе',
     };
   },
   head() {
@@ -41,3 +23,15 @@ export default {
   },
 };
 </script>
+
+<style>
+h1 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+</style>
