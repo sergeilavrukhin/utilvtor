@@ -9,23 +9,27 @@ app = Blueprint('ClientUser', __name__)
 
 @app.route("/sign-up/", methods=["POST"])
 def signUp():
+  password = gen_password()
   json = request.get_json()
+
   user = User.query.filter(User.email == json["email"]).one_or_none()
   if user:
     return jsonify({'msg': 'Пользователь с таким email уже зарегистрирован'}), 403
   else:
     phone = json["phone"].replace('+', '').replace('(', '').replace(')', '').replace('-', '').replace(' ', '')
-    password = gen_password()
-    if json["itn"] != "":
-      if (len(json["itn"]) == 12) or (len(json["itn"]) == 10):
-        pass
+    if json["phone"] != "":
+      user = User.query.filter(User.phone == phone).one_or_none()
+      if user == None:
+        user = User(json["firstname"], phone, json["email"], password, current_app.config["SALT"])
+        db.session.add(user)
+        db.session.commit()
+        mail_signup(json["email"], password)
+        return jsonify(
+          {'msg': 'Пользователь успешно зарегистрирован. Информация для доступа отправлена вам на email.'}), 201
       else:
-        return jsonify({'msg': 'ИНН должен состоять из 10 или 12 символов'}), 403
-    req = User(json["lastname"], json["firstname"], json["middlename"], "", phone, json["email"], json["itn"], password, current_app.config["SALT"])
-    db.session.add(req)
-    db.session.commit()
-    mail_signup(json["email"], password)
-    return jsonify({'msg': 'Пользователь успешно зарегистрирован. Информация для доступа отправлена вам на email.'}), 201
+        return jsonify({'msg': 'Пользователь с таким номером телефона уже зарегистрирован'}), 403
+    else:
+      return jsonify({'msg': 'Введите номер телефона'}), 403
 
 @app.route("/sign-in/", methods=["POST"])
 def signIn():

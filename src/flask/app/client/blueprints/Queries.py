@@ -45,8 +45,8 @@ def createQuery():
   json = request.get_json()
 
   phone = json["phone"].replace('+', '').replace('(', '').replace(')', '').replace('-', '').replace(' ', '')
-  if json["phone"] != "":
-    user = User.query.filter(User.phone == json["phone"]).one_or_none()
+  if phone != "":
+    user = User.query.filter(User.phone == phone).one_or_none()
     if user == None:
       user = User(json["firstname"], phone, json["email"], password, current_app.config["SALT"])
       db.session.add(user)

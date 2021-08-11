@@ -8,8 +8,8 @@ class Region(db.Model):
   id = Column(Integer, primary_key=True)
   text = Column(String(255))
   url = Column(String(255))
+  iso = Column(String(10))
   activity = Column(String(600))
-
 
 class UserType(db.Model):
   __tablename__ = "user_type"
@@ -21,9 +21,6 @@ class User(db.Model):
   id = Column(Integer, primary_key=True)
   phone = Column(String(11))
   email = Column(String(255))
-
-  type_id = Column("type_id", Integer, db.ForeignKey('user_type.id'))
-  type = db.relationship("UserType")
   firstname = Column(String(255), nullable=False)
   password = Column(String(255), nullable=False)
   date_create = Column(DateTime, default=datetime.datetime.utcnow)
@@ -44,6 +41,9 @@ class User(db.Model):
 
   def setFirstname(self, firstname):
     self.firstname = firstname.strip()
+
+  def setType(self, type):
+    self.type = type
 
   def generateHash(password, salt):
     f1 = md5(password.encode("utf8")).hexdigest() + salt

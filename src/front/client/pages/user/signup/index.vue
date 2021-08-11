@@ -6,20 +6,6 @@
         <b-form v-if="!success" @submit="onSubmit">
           <b-form-group
             id="input-group-1"
-            label="*Фамилия:"
-            label-for="lastname"
-          >
-            <b-form-input
-              id="lastname"
-              v-model="form.lastname"
-              type="text"
-              required
-              placeholder="Фамилия"
-            ></b-form-input>
-          </b-form-group>
-
-          <b-form-group
-            id="input-group-1"
             label="*Имя:"
             label-for="firstname"
           >
@@ -29,19 +15,6 @@
               type="text"
               required
               placeholder="Имя"
-            ></b-form-input>
-          </b-form-group>
-
-          <b-form-group
-            id="input-group-1"
-            label="Отчество:"
-            label-for="middlename"
-          >
-            <b-form-input
-              id="middlename"
-              v-model="form.middlename"
-              type="text"
-              placeholder="Отчество"
             ></b-form-input>
           </b-form-group>
 
@@ -74,18 +47,6 @@
             ></b-form-input>
           </b-form-group>
 
-          <b-form-group
-            id="input-group-1"
-            label="ИНН:"
-            label-for="itn"
-          >
-            <b-form-input
-              id="itn"
-              v-model="form.itn"
-              type="number"
-              placeholder="ИНН"
-            ></b-form-input>
-          </b-form-group>
           <b-button type="submit" variant="success mr-2">Зарегистрироваться</b-button>
         </b-form>
         <div v-if="error" class="alert alert-danger mt-4" role="alert">
@@ -107,11 +68,8 @@ export default {
       title: 'Регистрация',
       form: {
         firstname: '',
-        middlename: '',
-        lastname: '',
         phone: '',
         email: null,
-        itn: '',
       },
       success: null,
       error: null,
@@ -128,11 +86,8 @@ export default {
 
       await this.$axios.$post('user/sign-up/', {
         firstname: this.form.firstname,
-        middlename: this.form.middlename,
-        lastname: this.form.lastname,
         phone: this.form.phone,
-        email: this.form.email,
-        itn: this.form.itn,
+        email: this.form.email
       }).then((response) => {
         this.success = response.msg;
         this.error = null;
