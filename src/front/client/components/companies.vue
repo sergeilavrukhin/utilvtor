@@ -23,11 +23,17 @@
                     <li v-if="($route.params.region) && (!$route.params.code) && (!$route.params.search)" v-for="(c_item, c_index) in item.activity" :key="c_index">
                     <a :href="`/companies/region/${$route.params.region}/activity/${c_item}`">{{getActivity(activities, c_item)}}</a>
                     </li>
-                    <li v-if="$route.params.code" v-for="(c_item, c_index) in item.activity" :key="c_index">
+                    <li v-if="(!$route.params.region) && ($route.params.code)" v-for="(c_item, c_index) in item.activity" :key="c_index">
                     <a :href="`/companies/search/${$route.params.code}/activity/${c_item}`">{{getActivity(activities, c_item)}}</a>
                     </li>
-                    <li v-if="$route.params.search" v-for="(c_item, c_index) in item.activity" :key="c_index">
+                    <li v-if="(!$route.params.region) && ($route.params.search)" v-for="(c_item, c_index) in item.activity" :key="c_index">
                     <a :href="`/companies/search/${$route.params.search}/activity/${c_item}`">{{getActivity(activities, c_item)}}</a>
+                    </li>
+                    <li v-if="($route.params.region) && ($route.params.code)" v-for="(c_item, c_index) in item.activity" :key="c_index">
+                    <a :href="`/companies/search/${$route.params.code}/region/${$route.params.region}/activity/${c_item}`">{{getActivity(activities, c_item)}}</a>
+                    </li>
+                    <li v-if="($route.params.region) && ($route.params.search)" v-for="(c_item, c_index) in item.activity" :key="c_index">
+                    <a :href="`/companies/search/${$route.params.search}/region/${$route.params.region}/activity/${c_item}`">{{getActivity(activities, c_item)}}</a>
                     </li>
                   </ul>
                 </div>

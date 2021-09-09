@@ -98,6 +98,7 @@ def getSearchCompanies(search, region = 0, page = 1, activity = None):
       in_company.append(row.itn)
 
   if region == 0:
+    region_name = ""
     if activity:
       activitysearch = "%{}%".format(activity)
       c = db.session.query(Companies.id).filter(or_(and_(Companies.activity.like(activitysearch), Companies.name.like(likesearch)),and_(Companies.activity.like(activitysearch), Companies.itn.in_(in_company)))).count()
@@ -106,6 +107,12 @@ def getSearchCompanies(search, region = 0, page = 1, activity = None):
       c = db.session.query(Companies.id).filter(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company))).count()
       dict = Companies.query.filter(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company))).paginate(page, POSTS_PER_PAGE, False).items
   else:
+    region_el = Region.query.filter_by(id=region).one_or_none()
+    if region_el:
+      region_name = region_el.text
+    else:
+      region_name = ""
+
     if activity:
       activitysearch = "%{}%".format(activity)
       c = db.session.query(Companies.id).filter(and_(Companies.activity.like(activitysearch), or_(Companies.name.like(likesearch), Companies.itn.in_(in_company)),Companies.region_id == region)).count()
@@ -115,7 +122,7 @@ def getSearchCompanies(search, region = 0, page = 1, activity = None):
       dict = Companies.query.filter(and_(or_(Companies.name.like(likesearch), Companies.itn.in_(in_company)), Companies.region_id == region)).paginate(page, POSTS_PER_PAGE, False).items
 
   dictSchema = CompanyClientSchema(many=True)
-  return jsonify({"companies": dictSchema.dump(dict), "count": "{}".format(math.ceil(c/POSTS_PER_PAGE))}), 200
+  return jsonify({"companies": dictSchema.dump(dict), "activity": activity, "region": region_name, "count": "{}".format(math.ceil(c/POSTS_PER_PAGE))}), 200
 
 @app.route("/<int:c_id>/")
 def getCompany(c_id):
