@@ -37,7 +37,8 @@ export default {
       const companies = region_one.companies;
       const nofp = region_one.count;
       const region_name = region_one.name;
-      return { companies, nofp, region_name }
+      const activity = region_one.activity;
+      return { companies, nofp, region_name, activity }
     }
   },
   data() {
@@ -46,11 +47,21 @@ export default {
       companies: null,
       nofp: 10,
       region_name: null,
+      activity: null,
+      activities: {
+        null: '',
+        processing: 'Переработка',
+        collection: 'Хранение',
+        deactivation: 'Обезвреживание',
+        transportation: 'Транспортировка',
+        utilization: 'Утилизация',
+        disposal: 'Захоронение',
+      },
     };
   },
   head() {
     return {
-      title: `${this.title} ${this.region_name}`,
+      title: `${this.title} ${this.region_name}  ${this.activities[this.activity]}`,
     }
   },
 };

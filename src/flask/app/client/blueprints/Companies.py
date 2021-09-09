@@ -65,7 +65,7 @@ def getCompaniesByRegion(region, page = 1, activity = None):
       dict = Companies.query.filter_by(region = region).paginate(page, POSTS_PER_PAGE, False).items
       dictSchema = CompanyClientSchema(many=True)
       c = db.session.query(Companies.id).filter_by(region = region).count()
-    return jsonify({"companies": dictSchema.dump(dict), "name": region.text, "count": "{}".format(math.ceil(c/POSTS_PER_PAGE))}), 200
+    return jsonify({"companies": dictSchema.dump(dict), "activity": activity, "name": region.text, "count": "{}".format(math.ceil(c/POSTS_PER_PAGE))}), 200
   else:
     return jsonify({"msg": "Регион не найден"}), 403
 
