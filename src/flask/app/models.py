@@ -47,10 +47,12 @@ class User(db.Model):
 
   def generateHash(password, salt):
     f1 = md5(password.encode("utf8")).hexdigest() + salt
+    print(password)
     return md5(f1.encode("utf8")).hexdigest()
 
   def setPassword(self, password, salt):
     f1 = md5(password.encode("utf8")).hexdigest() + salt
+    print(password)
     self.password = md5(f1.encode("utf8")).hexdigest()
 
 

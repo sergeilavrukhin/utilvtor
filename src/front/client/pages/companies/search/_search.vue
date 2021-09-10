@@ -69,7 +69,13 @@ export default {
   head() {
     return {
       title: `Поиск организаций по запросу: ${this.$route.params.search}  ${this.activities[this.activity]}  ${this.region_name} занимающиеся утилизацией, хранением, переработкой, транспортировкой, обезвреживанием, захоронением отходов, покупкой и продажей вторсырья`,
+      meta: [
+        { hid: 'robots', name: 'robots', content: 'noindex, nofollow' }
+      ],
     }
+  },
+  methods: {
+    getActivity: (activities, val) => activities[val],
   },
 };
 </script>

@@ -7,15 +7,15 @@
 
           <b-form-group
             id="input-group-1"
-            label="*Фамилия:"
-            label-for="lastname"
+            label="*Email:"
+            label-for="email"
           >
             <b-form-input
-              id="lastname"
-              v-model="form.lastname"
+              id="email"
+              v-model="form.email"
               type="text"
               required
-              placeholder="Фамилия"
+              placeholder="Email"
             ></b-form-input>
           </b-form-group>
 
@@ -35,20 +35,6 @@
 
           <b-form-group
             id="input-group-1"
-            label="*Отчество:"
-            label-for="middlename"
-          >
-            <b-form-input
-              id="middlename"
-              v-model="form.middlename"
-              type="text"
-              required
-              placeholder="Отчество"
-            ></b-form-input>
-          </b-form-group>
-
-          <b-form-group
-            id="input-group-1"
             label="*Сотовый телефон:"
             label-for="phone"
           >
@@ -59,19 +45,6 @@
               type="text"
               required
               placeholder="+7 (###) ###-##-##"
-            ></b-form-input>
-          </b-form-group>
-
-          <b-form-group
-            id="input-group-1"
-            label="ИНН:"
-            label-for="itn"
-          >
-            <b-form-input
-              id="itn"
-              v-model="form.itn"
-              type="text"
-              placeholder="ИНН"
             ></b-form-input>
           </b-form-group>
 
@@ -108,10 +81,7 @@ export default {
       form: {
         email: null,
         firstname: null,
-        middlename: null,
-        lastname: null,
         phone: '',
-        itn: '',
       },
       success: null,
       error: null,
@@ -128,10 +98,8 @@ export default {
 
       await this.$axios.$post('user/edit/', {
         firstname: this.form.firstname,
-        middlename: this.form.middlename,
-        lastname: this.form.lastname,
+        email: this.form.email,
         phone: this.form.phone,
-        itn: this.form.itn,
       }).then((response) => {
         this.success = response.msg;
         this.error = null;

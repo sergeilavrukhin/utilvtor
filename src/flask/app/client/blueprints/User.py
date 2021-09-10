@@ -77,10 +77,7 @@ def user():
         'user': current_user,
         'email': user.email,
         'firstname': user.firstname,
-        'middlename': user.middlename,
-        'lastname': user.lastname,
-        'phone': user.phone,
-        'itn': user.itn
+        'phone': user.phone
     }
     return jsonify(ret), 200
 
@@ -94,18 +91,9 @@ def edit():
     if "firstname" in json:
       user.setFirstname(json["firstname"])
 
-    if "middlename" in json:
-      user.setMiddlename(json["middlename"])
-
-    if "lastname" in json:
-      user.setLastname(json["lastname"])
-
     if "phone" in json:
       phone = json["phone"].replace('+', '').replace('(', '').replace(')', '').replace('-', '').replace(' ', '')
       user.setPhone(phone)
-
-    if "itn" in json:
-      user.setITN(json["itn"])
 
     db.session.commit()
     return jsonify({'msg': 'Данные пользователя успешно изменены'}), 200
