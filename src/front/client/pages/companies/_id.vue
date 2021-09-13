@@ -106,7 +106,7 @@ export default {
     getActivity: (activities, val) => activities[val],
     async clicksite(company, uri) {
       await this.$axios.$get(`companies/siteclick/${company}/`).then((response) => {
-        window.location = uri;
+        window.location = "http://" + uri.replace("http://", "").replace("https://", "");
       }).catch((error) => {
         console.log(error);
       });

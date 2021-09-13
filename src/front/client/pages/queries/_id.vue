@@ -4,7 +4,7 @@
     <search></search>
     <div class="row">
       <div class="col-md-12 pl-4 pr-4 pt-4">
-        <router-link class="text-success" :to="`/queries`">Заявки</router-link>
+        <router-link class="text-success" :to="`/queries/list`">Заявки</router-link>
         <span> &raquo; </span>
         <h1 v-if="item">{{item.query_type.text}} {{item.waste}} <span>{{item.region.text}}</span></h1>
       </div>
@@ -54,7 +54,7 @@ export default {
       title: `${this.item.query_type.text} ${this.item.waste ? this.item.waste : ''} в ${this.item.region.text} | утилизация, хранение, переработка, захоронение, транспортирование, обезвреживание отходов, покупка и продажа вторсырья`,
       meta: [
         { hid: 'description', name: 'description',
-          content: `Заявка с типом ${this.item.query_type.text} по отходу ${this.item.waste} в ${this.item.region.text}, так же вы можете найти заявки на утилизацию, хранение, захоронение, переработку, транспортирование, обезвреживание отходов, покупку и продажу вторсырья по всем регионам России`,
+          content: `Заявка с типом ${this.item.query_type.text} по отходу ${this.item.waste} в ${this.item.region.text}, так же вы можете найти заявки на утилизацию, хранение, захоронение, переработку, транспортирование, обезвреживание отходов, покупку и продажу вторсырья по всем регионам России ${this.item.description}`,
         }
       ],
     }
