@@ -151,6 +151,7 @@ class Companies(db.Model):
   locality = Column(String(600))
   gps = Column(String(255))
   checked = Column(Boolean, default=False)
+  description = Column(Text)
 
   def setCoordinates(self, latitude, longitude):
     if latitude.strip() == '':
