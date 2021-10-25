@@ -4,6 +4,9 @@ build:
 up:
 	@docker-compose up -d
 
+django:
+	@python src/backend/manage.py runserver 127.0.0.1:3030
+
 start:
 	@docker-compose start
 
