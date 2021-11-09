@@ -1,3 +1,4 @@
 Django==3.2.8
 # SQL
 psycopg2-binary==2.9.1
+django-environ==0.4.5
