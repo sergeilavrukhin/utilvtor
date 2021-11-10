@@ -44,3 +44,6 @@ front_build:
 
 front_stop:
 	@pm2 stop 0
+
+makemigration:
+	@./venv/bin/python ./src/backend/manage.py makemigrations

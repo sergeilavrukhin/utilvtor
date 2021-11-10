@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+
+import django.db.models
 from environ import Env
 from django.conf import settings
 
@@ -40,6 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'webothod',
+    'webothod.components.dicts',
+    'webothod.components.waste_codes',
+    'webothod.components.queries',
+    'webothod.components.companies',
 ]
 
 MIDDLEWARE = [
@@ -52,7 +59,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'app.urls'
+ROOT_URLCONF = 'webothod.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'app.wsgi.application'
+WSGI_APPLICATION = 'webothod.wsgi.application'
 
 
 # Database
@@ -85,10 +92,6 @@ DATABASES = {
         'HOST': env('DATABASE_HOST'),
         'PORT': env('DATABASE_PORT'),
         'CONN_MAX_AGE': 60 * 10,
-    },
-    'quickstart': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'quickstart.sqlite',
     },
 }
 
@@ -111,11 +114,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = 'ru-RU'
+
+LANGUAGES = (
+    ('ru', 'Russian'),
+)
 
 TIME_ZONE = 'UTC'
 
