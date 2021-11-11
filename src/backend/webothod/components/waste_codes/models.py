@@ -10,8 +10,8 @@ class WasteCodes(models.Model):
         verbose_name="Родительский код отхода",
         null=True,
     )
-    name = models.CharField(max_length=600)
-    keywords = models.TextField()
+    name = models.CharField(max_length=600, verbose_name="Название")
+    keywords = models.TextField(verbose_name="Ключевые слова")
     category = models.ForeignKey(
         WasteCodeCategory,
         on_delete=models.CASCADE,
@@ -26,10 +26,6 @@ class WasteCodes(models.Model):
         verbose_name="Агрегатное состояние отходоа",
         null=True,
     )
-
-    url = models.CharField(max_length=255)
-    iso = models.CharField(max_length=10)
-    activity = models.CharField(max_length=600)
 
     class Meta:
         db_table = "waste_codes"

@@ -7,7 +7,7 @@ User = get_user_model()
 
 
 class Queries(models.Model):
-    waste = models.CharField(max_length=255)
+    waste = models.CharField(max_length=255, verbose_name="Название отхода")
     region = models.ForeignKey(
         Regions,
         on_delete=models.CASCADE,
@@ -26,7 +26,7 @@ class Queries(models.Model):
         related_name="type",
         verbose_name="Тип заявки"
     )
-    description = models.TextField()
+    description = models.TextField(verbose_name="Описание заявки")
 
     class Meta:
         db_table = "queries"
