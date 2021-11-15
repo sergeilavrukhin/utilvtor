@@ -105,40 +105,40 @@ export default {
       '/user/**'
     ],
     routes: async () => {
-      var { data } = await axios.get(process.env.BASE_URL + '/api/client/code/map')
-      var maps = data.map((code) => `/code/${code.id}`)
+      var { data_codes } = await axios.get(process.env.BASE_URL + '/api/client/code/map');
+      var maps = data_codes.map((code) => `/code/${code.id}`);
 
-      var { data } = await axios.get(process.env.BASE_URL + '/api/client/queries/map')
-      var queries = data.map((query) => `/queries/${query.id}`)
-      maps = maps.concat(queries)
+      var { data_query } = await axios.get(process.env.BASE_URL + '/api/client/queries/map');
+      var queries = data_query.map((query) => `/queries/${query.id}`);
+      maps = maps.concat(queries);
 
-      var { data } = await axios.get(process.env.BASE_URL + '/api/client/companies/map')
-      var companies = data.map((query) => `/companies/${query.id}`)
-      maps = maps.concat(companies)
+      var { data_companies } = await axios.get(process.env.BASE_URL + '/api/client/companies/map');
+      var companies = data_companies.map((query) => `/companies/${query.id}`);
+      maps = maps.concat(companies);
 
-      var { data } = await axios.get(process.env.BASE_URL + '/api/client/companies/region/map')
-      var companies_region = data.map((query) => `/companies/region/${query.url}`)
-      maps = maps.concat(companies_region)
-
-
-      var { data } = await axios.get(process.env.BASE_URL + '/api/client/companies/region/activity/map')
-      var companies_region = data.map((query) => `/companies/region/${query.url}/activity/${query.activity}`)
-      maps = maps.concat(companies_region)
+      var { data_regions } = await axios.get(process.env.BASE_URL + '/api/client/companies/region/map');
+      var companies_region = data_regions.map((query) => `/companies/region/${query.url}`);
+      maps = maps.concat(companies_region);
 
 
-      var { data } = await axios.get(process.env.BASE_URL + '/api/client/companies/search/map')
-      var search_codes = data.map((code) => `/companies/search/${code.id}`)
-      maps = maps.concat(search_codes)
+      var { data_activities } = await axios.get(process.env.BASE_URL + '/api/client/companies/region/activity/map');
+      var companies_activities = data_activities.map((query) => `/companies/region/${query.url}/activity/${query.activity}`);
+      maps = maps.concat(companies_activities);
 
-      var { data } = await axios.get(process.env.BASE_URL + '/api/client/companies/search/activity/map')
-      var search_codes = data.map((code) => `/companies/search/${code.id}/activity/${code.activity}`)
-      maps = maps.concat(search_codes)
 
-      return maps
+      var { data_search_codes } = await axios.get(process.env.BASE_URL + '/api/client/companies/search/map');
+      var search_codes = data_search_codes.map((code) => `/companies/search/${code.id}`);
+      maps = maps.concat(search_codes);
+
+      var { data_search_activity } = await axios.get(process.env.BASE_URL + '/api/client/companies/search/activity/map');
+      var search_codes_activity = data_search_activity.map((code) => `/companies/search/${code.id}/activity/${code.activity}`);
+      maps = maps.concat(search_codes_activity);
+
+      return maps;
     }
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
   }
-}
+};

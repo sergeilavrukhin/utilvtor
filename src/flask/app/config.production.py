@@ -1,0 +1,10 @@
+DEBUG = True
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+SQLALCHEMY_DATABASE_URI = "mysql+pymysql://webothod:S*KVOgsc1xb4rL4y@127.0.0.1/webothod"
+SALT = "GbpltwGjkysqFYtGfhjkm"
+SECRET_KEY = "GbpltwGjkysqFYtGfhjkm"
+MAIL_LOGIN = "noreply@webothod.ru"
+MAIL_PASS = "|KmdT2GuEGNEZt%n"
+MAIL_SMTP = "smtp.webothod.ru"
+CELERY_BROKER_URL = "redis://127.0.0.1:6739"
+CELERY_RESULT_BACKEND = "redis://127.0.0.1:6739"

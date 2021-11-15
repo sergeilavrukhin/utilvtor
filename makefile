@@ -47,3 +47,21 @@ front_stop:
 
 makemigration:
 	@./venv/bin/python ./src/backend/manage.py makemigrations
+
+front_client_install:
+	@npm --prefix ./src/front/client install
+
+front_client_build:
+	@npm --prefix ./src/front/client run build
+
+front_client_start:
+	@npm --prefix ./src/front/client run start
+
+front_admin_install:
+	@npm --prefix ./src/front/admin install
+
+front_admin_build:
+	@npm --prefix ./src/front/admin run build
+
+front_admin_start:
+	@npm --prefix ./src/front/admin run start
