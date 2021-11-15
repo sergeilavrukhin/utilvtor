@@ -40,6 +40,7 @@ class Unit(models.Model):
 
 
 class Aggregation(models.Model):
+    code = models.CharField(max_length=2, default="00", verbose_name="Код агрегатного состояния")
     text = models.CharField(max_length=255, verbose_name="Название")
 
     class Meta:
@@ -48,7 +49,7 @@ class Aggregation(models.Model):
         verbose_name_plural = "Агрегатные состояния отхода"
 
     def __str__(self):
-        return self.text
+        return f"Агрегатное состояние: {self.code} - {self.text}"
 
 
 class WasteCodeCategory(models.Model):
