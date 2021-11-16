@@ -3,15 +3,28 @@ from ..dicts.models import WasteCodeCategory, Aggregation
 
 
 class WasteCodes(models.Model):
-    parent = models.ForeignKey(
-        "self",
-        on_delete=models.CASCADE,
-        related_name="parent_waste_code",
-        verbose_name="Родительский код отхода",
-        null=True,
+    class Meta:
+        db_table = "waste_codes"
+        verbose_name = "Код отхода"
+        verbose_name_plural = "Коды отхода"
+
+    code = models.CharField(
+        max_length=11,
+        default='',
+        verbose_name="Код отхода",
     )
-    name = models.CharField(max_length=600, verbose_name="Название")
-    keywords = models.TextField(verbose_name="Ключевые слова")
+    parent_code = models.CharField(
+        max_length=11,
+        default='',
+        verbose_name="Родительский код отхода",
+    )
+    name = models.CharField(
+        max_length=600,
+        verbose_name="Название",
+    )
+    keywords = models.TextField(
+        verbose_name="Ключевые слова",
+    )
     category = models.ForeignKey(
         WasteCodeCategory,
         on_delete=models.CASCADE,
@@ -27,7 +40,5 @@ class WasteCodes(models.Model):
         null=True,
     )
 
-    class Meta:
-        db_table = "waste_codes"
-        verbose_name = "Код отхода"
-        verbose_name_plural = "Коды отхода"
+    def __str__(self):
+        return f"Код отхода: {self.code} - {self.name}"
