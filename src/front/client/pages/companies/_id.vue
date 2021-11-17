@@ -64,7 +64,7 @@
 <script>
 export default {
   async asyncData({ params, $axios }) {
-    const company = await $axios.$get(`companies/${params.id}/`).then((response) => {
+    const company = await $axios.$get(`companies/${params.id}`).then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);

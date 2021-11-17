@@ -23,11 +23,13 @@ class Companies(models.Model):
     latitude = models.CharField(
         max_length=20,
         null=True,
+        blank=True,
         verbose_name="Широта",
     )
     longitude = models.CharField(
         max_length=20,
         null=True,
+        blank=True,
         verbose_name="Долгота",
     )
     region = models.ForeignKey(
@@ -39,18 +41,26 @@ class Companies(models.Model):
     )
     phones = models.CharField(
         max_length=600,
+        null=True,
+        blank=True,
         verbose_name="Телефон",
     )
     emails = models.CharField(
         max_length=600,
+        null=True,
+        blank=True,
         verbose_name="Email",
     )
     site = models.CharField(
         max_length=255,
+        null=True,
+        blank=True,
         verbose_name="Сайт",
     )
     activity = models.CharField(
         max_length=600,
+        null=True,
+        blank=True,
         verbose_name="Типы отходов с которыми работает",
     )
     locality = models.CharField(
@@ -59,6 +69,8 @@ class Companies(models.Model):
     )
     gps = models.CharField(
         max_length=255,
+        null=True,
+        blank=True,
         verbose_name="Координаты",
     )
 

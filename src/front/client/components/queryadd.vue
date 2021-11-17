@@ -131,10 +131,10 @@ export default {
   },
   async fetch() {
     this.region = await fetch(
-      `${this.$config.baseURL}api/client/regions/list/`
+      `${this.$config.baseURL}api/client/dicts/regions`
     ).then(res => res.json())
     this.query_type = await fetch(
-      `${this.$config.baseURL}api/client/queries/query_types/`
+      `${this.$config.baseURL}api/client/dicts/query_types`
     ).then(res => res.json())
   },
   methods: {

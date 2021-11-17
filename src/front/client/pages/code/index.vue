@@ -14,8 +14,8 @@
         <b-card class="mt-3 mb-3">
           <b-card-text>
           <ul v-for="(item, index) in codes" :key="index">
-            <li><b-link class="text-success" :href="`/code/${item.id}`">
-            {{item.id}} - {{item.codespace}}</b-link> - {{item.name}}</li>
+            <li><b-link class="text-success" :href="`/code/${item.code}`">
+            {{item.code}} - {{item.code_space}}</b-link> - {{item.name}}</li>
           </ul>
           </b-card-text>
         </b-card>
@@ -31,7 +31,7 @@
 <script>
 export default {
   async asyncData({ $axios }) {
-    const codes = await $axios.$get('code/').then((response) => {
+    const codes = await $axios.$get('waste_codes/').then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);

@@ -23,9 +23,9 @@
 <script>
 export default {
   async asyncData({ params, $axios }) {
-    var url = `companies/${params.region}/`;
-    if (params.activity) url = url + `activity/${params.activity}/`;
-    if (params.page) url = url + `page/${params.page}/`;
+    var url = `companies/by_region/${params.region}`;
+    if (params.activity) url = url + `/activity/${params.activity}`;
+    if (params.page) url = url + `/page/${params.page}`;
 
     const region_one = await $axios.$get(url).then((response) => {
       return response;
@@ -34,7 +34,7 @@ export default {
     });
 
     if(region_one) {
-      const companies = region_one.companies;
+      const companies = region_one.results;
       const nofp = region_one.count;
       const region_name = region_one.name;
       const activity = region_one.activity;

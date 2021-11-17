@@ -42,12 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    'rest_framework',
     'webothod',
     'webothod.components.dicts',
     'webothod.components.waste_codes',
     'webothod.components.queries',
     'webothod.components.companies',
-    'django_extensions',
 ]
 
 MIDDLEWARE = [

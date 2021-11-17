@@ -5,13 +5,14 @@ from .models import (
 )
 
 
+class CompanyWasteCodesTabularInline(admin.TabularInline):
+    model = CompanyWasteCodes
+    fk_name = "company"
+    raw_id_fields = ("waste_code",)
+
+
 class CompaniesAdmin(admin.ModelAdmin):
-    pass
-
-
-class CompanyWasteCodesAdmin(admin.ModelAdmin):
-    pass
+    inlines = [CompanyWasteCodesTabularInline]
 
 
 admin.site.register(Companies, CompaniesAdmin)
-admin.site.register(CompanyWasteCodes, CompanyWasteCodesAdmin)

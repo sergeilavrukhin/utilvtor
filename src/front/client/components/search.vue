@@ -61,7 +61,7 @@ export default {
   },
   async fetch() {
     this.regions = await fetch(
-      `${this.$config.baseURL}api/client/regions/list/all/`
+      `${this.$config.baseURL}api/client/dicts/regions`
     ).then(res => res.json())
   }
 };
