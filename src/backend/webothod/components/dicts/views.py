@@ -8,22 +8,26 @@ from .serializers import RegionsSerializer, QueryTypesSerializer
 class RegionsView(
     GenericViewSet,
 ):
-
-    def get_queryset(self):
-        return Regions.objects
-
-    def list(self, request):
-        result = self.get_queryset().filter()
-        return Response(RegionsSerializer(result, many=True).data)
+    @staticmethod
+    def list(request):
+        regions = Regions.objects
+        return Response(
+            RegionsSerializer(
+                regions,
+                many=True
+            ).data
+        )
 
 
 class QueryTypesView(
     GenericViewSet,
 ):
-
-    def get_queryset(self):
-        return QueryType.objects
-
-    def list(self, request):
-        result = self.get_queryset().filter()
-        return Response(QueryTypesSerializer(result, many=True).data)
+    @staticmethod
+    def list(request):
+        query_types = QueryType.objects
+        return Response(
+            QueryTypesSerializer(
+                query_types,
+                many=True,
+            ).data
+        )

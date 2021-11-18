@@ -6,29 +6,34 @@ app_name = 'companies'
 
 urlpatterns = [
     path(
-        '',
-        CompaniesView.as_view({'get': 'list'}),
-        name='companies',
-    ),
-    path(
         '<str:itn>',
         CompaniesView.as_view({'get': 'one'}),
         name='companies_one',
     ),
     path(
-        'by_code/<int:code>',
-        CompaniesView.as_view({'get': 'by_code'}),
-        name='companies_by_code',
+        'by_code_limit/<int:code>',
+        CompaniesView.as_view({'get': 'by_code_limit'}),
+        name='companies_by_code_limit',
     ),
     path(
-        'by_region/<int:region>',
-        CompaniesView.as_view({'get': 'by_region'}),
-        name='companies_by_region',
+        'search/<int:code>',
+        CompaniesView.as_view({'get': 'search'}),
+        name='companies_search_by_code',
     ),
     path(
-        'by_region/<int:region>/page/<int:page>',
-        CompaniesView.as_view({'get': 'by_region'}),
-        name='companies_by_region_page',
+        'search/<int:code>/activity/<str:activity>',
+        CompaniesView.as_view({'get': 'search'}),
+        name='companies_search_by_code_by_activity',
+    ),
+    path(
+        'search/region/<int:region>',
+        CompaniesView.as_view({'get': 'search'}),
+        name='companies_search_by_region',
+    ),
+    path(
+        'search/region/<int:region>/page/<int:page>',
+        CompaniesView.as_view({'get': 'search'}),
+        name='companies_search_by_region_by_page',
     ),
     path(
         'codes_list/<str:itn>',

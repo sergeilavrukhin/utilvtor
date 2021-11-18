@@ -8,18 +8,31 @@ from .serializers import WasteCodesSerializer
 class WasteCodesView(
     GenericViewSet,
 ):
+    @staticmethod
+    def list(request):
+        waste_codes = WasteCodes.objects.filter(parent_code='')
+        return Response(
+            WasteCodesSerializer(
+                waste_codes,
+                many=True,
+            ).data
+        )
 
-    def get_queryset(self):
-        return WasteCodes.objects
+    @staticmethod
+    def one(request, code=''):
+        waste_codes = WasteCodes.objects.filter(code=code)
+        return Response(
+            WasteCodesSerializer(
+                waste_codes.first()
+            ).data
+        )
 
-    def list(self, request):
-        result = self.get_queryset().filter(parent_code='')
-        return Response(WasteCodesSerializer(result, many=True).data)
-
-    def one(self, request, code=''):
-        result = self.get_queryset().filter(code=code).first()
-        return Response(WasteCodesSerializer(result).data)
-
-    def children(self, request, code=''):
-        result = self.get_queryset().filter(parent_code=code)
-        return Response(WasteCodesSerializer(result, many=True).data)
+    @staticmethod
+    def children(request, code=''):
+        waste_codes = WasteCodes.objects.filter(parent_code=code)
+        return Response(
+            WasteCodesSerializer(
+                waste_codes,
+                many=True
+            ).data
+        )

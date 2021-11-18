@@ -71,31 +71,66 @@ class CompaniesView(
             return None
         return self.paginator.paginate_queryset(queryset, request, view=self)
 
-    def get_queryset(self):
-        return Companies.objects
+    @staticmethod
+    def one(request, itn):
+        companies = Companies.objects.filter(
+            itn=itn
+        )
+        return Response(
+            CompaniesSerializer(
+                companies.first()
+            ).data
+        )
 
-    def list(self, request):
-        result = self.get_queryset().filter()
-        return Response(CompaniesSerializer(result, many=True).data)
-
-    def one(self, request, itn):
-        result = self.get_queryset().filter(itn=itn).first()
-        return Response(CompaniesSerializer(result).data)
-
-    def by_code(self, request, code):
+    @staticmethod
+    def by_code(request, code):
         companies_pk = CompanyWasteCodes.objects.filter(
             waste_code__code=code
         )[:3].values('company')
 
-        result = self.get_queryset().filter(pk__in=companies_pk)
-        return Response(CompaniesSerializer(result, many=True).data)
-
-    def by_region(self, request, region, page=1):
-        result = self.get_queryset().filter(region__code=region).order_by('pk')
-        paginator = self.paginate_page_queryset(result, request, page)
-        return self.get_paginated_response(
-            self.get_serializer(paginator, many=True).data
+        companies = Companies.objects.filter(
+            pk__in=companies_pk
         )
+        return Response(
+            CompaniesSerializer(
+                companies,
+                many=True,
+            ).data
+        )
+
+    def paginate(self, companies, request, page):
+        paginate_page_queryset = self.paginate_page_queryset(
+            companies,
+            request,
+            page,
+        ),
+        return self.get_paginated_response(
+            paginate_page_queryset
+        )
+
+    def search(self, request, region=None, code=None, activity=None, page=1):
+        companies = Companies.objects
+        companies_pk = CompanyWasteCodes.objects
+        if code:
+            companies_pk = companies_pk.filter(
+                waste_code__code=code
+            )
+            companies = companies.filter(
+                pk__in=companies_pk.values('company')
+            )
+        if activity:
+            companies_pk = companies_pk.filter(
+                activity__contains=activity
+            )
+            companies = companies.filter(
+                pk__in=companies_pk.values('company')
+            )
+        if region:
+            companies = companies.filter(
+                region__code=region
+            )
+        print(companies)
+        return self.paginate(companies.order_by('itn'), request, page)
 
     @staticmethod
     def codes_list(request, itn):

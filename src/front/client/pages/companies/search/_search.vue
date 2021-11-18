@@ -24,15 +24,15 @@
 export default {
   async asyncData({ params, $axios }) {
     var search = encodeURI(params.search);
-    var url = `companies/search/${search}/`;
+    var url = `companies/search/${search}`;
     if(params.region) {
-      url = url + `region/${params.region}/`;
+      url = url + `/region/${params.region}`;
     }
     if(params.activity) {
-      url = url + `activity/${params.activity}/`;
+      url = url + `/activity/${params.activity}`;
     }
     if(params.page) {
-      url = url + `page/${params.page}/`;
+      url = url + `/page/${params.page}`;
     }
     const region_one = await $axios.$get(url).then((response) => {
       return response;

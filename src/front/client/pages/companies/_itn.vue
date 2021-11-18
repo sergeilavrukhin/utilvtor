@@ -31,7 +31,7 @@
               <li v-if="company.emails">Электронная почта: {{company.emails.join(', ')}}</li>
               <li v-if="!company.emails">Электронная почта: Нет данных</li>
 
-              <li v-if="company.site">Сайт: <b-button variant="link" class="p-0 link" v-on:click="clicksite(company.id, company.site.join(', '))">{{company.site.join(', ')}}</b-button></li>
+              <li v-if="company.site">Сайт: {{company.site.join(', ')}}</li>
               <li v-if="!company.site">Сайт: Нет данных</li>
             </ul>
             <i>*В случае если контакты некорректны, просим сообщить нам об этом на электронную почту: <a href="mailto:info@webothod.ru">info@webothod.ru</a></i>
@@ -101,34 +101,6 @@ export default {
         }
       ],
     }
-  },
-  methods: {
-    getActivity: (activities, val) => activities[val],
-    async clicksite(company, uri) {
-      await this.$axios.$get(`companies/siteclick/${company}/`).then((response) => {
-        window.location = "http://" + uri.replace("http://", "").replace("https://", "");
-      }).catch((error) => {
-        console.log(error);
-      });
-    },
-    async getContacts(type) {
-      await this.$axios.$get(`companies/${this.company.id}/contacts/${type}/`).then((response) => {
-        if (type == 'locality') {
-          this.company.locality = response.data;
-        }
-        if (type == 'phones') {
-          this.company.phones = response.data;
-        }
-        if (type == 'emails') {
-          this.company.emails = response.data;
-        }
-        if (type == 'site') {
-          this.company.site = response.data;
-        }
-      }).catch((error) => {
-        console.log(error);
-      });
-    },
   },
 };
 </script>
