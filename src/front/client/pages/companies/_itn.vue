@@ -6,7 +6,7 @@
       <b-col class="pl-4 pr-4 pt-4">
         <b-link class="text-success" href="/companies">Компании</b-link>
         <span> &raquo; </span>
-        <b-link class="text-success" :href="`/companies/region/${company.region.url}`">{{ company.region.text }}</b-link>
+        <b-link class="text-success" :href="`/companies/region/${company.region.code}`">{{ company.region.text }}</b-link>
         <span> &raquo; </span>
         <span class="uppercase">{{company.name}}</span>
       </b-col>
@@ -43,11 +43,11 @@
       <div class="col-md-8">
         <b-card v-for="(item, index) in codes" :key="index" class="mt-3 mb-3">
           <b-card-text>
-            <i>Код ФККО: {{item.fkko.id}} | {{item.fkko.codespace}}</i>
-            <a :href="`/code/${item.fkko.id}`" class="text-dark"><h2>{{item.fkko.name}}</h2></a>
+            <i>Код ФККО: {{item.waste_code.code}} | {{item.waste_code.code_space}}</i>
+            <a :href="`/code/${item.waste_code.code}`" class="text-dark"><h2>{{item.waste_code.name}}</h2></a>
             <ul class="activity" v-if="item.activity">
               <li v-for="(c_item, c_index) in item.activity" :key="c_index">
-              <a :href="`/companies/search/${item.fkko.id}/activity/${c_item}`">{{getActivity(activities, c_item)}}</a>
+              <a :href="`/companies/search/${item.waste_code.code}/activity/${c_item}`">{{getActivity(activities, c_item)}}</a>
               </li>
             </ul>
           </b-card-text>
@@ -64,12 +64,12 @@
 <script>
 export default {
   async asyncData({ params, $axios }) {
-    const company = await $axios.$get(`companies/${params.id}`).then((response) => {
+    const company = await $axios.$get(`companies/${params.itn}`).then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);
     });
-    const codes = await $axios.$get(`companies/fkkolist/${params.id}/`).then((response) => {
+    const codes = await $axios.$get(`companies/codes_list/${params.itn}`).then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);

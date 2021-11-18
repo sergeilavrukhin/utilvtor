@@ -11,7 +11,7 @@ urlpatterns = [
         name='companies',
     ),
     path(
-        '<int:itn>',
+        '<str:itn>',
         CompaniesView.as_view({'get': 'one'}),
         name='companies_one',
     ),
@@ -29,5 +29,10 @@ urlpatterns = [
         'by_region/<int:region>/page/<int:page>',
         CompaniesView.as_view({'get': 'by_region'}),
         name='companies_by_region_page',
+    ),
+    path(
+        'codes_list/<str:itn>',
+        CompaniesView.as_view({'get': 'codes_list'}),
+        name='companies_codes_list',
     ),
 ]
