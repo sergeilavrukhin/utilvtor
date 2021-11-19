@@ -59,7 +59,6 @@ class CompaniesSerializer(serializers.ModelSerializer):
                     data = json.loads("[\"{}\"]".format(el.site))
                 except:
                     data = None
-            print(el.site)
             return data
         else:
             return None
