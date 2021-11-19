@@ -11,12 +11,12 @@ class CompaniesSerializer(serializers.ModelSerializer):
     phones = serializers.SerializerMethodField(help_text='Телефоны')
     emails = serializers.SerializerMethodField(help_text='Emails')
     activity = serializers.SerializerMethodField(help_text='Типы отходов с которыми работает')
+    site = serializers.SerializerMethodField(help_text='Сайт')
     region = RegionsSerializer(help_text='Регион')
 
     class Meta:
         model = Companies
         fields = (
-            'company_id',
             'itn',
             'locality',
             'phones',
@@ -46,6 +46,21 @@ class CompaniesSerializer(serializers.ModelSerializer):
     def get_emails(el):
         if el.emails:
             return json.loads(el.emails)
+        else:
+            return None
+
+    @staticmethod
+    def get_site(el):
+        if el.site:
+            try:
+                data = json.loads(el.site)
+            except:
+                try:
+                    data = json.loads("[\"{}\"]".format(el.site))
+                except:
+                    data = None
+            print(el.site)
+            return data
         else:
             return None
 

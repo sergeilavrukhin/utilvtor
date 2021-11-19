@@ -138,18 +138,38 @@ export default {
     ).then(res => res.json())
   },
   methods: {
+    getCookie(name) {
+       var cookieValue = null;
+       if (document.cookie && document.cookie != '') {
+           var cookies = document.cookie.split('; ');
+           for (var i = 0; i < cookies.length; i++) {
+               var cookie = cookies[i];
+               if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                   cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                   break;
+               }
+           }
+       }
+       return cookieValue;
+    },
     async onSubmit(evt) {
       evt.preventDefault();
 
-      await this.$axios.$post('queries/', {
-        firstname: this.form.firstname,
-        phone: this.form.phone,
-        email: this.form.email,
-        query_type: this.form.query_type,
-        waste: this.form.waste,
-        region: this.form.region,
-        description: this.form.description,
-      }).then((response) => {
+      await this.$axios.$post(
+          'queries/',
+          {
+            firstname: this.form.firstname,
+            phone: this.form.phone,
+            email: this.form.email,
+            query_type: this.form.query_type,
+            waste: this.form.waste,
+            region: this.form.region,
+            description: this.form.description
+          },
+          {
+            headers: {'X-CSRFToken': this.getCookie("csrftoken")},
+          }
+      ).then((response) => {
         this.success = response.msg;
         this.error = null;
       }).catch((error) => {

@@ -5,7 +5,8 @@
     <b-row>
       <b-col class="pl-4 pr-4 pt-4">
         <b-link class="text-success" href="/companies">Компании</b-link>
-        <span> &raquo; </span><h1>Поиск по утилизаторам</h1>
+        <span> &raquo; </span>
+        <h1>Поиск по утилизаторам</h1>
       </b-col>
     </b-row>
     <div class="row">
@@ -43,9 +44,8 @@ export default {
     if(region_one) {
       const companies = region_one.companies;
       const nofp = region_one.count;
-      const region_name = region_one.region;
-      const activity = region_one.activity;
-      return { companies, nofp, region_name, activity }
+      const region = region_one.region;
+      return { companies, nofp, region }
     }
   },
   data() {

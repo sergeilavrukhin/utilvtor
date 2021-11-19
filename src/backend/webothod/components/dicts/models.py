@@ -1,5 +1,14 @@
 from django.db import models
 
+activities = [
+  "processing",
+  "collection",
+  "deactivation",
+  "transportation",
+  "utilization",
+  "disposal",
+]
+
 
 class Regions(models.Model):
     class Meta:

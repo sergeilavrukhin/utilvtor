@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'webothod.components.waste_codes',
     'webothod.components.queries',
     'webothod.components.companies',
+    'webothod.components.users',
 ]
 
 MIDDLEWARE = [

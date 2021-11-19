@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: 'Search',
   data () {
@@ -55,14 +57,23 @@ export default {
           window.location = `/companies/search/${this.search}/region/${this.form.regions}`;
         }
       } else {
-        window.location = `/companies`;
+        if (this.form.regions == 0) {
+          window.location = `/companies`;
+        } else {
+          window.location = `/companies/region/${this.form.regions}`;
+        }
       }
     },
   },
   async fetch() {
-    this.regions = await fetch(
-      `${this.$config.baseURL}api/client/dicts/regions`
-    ).then(res => res.json())
+    this.regions = await axios.get(`${this.$config.baseURL}api/client/dicts/regions`
+    ).then((response) => {
+      var result = JSON.parse(JSON.stringify(response.data))
+      return result;
+    }).catch((error) => {
+      console.log(error);
+    });
+    this.regions.unshift({'value': '0', 'text': "Выберите регион"});
   }
 };
 </script>

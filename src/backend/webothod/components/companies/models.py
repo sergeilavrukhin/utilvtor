@@ -8,10 +8,11 @@ class Companies(models.Model):
         db_table = "companies"
         verbose_name = "Компания"
         verbose_name_plural = "Компании"
-
-    company_id = models.PositiveIntegerField(
-        default=0,
-    )
+        indexes = [
+            models.Index(fields=['itn']),
+            models.Index(fields=['name']),
+            models.Index(fields=['region']),
+        ]
     name = models.CharField(
         max_length=255,
         verbose_name="Название компании",
@@ -75,12 +76,7 @@ class Companies(models.Model):
     )
 
     def __str__(self):
-        return f"Компания {self.company_id} - {self.name}"
-
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        self.company_id = self.pk
-        super().save(*args, **kwargs)
+        return f"Компания {self.itn} - {self.name}"
 
 
 class CompanyWasteCodes(models.Model):
@@ -88,6 +84,11 @@ class CompanyWasteCodes(models.Model):
         db_table = "company_waste_codes"
         verbose_name = "Отход с которым работает компания"
         verbose_name_plural = "Отходы с которым работают компании"
+        indexes = [
+            models.Index(fields=['company']),
+            models.Index(fields=['waste_code']),
+            models.Index(fields=['activity']),
+        ]
 
     company = models.ForeignKey(
         Companies,

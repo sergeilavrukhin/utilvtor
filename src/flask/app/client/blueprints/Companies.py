@@ -4,7 +4,7 @@ from app.client.schemes.Company import CompanyClientSchema
 from app.client.schemes.CompanyWaste import CompanyWasteClientSchema
 from app.client.schemes.Region import RegionClientSchema
 from app.client.schemes.Fkko import FkkoClientSchema
-from app.globals import db, POSTS_PER_PAGE, activities
+from ...globals import db, POSTS_PER_PAGE, activities
 from sqlalchemy import or_, and_
 import math
 import json

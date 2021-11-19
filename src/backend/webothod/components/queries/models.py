@@ -1,9 +1,6 @@
 from django.db import models
-from django.contrib.auth import get_user_model
-
+from django.contrib.auth.models import User
 from ..dicts.models import Regions, QueryType
-
-User = get_user_model()
 
 
 class Queries(models.Model):
@@ -11,6 +8,11 @@ class Queries(models.Model):
         db_table = "queries"
         verbose_name = "Заявка"
         verbose_name_plural = "Заявка"
+
+    created_at = models.DateTimeField(
+        "Дата и время создания",
+        auto_now_add=True,
+    )
 
     waste = models.CharField(
         max_length=255,

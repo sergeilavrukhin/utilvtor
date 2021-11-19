@@ -1,75 +1,35 @@
-from collections import OrderedDict
-
-from django.core.paginator import InvalidPage
-from rest_framework.exceptions import NotFound
+from django.core.paginator import Paginator
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
-from rest_framework.pagination import PageNumberPagination
+from django.db.models import Q
 
 from .models import Companies, CompanyWasteCodes
 from .serializers import CompaniesSerializer, CompanyWasteCodesSerializer
-from ..waste_codes.models import WasteCodes
-from ..waste_codes.serializers import WasteCodesSerializer
-
-
-class CompaniesPagination(PageNumberPagination):
-    page_size = 10
-    page_size_query_param = 'page_size'
-    page = 1
-
-    def set_page_number(self, page):
-        self.page = page
-
-    def get_page_number(self, request, paginator):
-        page_number = self.page
-        if page_number in self.last_page_strings:
-            page_number = paginator.num_pages
-        return page_number
-
-    def paginate_queryset(self, queryset, request, view=None):
-        page_size = self.get_page_size(request)
-        if not page_size:
-            return None
-
-        paginator = self.django_paginator_class(queryset, page_size)
-        page_number = self.page
-        if page_number in self.last_page_strings:
-            page_number = paginator.num_pages
-
-        try:
-            self.page = paginator.page(page_number)
-        except InvalidPage as exc:
-            msg = self.invalid_page_message.format(
-                page_number=page_number, message=str(exc)
-            )
-            raise NotFound(msg)
-
-        if paginator.num_pages > 1 and self.template is not None:
-            self.display_page_controls = True
-
-        self.request = request
-        return list(self.page)
-
-    def get_paginated_response(self, data):
-        return Response(OrderedDict([
-            ('count', self.page.paginator.num_pages),
-            ('next', self.get_next_link()),
-            ('previous', self.get_previous_link()),
-            ('results', data)
-        ]))
+from ..dicts.models import Regions
+from ..dicts.serializers import RegionsSerializer
 
 
 class CompaniesView(
     GenericViewSet,
 ):
-    pagination_class = CompaniesPagination
-    serializer_class = CompaniesSerializer
+    @staticmethod
+    def list(request, page=1):
+        companies = Companies.objects
+        paginator = Paginator(companies.order_by('itn'), 10)
+        return Response({
+            "count": paginator.num_pages,
+            "companies": CompaniesSerializer(
+                paginator.page(page),
+                many=True,
+            ).data
+        })
 
-    def paginate_page_queryset(self, queryset, request, page):
-        self.paginator.set_page_number(page)
-        if self.paginator is None:
-            return None
-        return self.paginator.paginate_queryset(queryset, request, view=self)
+    @staticmethod
+    def map(request):
+        companies = Companies.objects.values('itn')
+        return Response(
+            companies
+        )
 
     @staticmethod
     def one(request, itn):
@@ -84,8 +44,7 @@ class CompaniesView(
 
     @staticmethod
     def by_code(request, code):
-        companies_pk = CompanyWasteCodes.objects.filter(
-            waste_code__code=code
+        companies_pk = CompanyWasteCodes.objects.filter(waste_code__code=code
         )[:3].values('company')
 
         companies = Companies.objects.filter(
@@ -98,22 +57,17 @@ class CompaniesView(
             ).data
         )
 
-    def paginate(self, companies, request, page):
-        paginate_page_queryset = self.paginate_page_queryset(
-            companies,
-            request,
-            page,
-        ),
-        return self.get_paginated_response(
-            paginate_page_queryset
-        )
-
-    def search(self, request, region=None, code=None, activity=None, page=1):
+    @staticmethod
+    def search(request, search=None, region=None, activity=None, page=1):
         companies = Companies.objects
         companies_pk = CompanyWasteCodes.objects
-        if code:
+        if search:
             companies_pk = companies_pk.filter(
-                waste_code__code=code
+                Q(waste_code__code=search.replace(' ', ''))
+                |
+                Q(company__name__contains=search)
+                |
+                Q(waste_code__name__contains=search)
             )
             companies = companies.filter(
                 pk__in=companies_pk.values('company')
@@ -125,12 +79,22 @@ class CompaniesView(
             companies = companies.filter(
                 pk__in=companies_pk.values('company')
             )
+        region_dict = {}
         if region:
             companies = companies.filter(
                 region__code=region
             )
-        print(companies)
-        return self.paginate(companies.order_by('itn'), request, page)
+            region_dict = RegionsSerializer(Regions.objects.filter(code=region).first()).data
+
+        paginator = Paginator(companies.order_by('itn'), 10)
+        return Response({
+            "region": region_dict,
+            "count": paginator.num_pages,
+            "companies": CompaniesSerializer(
+                paginator.page(page),
+                many=True,
+            ).data
+        })
 
     @staticmethod
     def codes_list(request, itn):

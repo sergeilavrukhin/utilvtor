@@ -6,20 +6,23 @@
         <b-card-text>
           <div class="row">
             <div class="col-md-5">
-              <a :href="`/companies/${item.itn}`">
+              <a :href="`/companies/detail/${item.itn}`">
                 <img :src="`https://static-maps.yandex.ru/1.x/?ll=${item.gps.lat},${item.gps.long}&amp;z=10&amp;l=map&amp;size=240,160`">
               </a>
             </div>
             <div class="col-md-7">
               <div class="row">
                 <div class="col-md-12">
-                  <a :href="`/companies/${item.itn}`" class="text-dark"><h2>{{item.name}}</h2></a>
+                  <a :href="`/companies/detail/${item.itn}`" class="text-dark"><h2>{{item.name}}</h2></a>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-12">
                   <ul class="activity">
+                    <li v-if="!($route.params.region) && (!$route.params.code) && (!$route.params.search)" v-for="(c_item, c_index) in item.activity" :key="c_index">
+                    <a :href="`/companies/region/${item.region.code}/activity/${c_item}`">{{getActivity(activities, c_item)}}</a>
+                    </li>
                     <li v-if="($route.params.region) && (!$route.params.code) && (!$route.params.search)" v-for="(c_item, c_index) in item.activity" :key="c_index">
                     <a :href="`/companies/region/${$route.params.region}/activity/${c_item}`">{{getActivity(activities, c_item)}}</a>
                     </li>
@@ -41,7 +44,7 @@
 
               <div class="row mt-2">
                 <div class="col-md-12">
-                  <b-button class="btn btn-success mr-2" :href="`/companies/${item.itn}`">Посмотреть контакты</b-button>
+                  <b-button class="btn btn-success mr-2" :href="`/companies/detail/${item.itn}`">Посмотреть контакты</b-button>
                 </div>
               </div>
             </div>
@@ -79,8 +82,9 @@ export default {
   methods: {
     getActivity: (activities, val) => activities[val],
     linkGen(pageNum) {
+      var url = `/companies`;
       if(this.$route.params.search) {
-        var url = `/companies/search/${this.$route.params.search}`;
+        url = url + `/search/${this.$route.params.search}`;
         if(this.$route.params.region) {
           url = url + `/region/${this.$route.params.region}`;
         }
@@ -88,7 +92,9 @@ export default {
           url = url + `/activity/${this.$route.params.activity}`;
         }
       } else {
-        var url = `/companies/region/${this.$route.params.region}`;
+        if(this.$route.params.region) {
+          url = url + `/region/${this.$route.params.region}`;
+        }
         if(this.$route.params.activity) {
           url = url + `/activity/${this.$route.params.activity}`;
         }

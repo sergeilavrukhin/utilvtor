@@ -6,18 +6,18 @@
       <div class="col-md-12 pl-4 pr-4 pt-4">
         <router-link class="text-success" :to="`/queries/list`">Заявки</router-link>
         <span> &raquo; </span>
-        <h1 v-if="item">{{item.query_type.text}} {{item.waste}} <span>{{item.region.text}}</span></h1>
+        <h1 v-if="item">{{item.type.text}} {{item.waste}} <span>{{item.region.text}}</span></h1>
       </div>
     </div>
     <div class="row m-0">
       <div class="col-md-8">
-        <b-card v-if="item" :sub-title="item.query_type.text"
+        <b-card v-if="item" :sub-title="item.type.text"
         class="mx-1 my-3">
           <b-card-text>
             <ul>
-              <li><b>Дата заявки:</b> {{item.date_create}}</li>
-              <li><b>Автор:</b>{{item.user.firstname}}</li>
-              <li><b>Телефон:</b> {{item.user.phone}}</li>
+              <li><b>Дата заявки:</b> {{new Date(item.created_at * 1000) | moment("DD.MM.YYYY HH:mm")}}</li>
+              <li><b>Имя:</b> {{item.user.profile.firstname}}</li>
+              <li><b>Телефон:</b> {{item.user.profile.phone}}</li>
               <li><b>Email:</b> {{item.user.email}}</li>
             </ul>
             {{item.description}}
@@ -51,10 +51,10 @@ export default {
   },
   head() {
     return {
-      title: `${this.item.query_type.text} ${this.item.waste ? this.item.waste : ''} в ${this.item.region.text} | утилизация, хранение, переработка, захоронение, транспортирование, обезвреживание отходов, покупка и продажа вторсырья`,
+      title: `${this.item.type.text} ${this.item.waste ? this.item.waste : ''} в ${this.item.region.text} | утилизация, хранение, переработка, захоронение, транспортирование, обезвреживание отходов, покупка и продажа вторсырья`,
       meta: [
         { hid: 'description', name: 'description',
-          content: `Заявка с типом ${this.item.query_type.text} по отходу ${this.item.waste} в ${this.item.region.text}, так же вы можете найти заявки на утилизацию, хранение, захоронение, переработку, транспортирование, обезвреживание отходов, покупку и продажу вторсырья по всем регионам России ${this.item.description}`,
+          content: `Заявка с типом ${this.item.type.text} по отходу ${this.item.waste} в ${this.item.region.text}, так же вы можете найти заявки на утилизацию, хранение, захоронение, переработку, транспортирование, обезвреживание отходов, покупку и продажу вторсырья по всем регионам России ${this.item.description}`,
         }
       ],
     }

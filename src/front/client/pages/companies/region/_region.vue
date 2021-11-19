@@ -23,7 +23,7 @@
 <script>
 export default {
   async asyncData({ params, $axios }) {
-    var url = `companies/by_region/${params.region}`;
+    var url = `companies/search/region/${params.region}`;
     if (params.activity) url = url + `/activity/${params.activity}`;
     if (params.page) url = url + `/page/${params.page}`;
 
@@ -34,11 +34,10 @@ export default {
     });
 
     if(region_one) {
-      const companies = region_one.results;
+      const companies = region_one.companies;
       const nofp = region_one.count;
-      const region_name = region_one.name;
-      const activity = region_one.activity;
-      return { companies, nofp, region_name, activity }
+      const region_name = region_one.region.text;
+      return { companies, nofp, region_name }
     }
   },
   data() {
@@ -46,8 +45,6 @@ export default {
       title: 'Организации занимающиеся утилизацией, хранением, переработкой, транспортировкой, обезвреживанием, захоронением отходов, покупкой и продажей вторсырья',
       companies: null,
       nofp: 10,
-      region_name: null,
-      activity: null,
       activities: {
         null: '',
         processing: 'Переработка',
@@ -61,7 +58,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.title} ${this.region_name}  ${this.activities[this.activity]}`,
+      title: `${this.title} ${this.region_name}`,
     }
   },
 };

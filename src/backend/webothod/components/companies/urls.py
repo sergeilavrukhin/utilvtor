@@ -6,38 +6,71 @@ app_name = 'companies'
 
 urlpatterns = [
     path(
-        '<str:itn>',
-        CompaniesView.as_view({'get': 'one'}),
-        name='companies_one',
+        '',
+        CompaniesView.as_view({'get': 'list'})
     ),
     path(
-        'by_code_limit/<int:code>',
-        CompaniesView.as_view({'get': 'by_code_limit'}),
-        name='companies_by_code_limit',
+        'map',
+        CompaniesView.as_view({'get': 'map'})
     ),
     path(
-        'search/<int:code>',
-        CompaniesView.as_view({'get': 'search'}),
-        name='companies_search_by_code',
+        'page/<int:page>',
+        CompaniesView.as_view({'get': 'list'})
     ),
     path(
-        'search/<int:code>/activity/<str:activity>',
-        CompaniesView.as_view({'get': 'search'}),
-        name='companies_search_by_code_by_activity',
+        'by_code/<int:code>',
+        CompaniesView.as_view({'get': 'by_code'})
+    ),
+    path(
+        'search/<str:search>',
+        CompaniesView.as_view({'get': 'search'})
     ),
     path(
         'search/region/<int:region>',
-        CompaniesView.as_view({'get': 'search'}),
-        name='companies_search_by_region',
+        CompaniesView.as_view({'get': 'search'})
     ),
     path(
         'search/region/<int:region>/page/<int:page>',
-        CompaniesView.as_view({'get': 'search'}),
-        name='companies_search_by_region_by_page',
+        CompaniesView.as_view({'get': 'search'})
+    ),
+    path(
+        'search/region/<int:region>/activity/<str:activity>',
+        CompaniesView.as_view({'get': 'search'})
+    ),
+    path(
+        'search/region/<int:region>/activity/<str:activity>/page/<int:page>',
+        CompaniesView.as_view({'get': 'search'})
+    ),
+    path(
+        'search/<str:search>/activity/<str:activity>',
+        CompaniesView.as_view({'get': 'search'})
+    ),
+    path(
+        'search/<str:search>/activity/<str:activity>/page/<int:page>',
+        CompaniesView.as_view({'get': 'search'})
+    ),
+    path(
+        'search/<str:search>/region/<int:region>',
+        CompaniesView.as_view({'get': 'search'})
+    ),
+    path(
+        'search/<str:search>/region/<int:region>/page/<int:page>',
+        CompaniesView.as_view({'get': 'search'})
+    ),
+    path(
+        'search/<str:search>/region/<int:region>/activity/<str:activity>',
+        CompaniesView.as_view({'get': 'search'})
+    ),
+    path(
+        'search/<str:search>/region/<int:region>/activity/<str:activity>/page/<int:page>',
+        CompaniesView.as_view({'get': 'search'})
     ),
     path(
         'codes_list/<str:itn>',
-        CompaniesView.as_view({'get': 'codes_list'}),
-        name='companies_codes_list',
+        CompaniesView.as_view({'get': 'codes_list'})
+    ),
+    path(
+        '<str:itn>',
+        CompaniesView.as_view({'get': 'one'})
     ),
 ]
