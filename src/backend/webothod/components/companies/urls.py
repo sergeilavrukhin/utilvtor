@@ -26,6 +26,10 @@ urlpatterns = [
         CompaniesView.as_view({'get': 'search'})
     ),
     path(
+        'search/<str:search>/page/<int:page>',
+        CompaniesView.as_view({'get': 'search'})
+    ),
+    path(
         'search/region/<int:region>',
         CompaniesView.as_view({'get': 'search'})
     ),
