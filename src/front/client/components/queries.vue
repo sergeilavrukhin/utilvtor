@@ -6,13 +6,15 @@
               :title="`${item.type.text} ${item.waste}`"
               :sub-title="`Регион: ${item.region.text}`"
               class="mx-1 my-3">
+        <ul>
+          <li><b>Дата заявки:</b> {{new Date(item.created_at * 1000) | moment("DD.MM.YYYY HH:mm")}}</li>
+          <li><b>Имя:</b> {{item.user.profile.firstname}}</li>
+          <li><b>Телефон:</b> {{item.user.profile.phone}}</li>
+          <li><b>Email:</b> {{item.user.email}}</li>
+        </ul>
         <b-card-text>
-          <ul>
-            <li><b>Дата заявки:</b> {{new Date(item.created_at * 1000) | moment("DD.MM.YYYY HH:mm")}}</li>
-            <li><b>Имя:</b> {{item.user.profile.firstname}}</li>
-            <li><b>Телефон:</b> {{item.user.profile.phone}}</li>
-            <li><b>Email:</b> {{item.user.email}}</li>
-          </ul>{{ item.description }}</b-card-text>
+          {{ item.description }}
+        </b-card-text>
         <router-link :to="`/queries/${item.pk}`" class="text-success">Посмотреть</router-link>
       </b-card>
       <b-pagination-nav :link-gen="linkGen" :number-of-pages="nofp" align="center"></b-pagination-nav>
