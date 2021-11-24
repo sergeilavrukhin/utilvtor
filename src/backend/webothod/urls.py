@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,4 +24,4 @@ urlpatterns = [
     path('api/client/queries/', include("webothod.components.queries.urls")),
     path('api/client/companies/', include("webothod.components.companies.urls")),
     path('api/client/waste_codes/', include("webothod.components.waste_codes.urls")),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
