@@ -30,6 +30,9 @@ dev:
 open:
 	@docker exec -it uv_$(app) /bin/sh
 
+gunicorn:
+	@gunicorn3 --bind 0.0.0.0:3030 webothod.wsgi --pid /tmp/gunicorn.pid --daemon
+
 gen_api_client:
 	@raml2html -o "./src/front/client/public/api.html" "./src/front/client/raml/api.raml"
 
