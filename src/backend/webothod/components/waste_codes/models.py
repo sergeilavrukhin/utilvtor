@@ -7,6 +7,10 @@ class WasteCodes(models.Model):
         db_table = "waste_codes"
         verbose_name = "Код отхода"
         verbose_name_plural = "Коды отхода"
+        indexes = [
+            models.Index(fields=['code']),
+            models.Index(fields=['name']),
+        ]
 
     code = models.CharField(
         max_length=11,
