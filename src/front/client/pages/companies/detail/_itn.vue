@@ -12,14 +12,19 @@
       </b-col>
     </b-row>
     <br />
-    <center><h1>{{company.name}} {{this.company.region.text}} (ИНН: {{this.company.itn}})</h1></center>
+    <center>
+      <h1>{{company.name}} {{this.company.region.text}} (ИНН: {{this.company.itn}})</h1>
+      <span class="alert-success" v-if="company.actual">&#10003;
+        Данные актуальны на:
+        {{new Date(company.actual_at * 1000) | moment("DD.MM.YYYY HH:mm")}}
+      </span>
+    </center>
     <div class="row">
       <div class="col-md-4 p-4" style="width: 100%; height: 300px;">
         <img :src="`https://static-maps.yandex.ru/1.x/?ll=${company.gps.lat},${company.gps.long}&amp;z=10&amp;l=map&amp;size=300,250`">
       </div>
       <div class="col-md-8">
         <b-card class="mt-3 mb-3" title="Контакты">
-          <span v-if="company.actual">Данные актуальны на:  {{new Date(company.actual_at * 1000) | moment("DD.MM.YYYY HH:mm")}}</span>
           <b-card-text>
             <ul>
               <li v-if="company.locality">Адрес: {{company.locality}}</li>

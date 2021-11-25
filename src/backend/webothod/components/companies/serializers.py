@@ -13,6 +13,7 @@ class CompaniesSerializer(serializers.ModelSerializer):
     activity = serializers.SerializerMethodField(help_text='Типы отходов с которыми работает')
     site = serializers.SerializerMethodField(help_text='Сайт')
     region = RegionsSerializer(help_text='Регион')
+    actual_at = serializers.SerializerMethodField(help_text='Дата и время создания')
 
     class Meta:
         model = Companies
@@ -71,6 +72,10 @@ class CompaniesSerializer(serializers.ModelSerializer):
             return json.loads(el.activity)
         else:
             return None
+
+    @staticmethod
+    def get_actual_at(el):
+        return el.actual_at.timestamp()
 
 
 class CompanyWasteCodesSerializer(serializers.ModelSerializer):

@@ -14,6 +14,10 @@
               <div class="row">
                 <div class="col-md-12">
                   <a :href="`/companies/detail/${item.itn}`" class="text-dark"><h2>{{item.name}}</h2></a>
+                  <span class="alert-success" v-if="item.actual">&#10003;
+                    Данные актуальны на:
+                    {{new Date(item.actual_at * 1000) | moment("DD.MM.YYYY HH:mm")}}
+                  </span>
                 </div>
               </div>
 

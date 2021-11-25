@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from rest_framework.fields import SerializerMethodField
 
 from .models import Queries
 from ..dicts.serializers import RegionsSerializer, QueryTypesSerializer
@@ -10,7 +9,7 @@ class QueriesSerializer(serializers.ModelSerializer):
     region = RegionsSerializer(help_text='Регион')
     type = QueryTypesSerializer(help_text='Тип заявки')
     user = UserSerializer(help_text='Пользователь')
-    created_at = SerializerMethodField(help_text='Дата и время создания')
+    created_at = serializers.SerializerMethodField(help_text='Дата и время создания')
 
     class Meta:
         model = Queries
