@@ -19,6 +19,7 @@
       </div>
       <div class="col-md-8">
         <b-card class="mt-3 mb-3" title="Контакты">
+          <span v-if="company.actual">Данные актуальны на:  {{new Date(company.actual_at * 1000) | moment("DD.MM.YYYY HH:mm")}}</span>
           <b-card-text>
             <ul>
               <li v-if="company.locality">Адрес: {{company.locality}}</li>

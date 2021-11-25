@@ -26,6 +26,8 @@ class CompaniesSerializer(serializers.ModelSerializer):
             'gps',
             'region',
             'activity',
+            'actual',
+            'actual_at',
         )
 
     @staticmethod
