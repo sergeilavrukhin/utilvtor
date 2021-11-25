@@ -31,7 +31,7 @@
               <li v-if="company.emails">Электронная почта: {{company.emails.join(', ')}}</li>
               <li v-if="!company.emails">Электронная почта: Нет данных</li>
 
-              <li v-if="company.site">Сайт: <a :href="`${company.site.join(', ')}`">{{company.site.join(', ')}}</a></li>
+              <li v-if="company.site">Сайт: <a target="_blank" :href="`${company.site.join(', ')}`">{{company.site.join(', ')}}</a></li>
               <li v-if="!company.site">Сайт: Нет данных</li>
             </ul>
             <i>*В случае если контакты некорректны, просим сообщить нам об этом на электронную почту: <a href="mailto:info@webothod.ru">info@webothod.ru</a></i>
