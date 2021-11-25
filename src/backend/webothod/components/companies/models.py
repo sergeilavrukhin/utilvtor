@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import now
 from ..dicts.models import Regions
 from ..waste_codes.models import WasteCodes
 
@@ -80,7 +81,8 @@ class Companies(models.Model):
     )
     actual_at = models.DateTimeField(
         "Дата и время проверки актуальности",
-        auto_now_add=True,
+        default=now,
+        editable=True,
     )
 
     def __str__(self):

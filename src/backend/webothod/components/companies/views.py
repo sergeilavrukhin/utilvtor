@@ -15,7 +15,7 @@ class CompaniesView(
     @staticmethod
     def list(request, page=1):
         companies = Companies.objects
-        paginator = Paginator(companies.order_by('itn'), 10)
+        paginator = Paginator(companies.order_by('-actual_at', 'itn'), 10)
         return Response({
             "count": paginator.num_pages,
             "companies": CompaniesSerializer(
@@ -44,8 +44,9 @@ class CompaniesView(
 
     @staticmethod
     def by_code(request, code):
-        companies_pk = CompanyWasteCodes.objects.filter(waste_code__code=code
-        )[:3].values('company')
+        companies_pk = CompanyWasteCodes.objects.filter(
+            waste_code__code=code
+        ).order_by('itn')[:3].values('company')
 
         companies = Companies.objects.filter(
             pk__in=companies_pk
@@ -88,7 +89,7 @@ class CompaniesView(
             )
             region_dict = RegionsSerializer(Regions.objects.filter(code=region).first()).data
 
-        paginator = Paginator(companies.order_by('itn'), 10)
+        paginator = Paginator(companies.order_by('-actual_at', 'itn'), 10)
         return Response({
             "region": region_dict,
             "count": paginator.num_pages,
