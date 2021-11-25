@@ -12,6 +12,7 @@ class CompanyWasteCodesTabularInline(admin.TabularInline):
 
 
 class CompaniesAdmin(admin.ModelAdmin):
+    search_fields = ('itn', 'name')
     inlines = [CompanyWasteCodesTabularInline]
 
 

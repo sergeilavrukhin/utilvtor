@@ -13,7 +13,6 @@ class Queries(models.Model):
         "Дата и время создания",
         auto_now_add=True,
     )
-
     waste = models.CharField(
         max_length=255,
         verbose_name="Название отхода",

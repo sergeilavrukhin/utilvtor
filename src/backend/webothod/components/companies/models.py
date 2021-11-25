@@ -74,6 +74,14 @@ class Companies(models.Model):
         blank=True,
         verbose_name="Координаты",
     )
+    actual = models.BooleanField(
+        default=False,
+        verbose_name="Актуальные данные",
+    )
+    actual_at = models.DateTimeField(
+        "Дата и время проверки актуальности",
+        auto_now_add=True,
+    )
 
     def __str__(self):
         return f"Компания {self.itn} - {self.name}"
