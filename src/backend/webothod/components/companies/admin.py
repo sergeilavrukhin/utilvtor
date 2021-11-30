@@ -6,6 +6,7 @@ from .models import (
 
 
 class CompanyWasteCodesTabularInline(admin.TabularInline):
+    extra = 1
     model = CompanyWasteCodes
     fk_name = "company"
     raw_id_fields = ("waste_code",)
