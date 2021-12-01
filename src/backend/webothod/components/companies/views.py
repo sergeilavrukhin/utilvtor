@@ -66,18 +66,18 @@ class CompaniesView(
             companies_pk = companies_pk.filter(
                 Q(waste_code__code=search.replace(' ', ''))
                 |
-                Q(company__name__icontains=search)
-                |
-                Q(company__itn__icontains=search)
-                |
                 Q(waste_code__name__icontains=search)
             )
             companies = companies.filter(
-                pk__in=companies_pk.values('company')
+                Q(pk__in=companies_pk.values('company'))
+                |
+                Q(name__icontains=search)
+                |
+                Q(itn=search)
             )
         if activity:
             companies_pk = companies_pk.filter(
-                activity__contains=activity
+                activity__icontains=activity
             )
             companies = companies.filter(
                 pk__in=companies_pk.values('company')

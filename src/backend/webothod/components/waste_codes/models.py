@@ -10,6 +10,7 @@ class WasteCodes(models.Model):
         indexes = [
             models.Index(fields=['code']),
             models.Index(fields=['name']),
+            models.Index(fields=['parent_code']),
         ]
 
     code = models.CharField(

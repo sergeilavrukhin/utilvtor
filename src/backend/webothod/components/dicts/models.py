@@ -15,6 +15,9 @@ class Regions(models.Model):
         db_table = "regions"
         verbose_name = "Регион"
         verbose_name_plural = "Регионы"
+        indexes = [
+            models.Index(fields=['code']),
+        ]
 
     text = models.CharField(
         max_length=255,
