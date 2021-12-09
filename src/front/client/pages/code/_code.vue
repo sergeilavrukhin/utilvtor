@@ -69,7 +69,7 @@ export default {
   data() {
     return {
       code: null,
-      children: null,
+      children: [],
       companies: [],
       activities: {
         processing: 'Переработка',
