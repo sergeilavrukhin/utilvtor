@@ -34,7 +34,7 @@
         </b-card>
         <h2>Компании работающие с данным видом отходов:</h2>
         <a v-if="companies" :href="`/companies/search/${this.$route.params.code}`" class="text-success uppercase">Посмотреть все компании</a>
-        <companies v-if="companies" :companies="companies" nofp="0"></companies>
+        <companies :companies="companies" nofp="0"></companies>
       </b-col>
       <b-col class="col-md-4">
         <queryadd></queryadd>
@@ -70,7 +70,7 @@ export default {
     return {
       code: null,
       children: null,
-      companies: null,
+      companies: [],
       activities: {
         processing: 'Переработка',
         collection: 'Хранение',
