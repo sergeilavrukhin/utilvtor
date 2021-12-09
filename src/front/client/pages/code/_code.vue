@@ -59,11 +59,12 @@ export default {
       console.log(error);
     });
 
-    const companies = await $axios.$get(`companies/by_code/${params.code}`).then((response) => {
+    /*const companies = await $axios.$get(`companies/by_code/${params.code}`).then((response) => {
       return response;
     }).catch((error) => {
       console.log(error);
-    });
+    });*/
+    const companies = null;
     return { code, children, companies }
   },
   data() {
