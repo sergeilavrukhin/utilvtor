@@ -18,7 +18,7 @@
         <b-card class="mt-3 mb-3">
           <b-card-text>
           <h2 v-if="!children.length">Отход (код фкко: {{code.code}} | {{code.code_space}}) - {{code.name}}</h2>
-          <h2 v-if="children.length">Категория отхода (код: {{code.code}} | {{code.code_space}}) - {{code.name}}
+          <h2 v-if="children.length > 0">Категория отхода (код: {{code.code}} | {{code.code_space}}) - {{code.name}}
            в себе содержит:</h2>
           <h4 v-if="code.category">{{code.category.id}} класс опасности отхода</h4>
           <i v-if="code.category">{{code.category.text}}</i>
