@@ -38,8 +38,8 @@ class Companies(models.Model):
         Regions,
         on_delete=models.CASCADE,
         related_name="company_region",
-        verbose_name="Регион",
         null=True,
+        verbose_name="Регион",
     )
     phones = models.CharField(
         max_length=600,
@@ -80,9 +80,15 @@ class Companies(models.Model):
         verbose_name="Актуальные данные",
     )
     actual_at = models.DateTimeField(
-        "Дата и время проверки актуальности",
         default=now,
         editable=True,
+        verbose_name="Дата и время проверки актуальности",
+    )
+    description = models.TextField(
+        default="",
+        null=True,
+        blank=True,
+        verbose_name="Описание компании",
     )
 
     def __str__(self):
@@ -117,3 +123,108 @@ class CompanyWasteCodes(models.Model):
         default='',
         verbose_name="Типы отходов с которыми работает",
     )
+
+
+class CompanyPhones(models.Model):
+    class Meta:
+        db_table = "company_phones"
+        verbose_name = "Телефон компании"
+        verbose_name_plural = "Телефоны компании"
+        indexes = [
+            models.Index(fields=['company']),
+        ]
+
+    company = models.ForeignKey(
+        Companies,
+        on_delete=models.CASCADE,
+        related_name="company_phones",
+        verbose_name="Компания"
+    )
+    phone = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name="Телефон",
+    )
+
+    def __str__(self):
+        return self.phone
+
+
+class CompanySites(models.Model):
+    class Meta:
+        db_table = "company_sites"
+        verbose_name = "Сайт компании"
+        verbose_name_plural = "Сайты компании"
+        indexes = [
+            models.Index(fields=['company']),
+        ]
+
+    company = models.ForeignKey(
+        Companies,
+        on_delete=models.CASCADE,
+        related_name="company_sites",
+        verbose_name="Компания"
+    )
+    site = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name="Сайт",
+    )
+
+    def __str__(self):
+        return self.site
+
+
+class CompanyEmails(models.Model):
+    class Meta:
+        db_table = "company_emails"
+        verbose_name = "Email компании"
+        verbose_name_plural = "Emails компании"
+        indexes = [
+            models.Index(fields=['company']),
+        ]
+
+    company = models.ForeignKey(
+        Companies,
+        on_delete=models.CASCADE,
+        related_name="company_emails",
+        verbose_name="Компания"
+    )
+    email = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name="Email",
+    )
+
+    def __str__(self):
+        return self.email
+
+
+class CompanyRegion(models.Model):
+    class Meta:
+        db_table = "company_regions"
+        verbose_name = "Регион компании"
+        verbose_name_plural = "Регионы компании"
+        indexes = [
+            models.Index(fields=['company']),
+        ]
+
+    company = models.ForeignKey(
+        Companies,
+        on_delete=models.CASCADE,
+        related_name="company_region_company",
+        verbose_name="Компания"
+    )
+    region = models.ForeignKey(
+        Regions,
+        on_delete=models.CASCADE,
+        related_name="company_region_region",
+        null=True,
+        verbose_name="Регион",
+    )
+
+    def __str__(self):
+        return self.region.text
