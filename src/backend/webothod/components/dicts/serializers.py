@@ -25,11 +25,17 @@ class CompanyRegionsSerializer(serializers.ModelSerializer):
 
     @staticmethod
     def get_code(el):
-        return el.first().region.code
+        if hasattr(el, 'region'):
+            return el.region.code
+        else:
+            return el.first().region.code
 
     @staticmethod
     def get_text(el):
-        return el.first().region.text
+        if hasattr(el, 'region'):
+            return el.region.text
+        else:
+            return el.first().region.text
 
 
 class QueryTypesSerializer(serializers.ModelSerializer):

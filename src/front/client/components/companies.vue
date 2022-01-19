@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-md-5">
               <a :href="`/companies/detail/${item.itn}`">
-                <img :src="`https://static-maps.yandex.ru/1.x/?ll=${item.gps.lat},${item.gps.long}&amp;z=10&amp;l=map&amp;size=240,160`">
+                <img :src="`https://static-maps.yandex.ru/1.x/?ll=${item.latitude},${item.longitude}&amp;z=10&amp;l=map&amp;size=240,160`">
               </a>
             </div>
             <div class="col-md-7">

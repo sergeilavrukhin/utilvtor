@@ -17,14 +17,18 @@ class CompaniesSerializer(serializers.ModelSerializer):
     activity = serializers.SerializerMethodField(help_text='Типы отходов с которыми работает')
     sites = serializers.StringRelatedField(source='company_sites', help_text='Сайты',
                                            read_only=True, many=True)
-    regions = serializers.StringRelatedField(source='company_region_company', help_text='Регионы',
-                                             read_only=True, many=True)
-
-    region = CompanyRegionsSerializer(
+    regions = CompanyRegionsSerializer(
         source='company_region_company',
         help_text='Регионы',
         read_only=True,
-        many=False
+        many=True,
+    )
+
+    region = CompanyRegionsSerializer(
+        source='company_region_company',
+        help_text='Регион',
+        read_only=True,
+        many=False,
     )
 
     actual_at = serializers.SerializerMethodField(help_text='Дата и время создания')
