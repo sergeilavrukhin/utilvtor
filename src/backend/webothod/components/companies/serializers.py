@@ -2,7 +2,7 @@ from rest_framework import serializers
 import json
 
 from .models import Companies, CompanyWasteCodes
-from ..dicts.serializers import RegionsSerializer
+from ..dicts.serializers import CompanyRegionsSerializer
 from ..waste_codes.serializers import WasteCodesSerializer
 
 
@@ -19,6 +19,14 @@ class CompaniesSerializer(serializers.ModelSerializer):
                                            read_only=True, many=True)
     regions = serializers.StringRelatedField(source='company_region_company', help_text='Регионы',
                                              read_only=True, many=True)
+
+    region = CompanyRegionsSerializer(
+        source='company_region_company',
+        help_text='Регионы',
+        read_only=True,
+        many=False
+    )
+
     actual_at = serializers.SerializerMethodField(help_text='Дата и время создания')
 
     class Meta:
@@ -32,6 +40,7 @@ class CompaniesSerializer(serializers.ModelSerializer):
             'name',
             'latitude',
             'longitude',
+            'region',
             'regions',
             'activity',
             'actual',
