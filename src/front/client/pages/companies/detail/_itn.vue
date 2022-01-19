@@ -21,7 +21,7 @@
     </center>
     <div class="row">
       <div class="col-md-4 p-4" style="width: 100%; height: 300px;">
-        <img :src="`https://static-maps.yandex.ru/1.x/?ll=${company.gps.lat},${company.gps.long}&amp;z=10&amp;l=map&amp;size=300,250`">
+        <img :src="`https://static-maps.yandex.ru/1.x/?ll=${company.latitude},${company.longitude}&amp;z=10&amp;l=map&amp;size=300,250`">
       </div>
       <div class="col-md-8">
         <b-card class="mt-3 mb-3" title="Контакты">
@@ -37,8 +37,8 @@
               <li v-if="company.emails">Электронная почта: {{company.emails.join(', ')}}</li>
               <li v-if="!company.emails">Электронная почта: Нет данных</li>
 
-              <li v-if="company.site">Сайт: <a target="_blank" :href="`${company.site.join(', ')}`">{{company.site.join(', ')}}</a></li>
-              <li v-if="!company.site">Сайт: Нет данных</li>
+              <li v-if="company.sites">Сайт: <a target="_blank" :href="`${company.sites.join(', ')}`">{{company.sites.join(', ')}}</a></li>
+              <li v-if="!company.sites">Сайт: Нет данных</li>
             </ul>
             <i>*В случае если контакты некорректны, просим сообщить нам об этом на электронную почту: <a href="mailto:info@webothod.ru">info@webothod.ru</a></i>
           </b-card-text>
@@ -80,7 +80,7 @@ export default {
     }).catch((error) => {
       console.log(error);
     });
-    const coords = [company.gps.long, company.gps.lat];
+    const coords = [company.longitude, company.latitude];
     return { company, coords, codes }
   },
   data() {

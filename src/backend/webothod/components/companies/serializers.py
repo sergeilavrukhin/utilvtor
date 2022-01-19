@@ -2,17 +2,35 @@ from rest_framework import serializers
 import json
 
 from .models import Companies, CompanyWasteCodes
-from ..dicts.serializers import RegionsSerializer
+from ..dicts.serializers import CompanyRegionsSerializer
 from ..waste_codes.serializers import WasteCodesSerializer
 
 
 class CompaniesSerializer(serializers.ModelSerializer):
-    gps = serializers.SerializerMethodField(help_text='GPS')
-    phones = serializers.SerializerMethodField(help_text='Телефоны')
-    emails = serializers.SerializerMethodField(help_text='Emails')
+    latitude = serializers.FloatField(help_text='Широта')
+    longitude = serializers.FloatField(help_text='Долгота')
+
+    phones = serializers.StringRelatedField(source='company_phones', help_text='Телефоны',
+                                            read_only=True, many=True)
+    emails = serializers.StringRelatedField(source='company_emails', help_text='Emails',
+                                            read_only=True, many=True)
     activity = serializers.SerializerMethodField(help_text='Типы отходов с которыми работает')
-    site = serializers.SerializerMethodField(help_text='Сайт')
-    region = RegionsSerializer(help_text='Регион')
+    sites = serializers.StringRelatedField(source='company_sites', help_text='Сайты',
+                                           read_only=True, many=True)
+    regions = CompanyRegionsSerializer(
+        source='company_region_company',
+        help_text='Регионы',
+        read_only=True,
+        many=True,
+    )
+
+    region = CompanyRegionsSerializer(
+        source='company_region_company',
+        help_text='Регион',
+        read_only=True,
+        many=False,
+    )
+
     actual_at = serializers.SerializerMethodField(help_text='Дата и время создания')
 
     class Meta:
@@ -22,49 +40,16 @@ class CompaniesSerializer(serializers.ModelSerializer):
             'locality',
             'phones',
             'emails',
-            'site',
+            'sites',
             'name',
-            'gps',
+            'latitude',
+            'longitude',
             'region',
+            'regions',
             'activity',
             'actual',
             'actual_at',
         )
-
-    @staticmethod
-    def get_gps(el):
-        if el.gps is not None:
-            return json.loads(el.gps)
-        else:
-            return None
-
-    @staticmethod
-    def get_phones(el):
-        if el.phones:
-            return json.loads(el.phones)
-        else:
-            return None
-
-    @staticmethod
-    def get_emails(el):
-        if el.emails:
-            return json.loads(el.emails)
-        else:
-            return None
-
-    @staticmethod
-    def get_site(el):
-        if el.site:
-            try:
-                data = json.loads(el.site)
-            except:
-                try:
-                    data = json.loads("[\"{}\"]".format(el.site))
-                except:
-                    data = None
-            return data
-        else:
-            return None
 
     @staticmethod
     def get_activity(el):
