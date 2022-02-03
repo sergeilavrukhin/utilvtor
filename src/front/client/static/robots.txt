@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /user/
-Sitemap: https://webothod.ru/sitemap.xml
-
-Host: https://webothod.ru
