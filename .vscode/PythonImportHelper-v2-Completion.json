@@ -1,0 +1,1976 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "Env",
+        "importPath": "environ",
+        "description": "environ",
+        "isExtraImport": true,
+        "detail": "environ",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
+        "isExtraImport": true,
+        "detail": "django.conf.urls.static",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "django.utils.timezone",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.utils.timezone",
+        "description": "django.utils.timezone",
+        "detail": "django.utils.timezone",
+        "documentation": {}
+    },
+    {
+        "label": "now",
+        "importPath": "django.utils.timezone",
+        "description": "django.utils.timezone",
+        "isExtraImport": true,
+        "detail": "django.utils.timezone",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "Paginator",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "Paginator",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "GenericViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "GenericViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "GenericViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "GenericViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "method_decorator",
+        "importPath": "django.utils.decorators",
+        "description": "django.utils.decorators",
+        "isExtraImport": true,
+        "detail": "django.utils.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "csrf_protect",
+        "importPath": "django.views.decorators.csrf",
+        "description": "django.views.decorators.csrf",
+        "isExtraImport": true,
+        "detail": "django.views.decorators.csrf",
+        "documentation": {}
+    },
+    {
+        "label": "UserAdmin",
+        "importPath": "django.contrib.auth.admin",
+        "description": "django.contrib.auth.admin",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.admin",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreationForm",
+        "importPath": "django.contrib.auth.forms",
+        "description": "django.contrib.auth.forms",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "UserChangeForm",
+        "importPath": "django.contrib.auth.forms",
+        "description": "django.contrib.auth.forms",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_DIR",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))\nBASE_DIR = os.path.dirname(os.path.abspath(__file__))\nenv = Env(\n    DEBUG=(bool, False),\n)\nenv.read_env(os.path.join(ROOT_DIR, \".env\"))\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = '=l80y_2)d5=$zfl5ng)lld#ti&g!o8*9_+&^i!wewbbd&=k_*x'",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "BASE_DIR = os.path.dirname(os.path.abspath(__file__))\nenv = Env(\n    DEBUG=(bool, False),\n)\nenv.read_env(os.path.join(ROOT_DIR, \".env\"))\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = '=l80y_2)d5=$zfl5ng)lld#ti&g!o8*9_+&^i!wewbbd&=k_*x'\n# SECURITY WARNING: don't run with debug turned on in production!",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "env",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "env = Env(\n    DEBUG=(bool, False),\n)\nenv.read_env(os.path.join(ROOT_DIR, \".env\"))\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = '=l80y_2)d5=$zfl5ng)lld#ti&g!o8*9_+&^i!wewbbd&=k_*x'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = env('DEBUG')",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "SECRET_KEY = '=l80y_2)d5=$zfl5ng)lld#ti&g!o8*9_+&^i!wewbbd&=k_*x'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = env('DEBUG')\nALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default='*')\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "DEBUG = env('DEBUG')\nALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default='*')\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default='*')\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'django_extensions',",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'django_extensions',\n    'rest_framework',\n    'webothod',",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'config.urls'",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "ROOT_URLCONF = 'config.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'config.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/2.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': env('DATABASE_NAME'),\n        'USER': env('DATABASE_USER'),\n        'PASSWORD': env('DATABASE_PASSWORD'),\n        'HOST': env('DATABASE_HOST'),",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': env('DATABASE_NAME'),\n        'USER': env('DATABASE_USER'),\n        'PASSWORD': env('DATABASE_PASSWORD'),\n        'HOST': env('DATABASE_HOST'),\n        'PORT': env('DATABASE_PORT'),\n        'CONN_MAX_AGE': 60 * 10,\n    },",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AUTO_FIELD",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n# Internationalization\n# https://docs.djangoproject.com/en/2.2/topics/i18n/\nLANGUAGE_CODE = 'ru-RU'\nLANGUAGES = (\n    ('ru', 'Russian'),\n)\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'ru-RU'\nLANGUAGES = (\n    ('ru', 'Russian'),\n)\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.2/howto/static-files/",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGES",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "LANGUAGES = (\n    ('ru', 'Russian'),\n)\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.2/howto/static-files/\nSTATIC_ROOT = os.path.join(BASE_DIR, 'static')",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.2/howto/static-files/\nSTATIC_ROOT = os.path.join(BASE_DIR, 'static')\nSTATIC_URL = '/static/'",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.2/howto/static-files/\nSTATIC_ROOT = os.path.join(BASE_DIR, 'static')\nSTATIC_URL = '/static/'",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_L10N",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.2/howto/static-files/\nSTATIC_ROOT = os.path.join(BASE_DIR, 'static')\nSTATIC_URL = '/static/'",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.2/howto/static-files/\nSTATIC_ROOT = os.path.join(BASE_DIR, 'static')\nSTATIC_URL = '/static/'",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "STATIC_ROOT = os.path.join(BASE_DIR, 'static')\nSTATIC_URL = '/static/'",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "config.settings",
+        "description": "config.settings",
+        "peekOfCode": "STATIC_URL = '/static/'",
+        "detail": "config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "config.urls",
+        "description": "config.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('api/client/dicts/', include(\"webothod.components.dicts.urls\")),\n    path('api/client/queries/', include(\"webothod.components.queries.urls\")),\n    path('api/client/companies/', include(\"webothod.components.companies.urls\")),\n    path('api/client/waste_codes/', include(\"webothod.components.waste_codes.urls\")),\n] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)",
+        "detail": "config.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "config.wsgi",
+        "description": "config.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "config.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0001_initial",
+        "description": "webothod.components.companies.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('dicts', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Companies',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "webothod.components.companies.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0002_auto_20211110_0550",
+        "description": "webothod.components.companies.migrations.0002_auto_20211110_0550",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('dicts', '0002_aggregation_querytype_unit_wastecodecategory'),\n        ('companies', '0001_initial'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='companies',\n            name='region',\n            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='company_region', to='dicts.regions', verbose_name='Регион'),",
+        "detail": "webothod.components.companies.migrations.0002_auto_20211110_0550",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0003_companywastecodes_waste_code",
+        "description": "webothod.components.companies.migrations.0003_companywastecodes_waste_code",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('waste_codes', '0001_initial'),\n        ('companies', '0002_auto_20211110_0550'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='companywastecodes',\n            name='waste_code',\n            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='waste_code', to='waste_codes.wastecodes', verbose_name='Код отхода'),",
+        "detail": "webothod.components.companies.migrations.0003_companywastecodes_waste_code",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0004_auto_20211111_0238",
+        "description": "webothod.components.companies.migrations.0004_auto_20211111_0238",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('companies', '0003_companywastecodes_waste_code'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='companies',\n            name='activity',\n            field=models.CharField(max_length=600, verbose_name='Типы отходов с которыми работает'),\n        ),",
+        "detail": "webothod.components.companies.migrations.0004_auto_20211111_0238",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0005_alter_companywastecodes_options",
+        "description": "webothod.components.companies.migrations.0005_alter_companywastecodes_options",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('companies', '0004_auto_20211111_0238'),\n    ]\n    operations = [\n        migrations.AlterModelOptions(\n            name='companywastecodes',\n            options={'verbose_name': 'Отход с которым работает компания', 'verbose_name_plural': 'Отходы с которым работают компании'},\n        ),\n    ]",
+        "detail": "webothod.components.companies.migrations.0005_alter_companywastecodes_options",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0006_alter_companies_locality",
+        "description": "webothod.components.companies.migrations.0006_alter_companies_locality",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('companies', '0005_alter_companywastecodes_options'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='companies',\n            name='locality',\n            field=models.CharField(max_length=600, verbose_name='Адрес'),\n        ),",
+        "detail": "webothod.components.companies.migrations.0006_alter_companies_locality",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0007_alter_companies_region",
+        "description": "webothod.components.companies.migrations.0007_alter_companies_region",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('dicts', '0006_aggregation_code'),\n        ('companies', '0006_alter_companies_locality'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='companies',\n            name='region',\n            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='company_region', to='dicts.regions', verbose_name='Регион'),",
+        "detail": "webothod.components.companies.migrations.0007_alter_companies_region",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0008_companies_company_id",
+        "description": "webothod.components.companies.migrations.0008_companies_company_id",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('companies', '0007_alter_companies_region'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='companies',\n            name='company_id',\n            field=models.PositiveIntegerField(default=0),\n        ),",
+        "detail": "webothod.components.companies.migrations.0008_companies_company_id",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0009_companywastecodes_activity",
+        "description": "webothod.components.companies.migrations.0009_companywastecodes_activity",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('companies', '0008_companies_company_id'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='companywastecodes',\n            name='activity',\n            field=models.CharField(default='', max_length=600, verbose_name='Типы отходов с которыми работает'),\n        ),",
+        "detail": "webothod.components.companies.migrations.0009_companywastecodes_activity",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0010_auto_20211117_0533",
+        "description": "webothod.components.companies.migrations.0010_auto_20211117_0533",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('companies', '0009_companywastecodes_activity'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='companies',\n            name='activity',\n            field=models.CharField(blank=True, max_length=600, null=True, verbose_name='Типы отходов с которыми работает'),\n        ),",
+        "detail": "webothod.components.companies.migrations.0010_auto_20211117_0533",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0011_auto_20211118_1042",
+        "description": "webothod.components.companies.migrations.0011_auto_20211118_1042",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('companies', '0010_auto_20211117_0533'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='companies',\n            name='company_id',\n        ),\n        migrations.AddIndex(",
+        "detail": "webothod.components.companies.migrations.0011_auto_20211118_1042",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0012_companies_checked",
+        "description": "webothod.components.companies.migrations.0012_companies_checked",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('companies', '0011_auto_20211118_1042'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='companies',\n            name='checked',\n            field=models.BooleanField(default=False),\n        ),",
+        "detail": "webothod.components.companies.migrations.0012_companies_checked",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0013_auto_20211125_0331",
+        "description": "webothod.components.companies.migrations.0013_auto_20211125_0331",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('companies', '0012_companies_checked'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='companies',\n            name='checked',\n        ),\n        migrations.AddField(",
+        "detail": "webothod.components.companies.migrations.0013_auto_20211125_0331",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0014_alter_companies_actual_at",
+        "description": "webothod.components.companies.migrations.0014_alter_companies_actual_at",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('companies', '0013_auto_20211125_0331'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='companies',\n            name='actual_at',\n            field=models.DateTimeField(default=django.utils.timezone.now, verbose_name='Дата и время проверки актуальности'),\n        ),",
+        "detail": "webothod.components.companies.migrations.0014_alter_companies_actual_at",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0015_auto_20220111_0853",
+        "description": "webothod.components.companies.migrations.0015_auto_20220111_0853",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('dicts', '0007_regions_regions_code_aa1ecb_idx'),\n        ('companies', '0014_alter_companies_actual_at'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='companies',\n            name='description',\n            field=models.TextField(default='', verbose_name='Описание компании'),",
+        "detail": "webothod.components.companies.migrations.0015_auto_20220111_0853",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.companies.migrations.0016_alter_companies_description",
+        "description": "webothod.components.companies.migrations.0016_alter_companies_description",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('companies', '0015_auto_20220111_0853'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='companies',\n            name='description',\n            field=models.TextField(blank=True, default='', null=True, verbose_name='Описание компании'),\n        ),",
+        "detail": "webothod.components.companies.migrations.0016_alter_companies_description",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyWasteCodesTabularInline",
+        "kind": 6,
+        "importPath": "webothod.components.companies.admin",
+        "description": "webothod.components.companies.admin",
+        "peekOfCode": "class CompanyWasteCodesTabularInline(admin.TabularInline):\n    extra = 1\n    model = CompanyWasteCodes\n    fk_name = \"company\"\n    raw_id_fields = (\"waste_code\",)\nclass CompanyCompanyEmailsTabularInline(admin.TabularInline):\n    extra = 1\n    model = CompanyEmails\n    fk_name = \"company\"\nclass CompanyCompanyPhonesTabularInline(admin.TabularInline):",
+        "detail": "webothod.components.companies.admin",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyCompanyEmailsTabularInline",
+        "kind": 6,
+        "importPath": "webothod.components.companies.admin",
+        "description": "webothod.components.companies.admin",
+        "peekOfCode": "class CompanyCompanyEmailsTabularInline(admin.TabularInline):\n    extra = 1\n    model = CompanyEmails\n    fk_name = \"company\"\nclass CompanyCompanyPhonesTabularInline(admin.TabularInline):\n    extra = 1\n    model = CompanyPhones\n    fk_name = \"company\"\nclass CompanyCompanyRegionTabularInline(admin.TabularInline):\n    extra = 1",
+        "detail": "webothod.components.companies.admin",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyCompanyPhonesTabularInline",
+        "kind": 6,
+        "importPath": "webothod.components.companies.admin",
+        "description": "webothod.components.companies.admin",
+        "peekOfCode": "class CompanyCompanyPhonesTabularInline(admin.TabularInline):\n    extra = 1\n    model = CompanyPhones\n    fk_name = \"company\"\nclass CompanyCompanyRegionTabularInline(admin.TabularInline):\n    extra = 1\n    model = CompanyRegion\n    fk_name = \"company\"\n    raw_id_fields = (\"region\",)\nclass CompanyCompanySitesTabularInline(admin.TabularInline):",
+        "detail": "webothod.components.companies.admin",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyCompanyRegionTabularInline",
+        "kind": 6,
+        "importPath": "webothod.components.companies.admin",
+        "description": "webothod.components.companies.admin",
+        "peekOfCode": "class CompanyCompanyRegionTabularInline(admin.TabularInline):\n    extra = 1\n    model = CompanyRegion\n    fk_name = \"company\"\n    raw_id_fields = (\"region\",)\nclass CompanyCompanySitesTabularInline(admin.TabularInline):\n    extra = 1\n    model = CompanySites\n    fk_name = \"company\"\nclass CompaniesAdmin(admin.ModelAdmin):",
+        "detail": "webothod.components.companies.admin",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyCompanySitesTabularInline",
+        "kind": 6,
+        "importPath": "webothod.components.companies.admin",
+        "description": "webothod.components.companies.admin",
+        "peekOfCode": "class CompanyCompanySitesTabularInline(admin.TabularInline):\n    extra = 1\n    model = CompanySites\n    fk_name = \"company\"\nclass CompaniesAdmin(admin.ModelAdmin):\n    search_fields = ('itn', 'name')\n    inlines = [\n        CompanyWasteCodesTabularInline,\n        CompanyCompanyEmailsTabularInline,\n        CompanyCompanyPhonesTabularInline,",
+        "detail": "webothod.components.companies.admin",
+        "documentation": {}
+    },
+    {
+        "label": "CompaniesAdmin",
+        "kind": 6,
+        "importPath": "webothod.components.companies.admin",
+        "description": "webothod.components.companies.admin",
+        "peekOfCode": "class CompaniesAdmin(admin.ModelAdmin):\n    search_fields = ('itn', 'name')\n    inlines = [\n        CompanyWasteCodesTabularInline,\n        CompanyCompanyEmailsTabularInline,\n        CompanyCompanyPhonesTabularInline,\n        CompanyCompanySitesTabularInline,\n        CompanyCompanyRegionTabularInline,\n    ]\nadmin.site.register(Companies, CompaniesAdmin)",
+        "detail": "webothod.components.companies.admin",
+        "documentation": {}
+    },
+    {
+        "label": "Companies",
+        "kind": 6,
+        "importPath": "webothod.components.companies.models",
+        "description": "webothod.components.companies.models",
+        "peekOfCode": "class Companies(models.Model):\n    class Meta:\n        db_table = \"companies\"\n        verbose_name = \"Компания\"\n        verbose_name_plural = \"Компании\"\n        indexes = [\n            models.Index(fields=['itn']),\n            models.Index(fields=['name']),\n            models.Index(fields=['region']),\n        ]",
+        "detail": "webothod.components.companies.models",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyWasteCodes",
+        "kind": 6,
+        "importPath": "webothod.components.companies.models",
+        "description": "webothod.components.companies.models",
+        "peekOfCode": "class CompanyWasteCodes(models.Model):\n    class Meta:\n        db_table = \"company_waste_codes\"\n        verbose_name = \"Отход с которым работает компания\"\n        verbose_name_plural = \"Отходы с которым работают компании\"\n        indexes = [\n            models.Index(fields=['company']),\n            models.Index(fields=['waste_code']),\n            models.Index(fields=['activity']),\n        ]",
+        "detail": "webothod.components.companies.models",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyPhones",
+        "kind": 6,
+        "importPath": "webothod.components.companies.models",
+        "description": "webothod.components.companies.models",
+        "peekOfCode": "class CompanyPhones(models.Model):\n    class Meta:\n        db_table = \"company_phones\"\n        verbose_name = \"Телефон компании\"\n        verbose_name_plural = \"Телефоны компании\"\n        indexes = [\n            models.Index(fields=['company']),\n        ]\n    company = models.ForeignKey(\n        Companies,",
+        "detail": "webothod.components.companies.models",
+        "documentation": {}
+    },
+    {
+        "label": "CompanySites",
+        "kind": 6,
+        "importPath": "webothod.components.companies.models",
+        "description": "webothod.components.companies.models",
+        "peekOfCode": "class CompanySites(models.Model):\n    class Meta:\n        db_table = \"company_sites\"\n        verbose_name = \"Сайт компании\"\n        verbose_name_plural = \"Сайты компании\"\n        indexes = [\n            models.Index(fields=['company']),\n        ]\n    company = models.ForeignKey(\n        Companies,",
+        "detail": "webothod.components.companies.models",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyEmails",
+        "kind": 6,
+        "importPath": "webothod.components.companies.models",
+        "description": "webothod.components.companies.models",
+        "peekOfCode": "class CompanyEmails(models.Model):\n    class Meta:\n        db_table = \"company_emails\"\n        verbose_name = \"Email компании\"\n        verbose_name_plural = \"Emails компании\"\n        indexes = [\n            models.Index(fields=['company']),\n        ]\n    company = models.ForeignKey(\n        Companies,",
+        "detail": "webothod.components.companies.models",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyRegion",
+        "kind": 6,
+        "importPath": "webothod.components.companies.models",
+        "description": "webothod.components.companies.models",
+        "peekOfCode": "class CompanyRegion(models.Model):\n    class Meta:\n        db_table = \"company_regions\"\n        verbose_name = \"Регион компании\"\n        verbose_name_plural = \"Регионы компании\"\n        indexes = [\n            models.Index(fields=['company']),\n        ]\n    company = models.ForeignKey(\n        Companies,",
+        "detail": "webothod.components.companies.models",
+        "documentation": {}
+    },
+    {
+        "label": "CompaniesSerializer",
+        "kind": 6,
+        "importPath": "webothod.components.companies.serializers",
+        "description": "webothod.components.companies.serializers",
+        "peekOfCode": "class CompaniesSerializer(serializers.ModelSerializer):\n    latitude = serializers.FloatField(help_text='Широта')\n    longitude = serializers.FloatField(help_text='Долгота')\n    phones = serializers.StringRelatedField(source='company_phones', help_text='Телефоны',\n                                            read_only=True, many=True)\n    emails = serializers.StringRelatedField(source='company_emails', help_text='Emails',\n                                            read_only=True, many=True)\n    activity = serializers.SerializerMethodField(help_text='Типы отходов с которыми работает')\n    sites = serializers.StringRelatedField(source='company_sites', help_text='Сайты',\n                                           read_only=True, many=True)",
+        "detail": "webothod.components.companies.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyWasteCodesSerializer",
+        "kind": 6,
+        "importPath": "webothod.components.companies.serializers",
+        "description": "webothod.components.companies.serializers",
+        "peekOfCode": "class CompanyWasteCodesSerializer(serializers.ModelSerializer):\n    activity = serializers.SerializerMethodField(help_text='Типы отходов с которыми работает')\n    waste_code = WasteCodesSerializer(help_text='Отход')\n    class Meta:\n        model = CompanyWasteCodes\n        fields = ('activity', 'waste_code')\n    @staticmethod\n    def get_activity(el):\n        if el.activity:\n            return json.loads(el.activity)",
+        "detail": "webothod.components.companies.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "webothod.components.companies.urls",
+        "description": "webothod.components.companies.urls",
+        "peekOfCode": "app_name = 'companies'\nurlpatterns = [\n    path(\n        '',\n        CompaniesView.as_view({'get': 'list'})\n    ),\n    path(\n        'map',\n        CompaniesView.as_view({'get': 'map'})\n    ),",
+        "detail": "webothod.components.companies.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "webothod.components.companies.urls",
+        "description": "webothod.components.companies.urls",
+        "peekOfCode": "urlpatterns = [\n    path(\n        '',\n        CompaniesView.as_view({'get': 'list'})\n    ),\n    path(\n        'map',\n        CompaniesView.as_view({'get': 'map'})\n    ),\n    path(",
+        "detail": "webothod.components.companies.urls",
+        "documentation": {}
+    },
+    {
+        "label": "CompaniesView",
+        "kind": 6,
+        "importPath": "webothod.components.companies.views",
+        "description": "webothod.components.companies.views",
+        "peekOfCode": "class CompaniesView(\n    GenericViewSet,\n):\n    @staticmethod\n    def list(request, page=1):\n        companies = Companies.objects\n        paginator = Paginator(companies.order_by('-actual_at', 'itn'), 10)\n        return Response({\n            \"count\": paginator.num_pages,\n            \"companies\": CompaniesSerializer(",
+        "detail": "webothod.components.companies.views",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.migrations.0001_initial",
+        "description": "webothod.components.dicts.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Regions',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('text', models.CharField(max_length=255)),",
+        "detail": "webothod.components.dicts.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.migrations.0002_aggregation_querytype_unit_wastecodecategory",
+        "description": "webothod.components.dicts.migrations.0002_aggregation_querytype_unit_wastecodecategory",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('dicts', '0001_initial'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Aggregation',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('text', models.CharField(max_length=255)),",
+        "detail": "webothod.components.dicts.migrations.0002_aggregation_querytype_unit_wastecodecategory",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.migrations.0003_auto_20211111_0238",
+        "description": "webothod.components.dicts.migrations.0003_auto_20211111_0238",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('dicts', '0002_aggregation_querytype_unit_wastecodecategory'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='aggregation',\n            name='text',\n            field=models.CharField(max_length=255, verbose_name='Название'),\n        ),",
+        "detail": "webothod.components.dicts.migrations.0003_auto_20211111_0238",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.migrations.0004_auto_20211115_0316",
+        "description": "webothod.components.dicts.migrations.0004_auto_20211115_0316",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('dicts', '0003_auto_20211111_0238'),\n    ]\n    operations = [\n        migrations.AlterModelOptions(\n            name='aggregation',\n            options={'verbose_name': 'Агрегатное состояние отхода', 'verbose_name_plural': 'Агрегатные состояния отхода'},\n        ),\n        migrations.AlterModelOptions(",
+        "detail": "webothod.components.dicts.migrations.0004_auto_20211115_0316",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.migrations.0005_auto_20211115_0321",
+        "description": "webothod.components.dicts.migrations.0005_auto_20211115_0321",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('dicts', '0004_auto_20211115_0316'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='regions',\n            name='activity',\n        ),\n        migrations.RemoveField(",
+        "detail": "webothod.components.dicts.migrations.0005_auto_20211115_0321",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.migrations.0006_aggregation_code",
+        "description": "webothod.components.dicts.migrations.0006_aggregation_code",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('dicts', '0005_auto_20211115_0321'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='aggregation',\n            name='code',\n            field=models.CharField(default='00', max_length=2, verbose_name='Код агрегатного состояния'),\n        ),",
+        "detail": "webothod.components.dicts.migrations.0006_aggregation_code",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.migrations.0007_regions_regions_code_aa1ecb_idx",
+        "description": "webothod.components.dicts.migrations.0007_regions_regions_code_aa1ecb_idx",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('dicts', '0006_aggregation_code'),\n    ]\n    operations = [\n        migrations.AddIndex(\n            model_name='regions',\n            index=models.Index(fields=['code'], name='regions_code_aa1ecb_idx'),\n        ),\n    ]",
+        "detail": "webothod.components.dicts.migrations.0007_regions_regions_code_aa1ecb_idx",
+        "documentation": {}
+    },
+    {
+        "label": "RegionsAdmin",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.admin",
+        "description": "webothod.components.dicts.admin",
+        "peekOfCode": "class RegionsAdmin(admin.ModelAdmin):\n    pass\nclass QueryTypeAdmin(admin.ModelAdmin):\n    pass\nclass UnitAdmin(admin.ModelAdmin):\n    pass\nclass AggregationAdmin(admin.ModelAdmin):\n    pass\nclass WasteCodeCategoryAdmin(admin.ModelAdmin):\n    pass",
+        "detail": "webothod.components.dicts.admin",
+        "documentation": {}
+    },
+    {
+        "label": "QueryTypeAdmin",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.admin",
+        "description": "webothod.components.dicts.admin",
+        "peekOfCode": "class QueryTypeAdmin(admin.ModelAdmin):\n    pass\nclass UnitAdmin(admin.ModelAdmin):\n    pass\nclass AggregationAdmin(admin.ModelAdmin):\n    pass\nclass WasteCodeCategoryAdmin(admin.ModelAdmin):\n    pass\nadmin.site.register(Regions, RegionsAdmin)\nadmin.site.register(QueryType, QueryTypeAdmin)",
+        "detail": "webothod.components.dicts.admin",
+        "documentation": {}
+    },
+    {
+        "label": "UnitAdmin",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.admin",
+        "description": "webothod.components.dicts.admin",
+        "peekOfCode": "class UnitAdmin(admin.ModelAdmin):\n    pass\nclass AggregationAdmin(admin.ModelAdmin):\n    pass\nclass WasteCodeCategoryAdmin(admin.ModelAdmin):\n    pass\nadmin.site.register(Regions, RegionsAdmin)\nadmin.site.register(QueryType, QueryTypeAdmin)\nadmin.site.register(Unit, UnitAdmin)\nadmin.site.register(Aggregation, AggregationAdmin)",
+        "detail": "webothod.components.dicts.admin",
+        "documentation": {}
+    },
+    {
+        "label": "AggregationAdmin",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.admin",
+        "description": "webothod.components.dicts.admin",
+        "peekOfCode": "class AggregationAdmin(admin.ModelAdmin):\n    pass\nclass WasteCodeCategoryAdmin(admin.ModelAdmin):\n    pass\nadmin.site.register(Regions, RegionsAdmin)\nadmin.site.register(QueryType, QueryTypeAdmin)\nadmin.site.register(Unit, UnitAdmin)\nadmin.site.register(Aggregation, AggregationAdmin)\nadmin.site.register(WasteCodeCategory, WasteCodeCategoryAdmin)",
+        "detail": "webothod.components.dicts.admin",
+        "documentation": {}
+    },
+    {
+        "label": "WasteCodeCategoryAdmin",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.admin",
+        "description": "webothod.components.dicts.admin",
+        "peekOfCode": "class WasteCodeCategoryAdmin(admin.ModelAdmin):\n    pass\nadmin.site.register(Regions, RegionsAdmin)\nadmin.site.register(QueryType, QueryTypeAdmin)\nadmin.site.register(Unit, UnitAdmin)\nadmin.site.register(Aggregation, AggregationAdmin)\nadmin.site.register(WasteCodeCategory, WasteCodeCategoryAdmin)",
+        "detail": "webothod.components.dicts.admin",
+        "documentation": {}
+    },
+    {
+        "label": "Regions",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.models",
+        "description": "webothod.components.dicts.models",
+        "peekOfCode": "class Regions(models.Model):\n    class Meta:\n        db_table = \"regions\"\n        verbose_name = \"Регион\"\n        verbose_name_plural = \"Регионы\"\n        indexes = [\n            models.Index(fields=['code']),\n        ]\n    text = models.CharField(\n        max_length=255,",
+        "detail": "webothod.components.dicts.models",
+        "documentation": {}
+    },
+    {
+        "label": "QueryType",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.models",
+        "description": "webothod.components.dicts.models",
+        "peekOfCode": "class QueryType(models.Model):\n    class Meta:\n        db_table = \"query_types\"\n        verbose_name = \"Тип заявки\"\n        verbose_name_plural = \"Типы заявок\"\n    text = models.CharField(\n        max_length=40,\n        verbose_name=\"Название\",\n    )\n    def __str__(self):",
+        "detail": "webothod.components.dicts.models",
+        "documentation": {}
+    },
+    {
+        "label": "Unit",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.models",
+        "description": "webothod.components.dicts.models",
+        "peekOfCode": "class Unit(models.Model):\n    class Meta:\n        db_table = \"units\"\n        verbose_name = \"Единица измерения\"\n        verbose_name_plural = \"Единицы измерения\"\n    text = models.CharField(\n        max_length=20,\n        verbose_name=\"Название\",\n    )\n    def __str__(self):",
+        "detail": "webothod.components.dicts.models",
+        "documentation": {}
+    },
+    {
+        "label": "Aggregation",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.models",
+        "description": "webothod.components.dicts.models",
+        "peekOfCode": "class Aggregation(models.Model):\n    class Meta:\n        db_table = \"aggregations\"\n        verbose_name = \"Агрегатное состояние отхода\"\n        verbose_name_plural = \"Агрегатные состояния отхода\"\n    code = models.CharField(\n        max_length=2,\n        default=\"00\",\n        verbose_name=\"Код агрегатного состояния\",\n    )",
+        "detail": "webothod.components.dicts.models",
+        "documentation": {}
+    },
+    {
+        "label": "WasteCodeCategory",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.models",
+        "description": "webothod.components.dicts.models",
+        "peekOfCode": "class WasteCodeCategory(models.Model):\n    class Meta:\n        db_table = \"waste_code_category\"\n        verbose_name = \"Классы отхода\"\n        verbose_name_plural = \"Классы отхода\"\n    code = models.PositiveIntegerField(\n        default=0,\n        verbose_name=\"Класс отхода\",\n    )\n    text = models.CharField(",
+        "detail": "webothod.components.dicts.models",
+        "documentation": {}
+    },
+    {
+        "label": "activities",
+        "kind": 5,
+        "importPath": "webothod.components.dicts.models",
+        "description": "webothod.components.dicts.models",
+        "peekOfCode": "activities = [\n  \"processing\",\n  \"collection\",\n  \"deactivation\",\n  \"transportation\",\n  \"utilization\",\n  \"disposal\",\n]\nclass Regions(models.Model):\n    class Meta:",
+        "detail": "webothod.components.dicts.models",
+        "documentation": {}
+    },
+    {
+        "label": "RegionsSerializer",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.serializers",
+        "description": "webothod.components.dicts.serializers",
+        "peekOfCode": "class RegionsSerializer(serializers.ModelSerializer):\n    value = serializers.SerializerMethodField(help_text='Идентификатор для select')\n    class Meta:\n        model = Regions\n        fields = ('code', 'value', 'text')\n    def get_value(self, el):\n        return el.code\nclass CompanyRegionsSerializer(serializers.ModelSerializer):\n    code = serializers.SerializerMethodField()\n    text = serializers.SerializerMethodField()",
+        "detail": "webothod.components.dicts.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "CompanyRegionsSerializer",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.serializers",
+        "description": "webothod.components.dicts.serializers",
+        "peekOfCode": "class CompanyRegionsSerializer(serializers.ModelSerializer):\n    code = serializers.SerializerMethodField()\n    text = serializers.SerializerMethodField()\n    class Meta:\n        model = CompanyRegion\n        fields = ('code', 'text')\n    @staticmethod\n    def get_code(el):\n        if hasattr(el, 'region'):\n            return el.region.code",
+        "detail": "webothod.components.dicts.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "QueryTypesSerializer",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.serializers",
+        "description": "webothod.components.dicts.serializers",
+        "peekOfCode": "class QueryTypesSerializer(serializers.ModelSerializer):\n    value = serializers.SerializerMethodField(help_text='Идентификатор для select')\n    class Meta:\n        model = QueryType\n        fields = ('value', 'text')\n    def get_value(self, el):\n        return el.id",
+        "detail": "webothod.components.dicts.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "webothod.components.dicts.urls",
+        "description": "webothod.components.dicts.urls",
+        "peekOfCode": "app_name = 'dicts'\nurlpatterns = [\n    path(\n        'regions',\n        RegionsView.as_view({'get': 'list'})\n    ),\n    path(\n        'regions/map',\n        RegionsView.as_view({'get': 'map'})\n    ),",
+        "detail": "webothod.components.dicts.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "webothod.components.dicts.urls",
+        "description": "webothod.components.dicts.urls",
+        "peekOfCode": "urlpatterns = [\n    path(\n        'regions',\n        RegionsView.as_view({'get': 'list'})\n    ),\n    path(\n        'regions/map',\n        RegionsView.as_view({'get': 'map'})\n    ),\n    path(",
+        "detail": "webothod.components.dicts.urls",
+        "documentation": {}
+    },
+    {
+        "label": "RegionsView",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.views",
+        "description": "webothod.components.dicts.views",
+        "peekOfCode": "class RegionsView(\n    GenericViewSet,\n):\n    @staticmethod\n    def list(request):\n        regions = Regions.objects\n        return Response(\n            RegionsSerializer(\n                regions,\n                many=True",
+        "detail": "webothod.components.dicts.views",
+        "documentation": {}
+    },
+    {
+        "label": "QueryTypesView",
+        "kind": 6,
+        "importPath": "webothod.components.dicts.views",
+        "description": "webothod.components.dicts.views",
+        "peekOfCode": "class QueryTypesView(\n    GenericViewSet,\n):\n    @staticmethod\n    def list(request):\n        query_types = QueryType.objects\n        return Response(\n            QueryTypesSerializer(\n                query_types,\n                many=True,",
+        "detail": "webothod.components.dicts.views",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.queries.migrations.0001_initial",
+        "description": "webothod.components.queries.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n        ('dicts', '0002_aggregation_querytype_unit_wastecodecategory'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Queries',\n            fields=[",
+        "detail": "webothod.components.queries.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.queries.migrations.0002_auto_20211111_0238",
+        "description": "webothod.components.queries.migrations.0002_auto_20211111_0238",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('queries', '0001_initial'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='queries',\n            name='description',\n            field=models.TextField(verbose_name='Описание заявки'),\n        ),",
+        "detail": "webothod.components.queries.migrations.0002_auto_20211111_0238",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.queries.migrations.0003_queries_created_at",
+        "description": "webothod.components.queries.migrations.0003_queries_created_at",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('queries', '0002_auto_20211111_0238'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='queries',\n            name='created_at',\n            field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now, verbose_name='Дата и время создания'),\n            preserve_default=False,",
+        "detail": "webothod.components.queries.migrations.0003_queries_created_at",
+        "documentation": {}
+    },
+    {
+        "label": "QueriesAdmin",
+        "kind": 6,
+        "importPath": "webothod.components.queries.admin",
+        "description": "webothod.components.queries.admin",
+        "peekOfCode": "class QueriesAdmin(admin.ModelAdmin):\n    pass\nadmin.site.register(Queries, QueriesAdmin)",
+        "detail": "webothod.components.queries.admin",
+        "documentation": {}
+    },
+    {
+        "label": "Queries",
+        "kind": 6,
+        "importPath": "webothod.components.queries.models",
+        "description": "webothod.components.queries.models",
+        "peekOfCode": "class Queries(models.Model):\n    class Meta:\n        db_table = \"queries\"\n        verbose_name = \"Заявка\"\n        verbose_name_plural = \"Заявка\"\n    created_at = models.DateTimeField(\n        \"Дата и время создания\",\n        auto_now_add=True,\n    )\n    waste = models.CharField(",
+        "detail": "webothod.components.queries.models",
+        "documentation": {}
+    },
+    {
+        "label": "QueriesSerializer",
+        "kind": 6,
+        "importPath": "webothod.components.queries.serializers",
+        "description": "webothod.components.queries.serializers",
+        "peekOfCode": "class QueriesSerializer(serializers.ModelSerializer):\n    region = RegionsSerializer(help_text='Регион')\n    type = QueryTypesSerializer(help_text='Тип заявки')\n    user = UserSerializer(help_text='Пользователь')\n    created_at = serializers.SerializerMethodField(help_text='Дата и время создания')\n    class Meta:\n        model = Queries\n        fields = (\"pk\", \"type\", \"user\", \"region\", \"created_at\", \"waste\", \"description\")\n    @staticmethod\n    def get_created_at(el):",
+        "detail": "webothod.components.queries.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "webothod.components.queries.urls",
+        "description": "webothod.components.queries.urls",
+        "peekOfCode": "app_name = 'queries'\nurlpatterns = [\n    path(\n        '',\n        QueriesView.as_view({'get': 'list', 'post': 'create'})\n    ),\n    path(\n        'map',\n        QueriesView.as_view({'get': 'map'})\n    ),",
+        "detail": "webothod.components.queries.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "webothod.components.queries.urls",
+        "description": "webothod.components.queries.urls",
+        "peekOfCode": "urlpatterns = [\n    path(\n        '',\n        QueriesView.as_view({'get': 'list', 'post': 'create'})\n    ),\n    path(\n        'map',\n        QueriesView.as_view({'get': 'map'})\n    ),\n    path(",
+        "detail": "webothod.components.queries.urls",
+        "documentation": {}
+    },
+    {
+        "label": "QueriesView",
+        "kind": 6,
+        "importPath": "webothod.components.queries.views",
+        "description": "webothod.components.queries.views",
+        "peekOfCode": "class QueriesView(\n    GenericViewSet,\n):\n    @staticmethod\n    def one(request, pk=1):\n        queries = Queries.objects.filter(pk=pk)\n        return Response(\n            QueriesSerializer(\n                queries.first()\n            ).data",
+        "detail": "webothod.components.queries.views",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.users.migrations.0001_initial",
+        "description": "webothod.components.users.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='UserProfile',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "webothod.components.users.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "UserInline",
+        "kind": 6,
+        "importPath": "webothod.components.users.admin",
+        "description": "webothod.components.users.admin",
+        "peekOfCode": "class UserInline(admin.StackedInline):\n    model = UserProfile\nclass ExtUserAdmin(UserAdmin):\n    inlines = [UserInline]\nadmin.site.unregister(User)\nadmin.site.register(User, ExtUserAdmin)",
+        "detail": "webothod.components.users.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ExtUserAdmin",
+        "kind": 6,
+        "importPath": "webothod.components.users.admin",
+        "description": "webothod.components.users.admin",
+        "peekOfCode": "class ExtUserAdmin(UserAdmin):\n    inlines = [UserInline]\nadmin.site.unregister(User)\nadmin.site.register(User, ExtUserAdmin)",
+        "detail": "webothod.components.users.admin",
+        "documentation": {}
+    },
+    {
+        "label": "UserProfile",
+        "kind": 6,
+        "importPath": "webothod.components.users.models",
+        "description": "webothod.components.users.models",
+        "peekOfCode": "class UserProfile(models.Model):\n    user = models.OneToOneField(\n        User,\n        models.CASCADE,\n        related_name='profile',\n        verbose_name='Пользователь',\n    )\n    phone = models.CharField(\n        max_length=11,\n        verbose_name=\"Телефон\",",
+        "detail": "webothod.components.users.models",
+        "documentation": {}
+    },
+    {
+        "label": "UserProfileSerializer",
+        "kind": 6,
+        "importPath": "webothod.components.users.serializers",
+        "description": "webothod.components.users.serializers",
+        "peekOfCode": "class UserProfileSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = UserProfile\n        fields = ('firstname', 'phone')\nclass UserSerializer(serializers.ModelSerializer):\n    profile = UserProfileSerializer(help_text='Профиль пользователя')\n    class Meta:\n        model = User\n        fields = ('username', 'email', 'profile')",
+        "detail": "webothod.components.users.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserSerializer",
+        "kind": 6,
+        "importPath": "webothod.components.users.serializers",
+        "description": "webothod.components.users.serializers",
+        "peekOfCode": "class UserSerializer(serializers.ModelSerializer):\n    profile = UserProfileSerializer(help_text='Профиль пользователя')\n    class Meta:\n        model = User\n        fields = ('username', 'email', 'profile')",
+        "detail": "webothod.components.users.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.waste_codes.migrations.0001_initial",
+        "description": "webothod.components.waste_codes.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('dicts', '0002_aggregation_querytype_unit_wastecodecategory'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='WasteCodes',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "webothod.components.waste_codes.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.waste_codes.migrations.0002_auto_20211111_0238",
+        "description": "webothod.components.waste_codes.migrations.0002_auto_20211111_0238",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('waste_codes', '0001_initial'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='wastecodes',\n            name='activity',\n        ),\n        migrations.RemoveField(",
+        "detail": "webothod.components.waste_codes.migrations.0002_auto_20211111_0238",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.waste_codes.migrations.0003_auto_20211116_0539",
+        "description": "webothod.components.waste_codes.migrations.0003_auto_20211116_0539",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('waste_codes', '0002_auto_20211111_0238'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='wastecodes',\n            name='parent',\n        ),\n        migrations.AddField(",
+        "detail": "webothod.components.waste_codes.migrations.0003_auto_20211116_0539",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.waste_codes.migrations.0004_auto_20211125_0407",
+        "description": "webothod.components.waste_codes.migrations.0004_auto_20211125_0407",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('waste_codes', '0003_auto_20211116_0539'),\n    ]\n    operations = [\n        migrations.AddIndex(\n            model_name='wastecodes',\n            index=models.Index(fields=['code'], name='waste_codes_code_9d814b_idx'),\n        ),\n        migrations.AddIndex(",
+        "detail": "webothod.components.waste_codes.migrations.0004_auto_20211125_0407",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "webothod.components.waste_codes.migrations.0005_wastecodes_waste_codes_parent__f7bf61_idx",
+        "description": "webothod.components.waste_codes.migrations.0005_wastecodes_waste_codes_parent__f7bf61_idx",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('waste_codes', '0004_auto_20211125_0407'),\n    ]\n    operations = [\n        migrations.AddIndex(\n            model_name='wastecodes',\n            index=models.Index(fields=['parent_code'], name='waste_codes_parent__f7bf61_idx'),\n        ),\n    ]",
+        "detail": "webothod.components.waste_codes.migrations.0005_wastecodes_waste_codes_parent__f7bf61_idx",
+        "documentation": {}
+    },
+    {
+        "label": "WasteCodesAdmin",
+        "kind": 6,
+        "importPath": "webothod.components.waste_codes.admin",
+        "description": "webothod.components.waste_codes.admin",
+        "peekOfCode": "class WasteCodesAdmin(admin.ModelAdmin):\n    pass\nadmin.site.register(WasteCodes, WasteCodesAdmin)",
+        "detail": "webothod.components.waste_codes.admin",
+        "documentation": {}
+    },
+    {
+        "label": "WasteCodes",
+        "kind": 6,
+        "importPath": "webothod.components.waste_codes.models",
+        "description": "webothod.components.waste_codes.models",
+        "peekOfCode": "class WasteCodes(models.Model):\n    class Meta:\n        db_table = \"waste_codes\"\n        verbose_name = \"Код отхода\"\n        verbose_name_plural = \"Коды отхода\"\n        indexes = [\n            models.Index(fields=['code']),\n            models.Index(fields=['name']),\n            models.Index(fields=['parent_code']),\n        ]",
+        "detail": "webothod.components.waste_codes.models",
+        "documentation": {}
+    },
+    {
+        "label": "WasteCodesSerializer",
+        "kind": 6,
+        "importPath": "webothod.components.waste_codes.serializers",
+        "description": "webothod.components.waste_codes.serializers",
+        "peekOfCode": "class WasteCodesSerializer(serializers.ModelSerializer):\n    code_space = serializers.SerializerMethodField(help_text='Код с пробелами')\n    class Meta:\n        model = WasteCodes\n        fields = ('code', 'name', 'code_space')\n    @staticmethod\n    def get_code_space(el):\n        code_space = (\n            f\"{el.code[0]} {el.code[1:3]} {el.code[3:6]} \"\n            f\"{el.code[6:8]} {el.code[8:10]} {el.code[10]}\"",
+        "detail": "webothod.components.waste_codes.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "webothod.components.waste_codes.urls",
+        "description": "webothod.components.waste_codes.urls",
+        "peekOfCode": "app_name = 'waste_codes'\nurlpatterns = [\n    path(\n        '',\n        WasteCodesView.as_view({'get': 'list'})\n    ),\n    path(\n        'map',\n        WasteCodesView.as_view({'get': 'map'})\n    ),",
+        "detail": "webothod.components.waste_codes.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "webothod.components.waste_codes.urls",
+        "description": "webothod.components.waste_codes.urls",
+        "peekOfCode": "urlpatterns = [\n    path(\n        '',\n        WasteCodesView.as_view({'get': 'list'})\n    ),\n    path(\n        'map',\n        WasteCodesView.as_view({'get': 'map'})\n    ),\n    path(",
+        "detail": "webothod.components.waste_codes.urls",
+        "documentation": {}
+    },
+    {
+        "label": "WasteCodesView",
+        "kind": 6,
+        "importPath": "webothod.components.waste_codes.views",
+        "description": "webothod.components.waste_codes.views",
+        "peekOfCode": "class WasteCodesView(\n    GenericViewSet,\n):\n    @staticmethod\n    def list(request):\n        waste_codes = WasteCodes.objects.filter(parent_code='')\n        return Response(\n            WasteCodesSerializer(\n                waste_codes,\n                many=True,",
+        "detail": "webothod.components.waste_codes.views",
+        "documentation": {}
+    },
+    {
+        "label": "CompaniesConfig",
+        "kind": 6,
+        "importPath": "webothod.apps",
+        "description": "webothod.apps",
+        "peekOfCode": "class CompaniesConfig(AppConfig):\n    name = 'webothod.components.companies'\n    verbose_name = 'Компании'\nclass DictsConfig(AppConfig):\n    name = 'webothod.components.dicts'\n    verbose_name = 'Словари'\nclass WasteCodesConfig(AppConfig):\n    name = 'webothod.components.waste_codes'\n    verbose_name = 'Коды отходов'\nclass QueriesConfig(AppConfig):",
+        "detail": "webothod.apps",
+        "documentation": {}
+    },
+    {
+        "label": "DictsConfig",
+        "kind": 6,
+        "importPath": "webothod.apps",
+        "description": "webothod.apps",
+        "peekOfCode": "class DictsConfig(AppConfig):\n    name = 'webothod.components.dicts'\n    verbose_name = 'Словари'\nclass WasteCodesConfig(AppConfig):\n    name = 'webothod.components.waste_codes'\n    verbose_name = 'Коды отходов'\nclass QueriesConfig(AppConfig):\n    name = 'webothod.components.queries'\n    verbose_name = 'Заявки'",
+        "detail": "webothod.apps",
+        "documentation": {}
+    },
+    {
+        "label": "WasteCodesConfig",
+        "kind": 6,
+        "importPath": "webothod.apps",
+        "description": "webothod.apps",
+        "peekOfCode": "class WasteCodesConfig(AppConfig):\n    name = 'webothod.components.waste_codes'\n    verbose_name = 'Коды отходов'\nclass QueriesConfig(AppConfig):\n    name = 'webothod.components.queries'\n    verbose_name = 'Заявки'",
+        "detail": "webothod.apps",
+        "documentation": {}
+    },
+    {
+        "label": "QueriesConfig",
+        "kind": 6,
+        "importPath": "webothod.apps",
+        "description": "webothod.apps",
+        "peekOfCode": "class QueriesConfig(AppConfig):\n    name = 'webothod.components.queries'\n    verbose_name = 'Заявки'",
+        "detail": "webothod.apps",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "manage",
+        "description": "manage",
+        "peekOfCode": "def main():\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"\n        ) from exc",
+        "detail": "manage",
+        "documentation": {}
+    }
+]
